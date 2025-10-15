@@ -1,0 +1,6 @@
+.env
+sample_workspace_data.json
+search_results_original.json
+search_results.json
+temp_workspacedata.json
+workspace_data.json

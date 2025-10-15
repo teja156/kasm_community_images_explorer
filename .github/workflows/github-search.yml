@@ -1,0 +1,63 @@
+name: Run GitHub Search Script
+
+on:
+  schedule:
+    - cron: "0 */12 * * *"   # Every 12 hours
+  workflow_dispatch:          # Allow manual trigger
+
+jobs:
+  run-search:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write          # Needed to push generated JSON
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run GitHub search script
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}    # From repo secret manager
+        run: |
+          python search_github.py
+      
+      - name: Copy JSON files to frontend data directory
+        run: |
+          mkdir -p frontend/src/data
+          cp generated/community_workspaces.json frontend/src/data/ || echo "community_workspaces.json not found"
+          cp generated/categories.json frontend/src/data/ || echo "categories.json not found"
+
+      - name: Commit and push generated JSON
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add generated/community_workspaces.json generated/categories.json frontend/src/data/
+          git commit -m "Auto-update JSON files [skip ci]" || echo "No changes to commit"
+          git push
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build Vite app
+        working-directory: frontend
+        run: |
+          npm ci
+          npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: frontend/dist
