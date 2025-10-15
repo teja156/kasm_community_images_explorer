@@ -21,6 +21,7 @@ type RawRepositoryEntry = {
   github_pages?: string
   workspaces?: Array<Record<string, RawWorkspaceDefinition | undefined>>
   stars?: number
+  last_commit?: string
   pushed_at?: string
 }
 
@@ -40,7 +41,7 @@ type RawWorkspaceDefinition = {
 }
 
 const LOAD_STEP = 24
-const DEFAULT_PUSHED_AT = '2024-01-01T00:00:00Z'
+const DEFAULT_LAST_COMMIT = '2024-01-01T00:00:00Z'
 
 const sortFilters = [
   { label: 'Most stars', value: 'stars' }, // Sorting options
@@ -124,8 +125,8 @@ function App() {
       }
 
       if (selectedSort === 'updated') {
-        if (b.workspace.pushedAtTimestamp !== a.workspace.pushedAtTimestamp) {
-          return b.workspace.pushedAtTimestamp - a.workspace.pushedAtTimestamp
+        if (b.workspace.lastCommitTimestamp !== a.workspace.lastCommitTimestamp) {
+          return b.workspace.lastCommitTimestamp - a.workspace.lastCommitTimestamp
         }
 
         if (b.workspace.stars !== a.workspace.stars) {
@@ -136,8 +137,8 @@ function App() {
           return b.workspace.stars - a.workspace.stars
         }
 
-        if (b.workspace.pushedAtTimestamp !== a.workspace.pushedAtTimestamp) {
-          return b.workspace.pushedAtTimestamp - a.workspace.pushedAtTimestamp
+        if (b.workspace.lastCommitTimestamp !== a.workspace.lastCommitTimestamp) {
+          return b.workspace.lastCommitTimestamp - a.workspace.lastCommitTimestamp
         }
       }
 
@@ -343,8 +344,11 @@ function normalizeWorkspaces(data: RawWorkspacesData): Workspace[] {
     const registryUrl =
       repositoryValue.github_pages ?? `https://github.com/${repositoryKey}`
     const repositoryStars = parseStars(repositoryValue.stars)
-    const effectivePushedAt = repositoryValue.pushed_at ?? DEFAULT_PUSHED_AT
-    const repositoryPushedAt = parsePushedAt(effectivePushedAt)
+    const effectiveLastCommit =
+      repositoryValue.last_commit ??
+      repositoryValue.pushed_at ??
+      DEFAULT_LAST_COMMIT
+    const repositoryLastCommit = parseTimestamp(effectiveLastCommit)
     const rawWorkspaces = (repositoryValue.workspaces ?? []) as Array<
       Record<string, unknown>
     >
@@ -373,8 +377,8 @@ function normalizeWorkspaces(data: RawWorkspacesData): Workspace[] {
           dockerImage,
           tags: availableTags,
           repository: repositoryKey,
-          pushedAt: effectivePushedAt,
-          pushedAtTimestamp: repositoryPushedAt,
+          lastCommit: effectiveLastCommit,
+          lastCommitTimestamp: repositoryLastCommit,
           rawWorkspaces,
         })
       })
@@ -386,8 +390,8 @@ function normalizeWorkspaces(data: RawWorkspacesData): Workspace[] {
       return b.stars - a.stars
     }
 
-    if (b.pushedAtTimestamp !== a.pushedAtTimestamp) {
-      return b.pushedAtTimestamp - a.pushedAtTimestamp
+    if (b.lastCommitTimestamp !== a.lastCommitTimestamp) {
+      return b.lastCommitTimestamp - a.lastCommitTimestamp
     }
 
     return a.name.localeCompare(b.name)
@@ -431,7 +435,7 @@ function parseStars(value: unknown) {
   return 0
 }
 
-function parsePushedAt(value: unknown) {
+function parseTimestamp(value: unknown) {
   if (typeof value === 'string') {
     const timestamp = Date.parse(value)
     if (!Number.isNaN(timestamp)) {

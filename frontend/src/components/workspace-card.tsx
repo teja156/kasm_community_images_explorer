@@ -23,8 +23,8 @@ export type Workspace = {
   dockerImage?: string
   tags: string[]
   repository: string
-  pushedAt?: string | null
-  pushedAtTimestamp: number
+  lastCommit?: string | null
+  lastCommitTimestamp: number
   rawWorkspaces: Array<Record<string, unknown>>
 }
 
@@ -34,7 +34,7 @@ type WorkspaceCardProps = {
 }
 
 export function WorkspaceCard({ workspace, onViewDetails }: WorkspaceCardProps) {
-  const updatedLabel = formatRelativeUpdated(workspace.pushedAtTimestamp)
+  const updatedLabel = formatRelativeUpdated(workspace.lastCommitTimestamp)
   return (
     <Card className="flex h-full flex-col justify-between border-border/60 bg-card/80 backdrop-blur-sm transition hover:border-primary/70 hover:shadow-lg">
       <CardHeader>
