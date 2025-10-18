@@ -295,7 +295,7 @@ if __name__ == "__main__":
             all_workspace_data[repo] = temp
     
     save_results_to_file(all_workspace_data, filename='generated/community_workspaces.json')
-    all_categories = parse_categories(all_workspace_data)
+    # all_categories = parse_categories(all_workspace_data)
     save_results_to_file(all_categories, filename='generated/categories.json')
 
     

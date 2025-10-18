@@ -10,9 +10,20 @@ The CI/CD pipeline powered by GitHub Actions does the following:
 
 - An automation script periodically performs a GitHub search with the search query `in:readme sort:updated -user:kasmtech "KASM-REGISTRY-DISCOVERY-IDENTIFIER"` that lists all the public repos of community created Kasm registries forked from [https://github.com/kasmtech/workspaces_registry_template](https://github.com/kasmtech/workspaces_registry_template)
 - The script then parses all workspaces from each found repo
-- Creates a JSON file with all the workspaces information from all found repos
+- **Validates image pullability**: Uses `skopeo` to check if Docker images are publicly accessible before including them
+- **Filters inappropriate content**: Uses a profanity filter to exclude workspaces with inappropriate names, descriptions, or categories
+- Creates a JSON file with all the workspaces information from all found repos, including only validated and appropriate workspaces
 - Passes the JSON to the frontend app to populate in UI
 - Builds the web app and hosts it using GitHub pages
+
+### Features
+
+- **Search**: Find workspaces by name, author, or registry URL
+- **Category Filtering**: Filter by predefined categories or "Other" for uncategorized workspaces (case-insensitive matching)
+- **Sorting**: Sort by most stars or most recently updated
+- **Image Validation**: Only includes workspaces with publicly pullable Docker images
+- **Content Filtering**: Automatically filters out workspaces containing profanity
+- **Detailed View**: Click on any workspace to see the raw `workspace.json` data
 
 ## Self host?
 
@@ -22,6 +33,7 @@ If you want to self-host this app, there are a few things you need to configure:
 
 - A GitHub account
 - A GitHub Personal Access Token (PAT) with `repo` scope
+- [skopeo](https://github.com/containers/skopeo) installed for image validation
 
 ### Setup Steps
 
@@ -74,8 +86,11 @@ npm run build
 The repository includes two GitHub Actions workflows:
 
 1. **`github-search.yml`** - Runs every 12 hours or manually
+   - Installs `skopeo` for Docker image validation
    - Searches GitHub for Kasm registries
-   - Generates JSON files
+   - Validates Docker image pullability
+   - Filters content for profanity
+   - Generates JSON files with validated workspaces and categories
    - Builds and deploys the frontend
 
 2. **`frontend-deploy.yml`** - Runs on every push to main

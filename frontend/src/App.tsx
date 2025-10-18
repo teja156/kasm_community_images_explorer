@@ -60,6 +60,7 @@ function App() {
   const [selectedSort, setSelectedSort] = useState<string>('stars')
   const [visibleCount, setVisibleCount] = useState(LOAD_STEP)
   const [selectedWorkspace, setSelectedWorkspace] = useState<Workspace | null>(null)
+  const [showInfoModal, setShowInfoModal] = useState(false)
 
   const availableCategories = useMemo(() => {
     const catalog = Array.isArray(categoriesData) ? (categoriesData as string[]) : []
@@ -71,13 +72,18 @@ function App() {
       a.localeCompare(b),
     )
 
-    return ['all', ...uniqueCategories]
+    return ['all', ...uniqueCategories, 'other']
   }, [])
 
   const filteredWorkspaces = useMemo(() => {
     const needle = normalizeQuery(searchTerm)
     const normalizedCategory = normalizeQuery(selectedCategory)
     const results: Array<{ workspace: Workspace; score: number }> = []
+
+    // Get predefined categories (normalized)
+    const predefinedCategories = Array.isArray(categoriesData) 
+      ? (categoriesData as string[]).map((entry: string) => normalizeQuery(entry))
+      : []
 
     workspaces.forEach((workspace) => {
       const normalizedFields = [
@@ -100,8 +106,13 @@ function App() {
 
       const matchesCategory =
         normalizedCategory === 'all' ||
-        workspace.categories.some(
-          (category) => normalizeQuery(category) === normalizedCategory,
+        (normalizedCategory === 'other' 
+          ? workspace.categories.some(
+              (category) => !predefinedCategories.includes(normalizeQuery(category))
+            )
+          : workspace.categories.some(
+              (category) => normalizeQuery(category) === normalizedCategory
+            )
         )
 
       if (!matchesCategory) {
@@ -207,12 +218,14 @@ function App() {
                     <SelectTrigger>
                       <SelectValue placeholder="All categories" />
                     </SelectTrigger>
-                    <SelectContent>
+                    <SelectContent className="max-h-[300px] overflow-y-auto">
                       {availableCategories.map((category) => (
                         <SelectItem key={category} value={category}>
                           {category === 'all'
-                            ? 'All categories'
-                            : formatCategoryLabel(category)}
+                            ? 'ALL CATEGORIES'
+                            : category === 'other'
+                            ? 'OTHER'
+                            : formatCategoryLabel(category).toUpperCase()}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -246,6 +259,15 @@ function App() {
                 Showing {visibleWorkspaces.length} of {filteredWorkspaces.length}{' '}
                 workspaces
               </span>
+            </div>
+
+            <div className="flex items-start">
+              <button
+                onClick={() => setShowInfoModal(true)}
+                className="text-sm text-primary hover:underline"
+              >
+                Why isn't my workspace listed here?
+              </button>
             </div>
 
             {filteredWorkspaces.length === 0 ? (
@@ -287,6 +309,76 @@ function App() {
           </section>
         </div>
       </div>
+      {showInfoModal ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 px-4 backdrop-blur"
+          onClick={() => setShowInfoModal(false)}
+        >
+          <div
+            className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-border/60 bg-card/90 shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b border-border/50 bg-card/70 px-6 py-4">
+              <h2 className="text-lg font-semibold text-foreground">
+                Why isn't my workspace listed here?
+              </h2>
+              <Button
+                type="button"
+                size="icon"
+                variant="ghost"
+                className="text-muted-foreground"
+                onClick={() => setShowInfoModal(false)}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+            <div className="space-y-4 px-6 py-5 text-sm text-muted-foreground">
+              <p>
+                This explorer automatically discovers community Kasm workspaces from GitHub repositories. Your workspace might not be listed for several reasons:
+              </p>
+              <div className="space-y-3">
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">1. Repository Not Discoverable</h3>
+                  <p>Make sure your repository includes the discovery identifier <code className="rounded bg-muted/60 px-1">KASM-REGISTRY-DISCOVERY-IDENTIFIER</code> in the README.md file (This comes by default if you created the template from the{' '}
+                  <a
+                    href="https://github.com/kasmtech/workspaces_registry_template"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:underline"
+                  >
+                    Kasm Workspaces Registry Template
+                  </a>
+                  ). Also make sure your repository is public</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">2. Images Not Pullable</h3>
+                  <p>All Docker images defined in your workspace.json must be publicly accessible and pullable. Private or inaccessible images are filtered out and only publicly pullable images are listed.</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">3. Profanity</h3>
+                  <p>If your workspace name, description, or categories contain profanity, it will be filtered out.</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">4. Recently Added</h3>
+                  <p>The explorer updates every 12 hours. If you just added your workspace, it will not appear until the next update cycle.</p>
+                </div>
+              </div>
+              <p className="pt-2">
+                For more information, check out {' '}
+                <a
+                  href="https://github.com/teja156/kasm_community_images_explorer/blob/main/README.md"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-primary hover:underline"
+                >
+                  how the this app works
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : null}
       {selectedWorkspace ? (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 px-4 backdrop-blur"
