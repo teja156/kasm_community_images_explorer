@@ -21,6 +21,11 @@ jobs:
         with:
           python-version: "3.x"
 
+      - name: Install skopeo
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y skopeo
+
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
@@ -28,6 +33,7 @@ jobs:
       - name: Run GitHub search script
         env:
           GH_PAT: ${{ secrets.GH_PAT }}    # From repo secret manager
+          DEBUG: "false"
         run: |
           python search_github.py
       

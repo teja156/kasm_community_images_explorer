@@ -1,6 +1,8 @@
 import json
 import requests
 import time
+import subprocess
+import shutil
 
 # dotenv
 from dotenv import load_dotenv
@@ -10,6 +12,9 @@ load_dotenv()
 
 
 GITHUB_PAT = os.getenv('GH_PAT')
+
+# if running locally, automatically set DEBUG mode
+DEBUG = os.getenv('DEBUG', 'true').lower() == 'true'
 
 if not GITHUB_PAT:
     raise ValueError("GH_PAT environment variable not set. Please set it in the .env file or Secret Manager.")
@@ -34,8 +39,76 @@ def make_request(url, params=None):
     return response
 
 
-# for debugging set to 1, set to large number to run normally
+def skopeo_inspect(image_full_name, docker_registry=None):
+    # very hacky, could be improved
+    cmd = ["skopeo", "inspect", f"docker://{image_full_name}"]
+
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        print(f"Error inspecting image {image_full_name}: {result.stderr}")
+        print("Trying with registry prefix..")
+        if docker_registry:
+            cmd = ["skopeo", "inspect", f"docker://{docker_registry}/{image_full_name}"]
+            result = subprocess.run(cmd, capture_output=True, text=True)
+            if result.returncode != 0:
+                print(f"Error inspecting image {docker_registry}/{image_full_name}: {result.stderr}")
+                return False
+            return True
+        return False
+    return True
+ 
+
+def check_image_pullability(workspace_json):
+    """
+    Extract docker_registry and images from workspace.json and check pullability.
+    
+    Args:
+        workspace_json: The workspace.json content as a dict
+
+    Returns:
+        The workspace_json content with only images that are pullable, if none are pullable, return None
+    """
+    workspace_json = workspace_json.copy()
+    docker_registry = workspace_json.get('docker_registry')
+    # remove https:// or http:// from docker_registry if present
+    if docker_registry:
+        docker_registry = docker_registry.replace('https://', '').replace('http://', '')
+    
+    if docker_registry.endswith('/'):
+        docker_registry = docker_registry[:-1]
+
+    compatibility = workspace_json.get('compatibility', [])
+    pullable_images = []
+
+    for entry in compatibility:
+        image = entry.get('image')
+        if image:
+            # if not image.startswith(f"{docker_registry}/"):
+            #     image = f"{docker_registry}/{image}"
+            result = skopeo_inspect(image, docker_registry=docker_registry)
+            if not result:
+                print(f"Image {image} is not pullable")
+                continue
+
+            print(f"Image {image} is pullable")
+            # if pullable, add to pullable_images
+            pullable_images.append(entry)
+
+    if pullable_images:
+        workspace_json['compatibility'] = pullable_images
+        return workspace_json
+    return None
+
+
+
+
 stop_after = 100
+per_page = 100
+
+if DEBUG:
+    stop_after = 1
+    per_page = 5
+
 # get all search results
 def get_search_results():
     results = []
@@ -47,7 +120,7 @@ def get_search_results():
         # print(f"Page: {page}")
         params = {
             'q': SEARCH_QUERY,
-            'per_page': 100,
+            'per_page': per_page,
             'page': page
         }
         # response = requests.get(SEARCH_URL, params=params)
@@ -109,6 +182,11 @@ def parse_repo(repo_full_name):
         if file_response.status_code == 200:
             try:
                 workspace_json = file_response.json()
+                pullable_workspace_json = check_image_pullability(workspace_json)
+                if pullable_workspace_json is None:
+                    print(f"Skipping subfolder {folder['name']}: No pullable images found in workspace.json")
+                    continue
+                workspace_json = pullable_workspace_json
                 # print("WORKSPACE JSON: \n", workspace_json)
                 temp = {}
                 temp[folder['name']] = workspace_json
@@ -163,7 +241,7 @@ if __name__ == "__main__":
     save_results_to_file(search_results, 'generated/repos.json')
     all_workspace_data = {}
     for repo in search_results:
-        print(f"Parsing repository: {repo}")
+        print(f"\n------------\nParsing repository: {repo}")
         workspace_data = parse_repo(repo)
         print(f"Found {len(workspace_data)} workspaces in {repo}")
         if workspace_data:
