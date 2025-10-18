@@ -3,11 +3,15 @@ import requests
 import time
 import subprocess
 import shutil
+from better_profanity import profanity
 
-# dotenv
+# dotenv for local development
 from dotenv import load_dotenv
 import os
 load_dotenv()
+
+# Load profanity filter word list
+profanity.load_censor_words()
 
 
 
@@ -56,6 +60,33 @@ def skopeo_inspect(image_full_name, docker_registry=None):
             return True
         return False
     return True
+
+
+def check_profanity_in_workspace(workspace_json, workspace_name):
+    """
+    Check workspace data for profanity in name, description, and categories.
+    
+    Args:
+        workspace_json: The workspace.json content as a dict
+        workspace_name: The folder name of the workspace
+    
+    Returns:
+        bool: True if profanity found, False otherwise
+    """
+    # Fields to check for profanity
+    fields_to_check = {
+        'workspace_name': workspace_name,
+        'friendly_name': workspace_json.get('friendly_name', ''),
+        'description': workspace_json.get('description', ''),
+        'categories': ' '.join(workspace_json.get('categories', []))
+    }
+    
+    for field_name, field_value in fields_to_check.items():
+        if field_value and profanity.contains_profanity(str(field_value)):
+            print(f"Profanity detected in {field_name}: {field_value}")
+            return True
+    
+    return False
  
 
 def check_image_pullability(workspace_json):
@@ -182,6 +213,13 @@ def parse_repo(repo_full_name):
         if file_response.status_code == 200:
             try:
                 workspace_json = file_response.json()
+                
+                # Check for profanity first
+                if check_profanity_in_workspace(workspace_json, folder['name']):
+                    print(f"Skipping subfolder {folder['name']}: Profanity detected in workspace data")
+                    continue
+                
+                # Then check image pullability
                 pullable_workspace_json = check_image_pullability(workspace_json)
                 if pullable_workspace_json is None:
                     print(f"Skipping subfolder {folder['name']}: No pullable images found in workspace.json")
