@@ -1,4 +1,82 @@
 {
+    "nem0n/windeploy": {
+        "github_pages": "https://nem0n.github.io/windeploy/",
+        "stars": 0,
+        "last_commit": "2025-10-17T20:35:23Z",
+        "workspaces": [
+            {
+                "Chromium": {
+                    "description": "Chromium is a free and open-source browser, primarily developed and maintained by Google.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "chromium.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Chromium",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "kasmweb/chromium:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Win": {
+                    "description": "Quick Win10 Deploy",
+                    "docker_registry": "http://registry:5000/v2/",
+                    "image_src": "win.png",
+                    "categories": [
+                        "Development"
+                    ],
+                    "friendly_name": "Win10",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "kasmweb/vs-code:1.16",
+                            "uncompressed_size_mb": 2428,
+                            "available_tags": [
+                                "develop",
+                                "1.16.0"
+                            ]
+                        },
+                        {
+                            "version": "1.17.x",
+                            "image": "kasmweb/vs-code:1.17",
+                            "uncompressed_size_mb": 2528,
+                            "available_tags": [
+                                "develop",
+                                "1.17.0"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "4lge/kasm-4lge": {
         "github_pages": "https://4lge.github.io/kasm-4lge/",
         "stars": 0,
