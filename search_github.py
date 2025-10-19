@@ -45,14 +45,14 @@ def make_request(url, params=None):
 
 def skopeo_inspect(image_full_name, docker_registry=None):
     # very hacky, could be improved
-    cmd = ["skopeo", "inspect", f"docker://{image_full_name}"]
+    cmd = ["skopeo", "inspect", "--raw", f"docker://{image_full_name}"]
 
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
         print(f"Error inspecting image {image_full_name}: {result.stderr}")
         print("Trying with registry prefix..")
         if docker_registry:
-            cmd = ["skopeo", "inspect", f"docker://{docker_registry}/{image_full_name}"]
+            cmd = ["skopeo", "inspect", "--raw", f"docker://{docker_registry}/{image_full_name}"]
             result = subprocess.run(cmd, capture_output=True, text=True)
             if result.returncode != 0:
                 print(f"Error inspecting image {docker_registry}/{image_full_name}: {result.stderr}")
