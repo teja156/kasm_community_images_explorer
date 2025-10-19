@@ -10,10 +10,12 @@ from dotenv import load_dotenv
 import os
 load_dotenv()
 
+# load whitelist
+with open('profanity_whitelist.json', 'r') as f:
+    profanity_whitelist = json.load(f)
+
 # Load profanity filter word list
-profanity.load_censor_words()
-
-
+profanity.load_censor_words(whitelist_words=profanity_whitelist)
 
 GITHUB_PAT = os.getenv('GH_PAT')
 
@@ -49,13 +51,13 @@ def skopeo_inspect(image_full_name, docker_registry=None):
 
     result = subprocess.run(cmd, capture_output=True, text=True)
     if result.returncode != 0:
-        print(f"Error inspecting image {image_full_name}: {result.stderr}")
+        print(f"Error inspecting image {image_full_name}")
         print("Trying with registry prefix..")
         if docker_registry:
             cmd = ["skopeo", "inspect", "--raw", f"docker://{docker_registry}/{image_full_name}"]
             result = subprocess.run(cmd, capture_output=True, text=True)
             if result.returncode != 0:
-                print(f"Error inspecting image {docker_registry}/{image_full_name}: {result.stderr}")
+                print(f"Error inspecting image {docker_registry}/{image_full_name}")
                 return False
             return True
         return False
@@ -112,7 +114,7 @@ def check_image_pullability(workspace_json):
     
     # Validate that compatibility is a list
     if not isinstance(compatibility, list):
-        print(f"  ⚠ Invalid compatibility format (not a list): {type(compatibility)}")
+        print(f"Invalid compatibility format (not a list): {type(compatibility)}")
         return None
     
     pullable_images = []
@@ -120,7 +122,7 @@ def check_image_pullability(workspace_json):
     for entry in compatibility:
         # Handle both dict and non-dict entries
         if not isinstance(entry, dict):
-            print(f"  ⚠ Invalid compatibility entry format (not a dict): {type(entry)}")
+            print(f"Invalid compatibility entry format (not a dict): {type(entry)}")
             return None
             
         image = entry.get('image')
@@ -132,7 +134,7 @@ def check_image_pullability(workspace_json):
                 print(f"Image {image} is not pullable")
                 continue
 
-            print(f"Image {image} is pullable")
+            # print(f"Image {image} is pullable")
             # if pullable, add to pullable_images
             pullable_images.append(entry)
 
