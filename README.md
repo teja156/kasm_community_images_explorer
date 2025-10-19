@@ -25,6 +25,15 @@ The CI/CD pipeline powered by GitHub Actions does the following:
 - **Content Filtering**: Automatically filters out workspaces containing profanity
 - **Detailed View**: Click on any workspace to see the raw `workspace.json` data
 
+### Categories
+
+The category dropdown uses a predefined list of categories stored in [`frontend/src/data/categories.json`](frontend/src/data/categories.json). Categories include common workspace types like:
+- Browsers (Chrome, Firefox, etc.)
+- Development tools (VS Code, IDEs)
+- And more...
+
+Workspaces that don't match any predefined category are automatically assigned to the **"Other"** category. Category matching is case-insensitive, so variations like "browser", "Browser", or "BROWSER" all match the same category.
+
 ## Self host?
 
 If you want to self-host this app, there are a few things you need to configure:

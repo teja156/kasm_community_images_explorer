@@ -348,18 +348,22 @@ function App() {
                   >
                     Kasm Workspaces Registry Template
                   </a>
-                  ). Also make sure your repository is public</p>
+                  ). Also, make sure your repository is public.</p>
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">2. Images Not Pullable</h3>
                   <p>All Docker images defined in your workspace.json must be publicly accessible and pullable. Private or inaccessible images are filtered out and only publicly pullable images are listed.</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">3. Profanity</h3>
+                  <h3 className="font-semibold text-foreground mb-1">3. Kasm Compatibility Versions</h3>
+                  <p>There is a change in workspace.json structure starting from Kasm 1.16.0. This app only supports the new structure, hence older workspace.json files will be ignored. In other words, you will only see workspaces compatible from Kasm 1.16.0 onwards.</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-foreground mb-1">4. Profanity</h3>
                   <p>If your workspace name, description, or categories contain profanity, it will be filtered out.</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">4. Recently Added</h3>
+                  <h3 className="font-semibold text-foreground mb-1">5. Recently Added</h3>
                   <p>The explorer updates every 24 hours. If you just added your workspace, it will not appear until the next update cycle.</p>
                 </div>
               </div>
@@ -371,7 +375,7 @@ function App() {
                   rel="noopener noreferrer"
                   className="text-primary hover:underline"
                 >
-                  how the this app works
+                  how this app works
                 </a>
                 .
               </p>

@@ -308,7 +308,7 @@ if __name__ == "__main__":
     
     save_results_to_file(all_workspace_data, filename='generated/community_workspaces.json')
     # all_categories = parse_categories(all_workspace_data)
-    save_results_to_file(all_categories, filename='generated/categories.json')
+    # save_results_to_file(all_categories, filename='generated/categories.json')
 
     
     
