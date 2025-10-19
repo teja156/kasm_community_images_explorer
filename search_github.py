@@ -106,9 +106,8 @@ def check_image_pullability(workspace_json):
     # remove https:// or http:// from docker_registry if present
     if docker_registry:
         docker_registry = docker_registry.replace('https://', '').replace('http://', '')
-    
-    if docker_registry.endswith('/'):
-        docker_registry = docker_registry[:-1]
+        if docker_registry.endswith('/'):
+            docker_registry = docker_registry[:-1]
 
     compatibility = workspace_json.get('compatibility', [])
     
