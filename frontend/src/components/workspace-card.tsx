@@ -25,7 +25,7 @@ export type Workspace = {
   repository: string
   lastCommit?: string | null
   lastCommitTimestamp: number
-  rawWorkspaces: Array<Record<string, unknown>>
+  rawWorkspaceData: Record<string, unknown>
 }
 
 type WorkspaceCardProps = {

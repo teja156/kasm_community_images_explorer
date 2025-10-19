@@ -355,15 +355,11 @@ function App() {
                   <p>All Docker images defined in your workspace.json must be publicly accessible and pullable. Private or inaccessible images are filtered out and only publicly pullable images are listed.</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">3. Kasm Compatibility Versions</h3>
-                  <p>There is a change in workspace.json structure starting from Kasm 1.16.0. This app only supports the new structure, hence older workspace.json files will be ignored. In other words, you will only see workspaces compatible from Kasm 1.16.0 onwards.</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">4. Profanity</h3>
+                  <h3 className="font-semibold text-foreground mb-1">3. Profanity</h3>
                   <p>If your workspace name, description, or categories contain profanity, it will be filtered out.</p>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-foreground mb-1">5. Recently Added</h3>
+                  <h3 className="font-semibold text-foreground mb-1">4. Recently Added</h3>
                   <p>The explorer updates every 24 hours. If you just added your workspace, it will not appear until the next update cycle.</p>
                 </div>
               </div>
@@ -413,10 +409,10 @@ function App() {
             </div>
             <div className="space-y-4 px-6 py-5">
               <p className="text-sm text-muted-foreground">
-                Showing raw <code className="rounded bg-muted/60 px-1">workspaces.json</code> data for this image.
+                Showing raw <code className="rounded bg-muted/60 px-1">workspace.json</code> data for this workspace.
               </p>
               <pre className="max-h-[60vh] overflow-auto rounded-xl bg-muted/50 p-4 text-xs leading-relaxed text-muted-foreground">
-                {JSON.stringify(selectedWorkspace.rawWorkspaces, null, 2)}
+                {JSON.stringify(selectedWorkspace.rawWorkspaceData, null, 2)}
               </pre>
             </div>
           </div>
@@ -445,9 +441,6 @@ function normalizeWorkspaces(data: RawWorkspacesData): Workspace[] {
       repositoryValue.pushed_at ??
       DEFAULT_LAST_COMMIT
     const repositoryLastCommit = parseTimestamp(effectiveLastCommit)
-    const rawWorkspaces = (repositoryValue.workspaces ?? []) as Array<
-      Record<string, unknown>
-    >
 
     repositoryValue.workspaces?.forEach((workspaceGroup) => {
       Object.entries(workspaceGroup ?? {}).forEach(([slug, details]) => {
@@ -475,7 +468,7 @@ function normalizeWorkspaces(data: RawWorkspacesData): Workspace[] {
           repository: repositoryKey,
           lastCommit: effectiveLastCommit,
           lastCommitTimestamp: repositoryLastCommit,
-          rawWorkspaces,
+          rawWorkspaceData: details,
         })
       })
     })

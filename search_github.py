@@ -64,6 +64,54 @@ def skopeo_inspect(image_full_name, docker_registry=None):
     return True
 
 
+def normalize_workspace_json(workspace_json, folder_name):
+    """
+    Normalize workspace.json to handle both structure types.
+    This is ONLY for validation purposes - returns a normalized copy for checking.
+    
+    Structure 1: Single object with compatibility as array of {version, image, uncompressed_size_mb}
+    Structure 2: Single object with 'name' field and compatibility as array of version strings
+    
+    Args:
+        workspace_json: The workspace.json content (should be a dict)
+        folder_name: The folder name to use as workspace name
+    
+    Returns:
+        dict: Normalized workspace data for validation, or None if invalid format
+    """
+    # workspace.json should be a dict (single workspace object)
+    if not isinstance(workspace_json, dict):
+        return None
+    
+    # Check if it's Structure 2 (has 'name' field and compatibility is array of strings)
+    if 'name' in workspace_json and 'friendly_name' in workspace_json:
+        compatibility = workspace_json.get('compatibility', [])
+        
+        # Check if compatibility is a list of strings (Structure 2)
+        if compatibility and isinstance(compatibility, list) and len(compatibility) > 0:
+            if isinstance(compatibility[0], str):
+                # Structure 2 - convert to Structure 1 format for validation
+                workspace_copy = workspace_json.copy()
+                image_name = workspace_copy.get('name', '')
+                uncompressed_size = workspace_copy.get('uncompressed_size_mb', 0)
+                
+                converted_compatibility = []
+                for version in compatibility:
+                    converted_compatibility.append({
+                        'version': version,
+                        'image': image_name,
+                        'uncompressed_size_mb': uncompressed_size
+                    })
+                workspace_copy['compatibility'] = converted_compatibility
+                
+                # Wrap with folder name as key
+                return {folder_name: workspace_copy}
+    
+    # Structure 1: Standard format with compatibility as array of dicts
+    # Return as-is, wrapped with folder name
+    return {folder_name: workspace_json}
+
+
 def check_profanity_in_workspace(workspace_json, workspace_name):
     """
     Check workspace data for profanity in name, description, and categories.
@@ -224,23 +272,35 @@ def parse_repo(repo_full_name):
         file_response = make_request(workspace_file['download_url'])
         if file_response.status_code == 200:
             try:
-                workspace_json = file_response.json()
+                original_workspace_json = file_response.json()
                 
-                # Check for profanity first
-                if check_profanity_in_workspace(workspace_json, folder['name']):
-                    print(f"Skipping subfolder {folder['name']}: Profanity detected in workspace data")
+                # Normalize workspace.json format for validation only
+                normalized_workspace = normalize_workspace_json(original_workspace_json, folder['name'])
+                if normalized_workspace is None:
+                    print(f"Skipping subfolder {folder['name']}: Unrecognized workspace.json format")
                     continue
                 
-                # Then check image pullability
-                pullable_workspace_json = check_image_pullability(workspace_json)
+                # normalized_workspace is a dict: {folder_name: workspace_data}
+                # Extract the workspace name and data
+                ws_name = list(normalized_workspace.keys())[0]
+                ws_data = normalized_workspace[ws_name]
+                
+                # Check for profanity
+                if check_profanity_in_workspace(ws_data, ws_name):
+                    print(f"Skipping workspace {ws_name}: Profanity detected in workspace data")
+                    continue
+                
+                # Check image pullability on normalized data
+                pullable_workspace_json = check_image_pullability(ws_data)
                 if pullable_workspace_json is None:
-                    print(f"Skipping subfolder {folder['name']}: No pullable images found in workspace.json")
+                    print(f"Skipping workspace {ws_name}: No pullable images found in workspace.json")
                     continue
-                workspace_json = pullable_workspace_json
-                # print("WORKSPACE JSON: \n", workspace_json)
+                
+                # Save the ORIGINAL workspace.json (not the normalized version)
                 temp = {}
-                temp[folder['name']] = workspace_json
+                temp[ws_name] = original_workspace_json
                 workspace_data.append(temp)
+                        
             except json.JSONDecodeError:
                 print(f"Skipping subfolder {folder['name']}: Invalid JSON in workspace.json")
                 continue
