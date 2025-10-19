@@ -109,9 +109,20 @@ def check_image_pullability(workspace_json):
         docker_registry = docker_registry[:-1]
 
     compatibility = workspace_json.get('compatibility', [])
+    
+    # Validate that compatibility is a list
+    if not isinstance(compatibility, list):
+        print(f"  ⚠ Invalid compatibility format (not a list): {type(compatibility)}")
+        return None
+    
     pullable_images = []
 
     for entry in compatibility:
+        # Handle both dict and non-dict entries
+        if not isinstance(entry, dict):
+            print(f"  ⚠ Invalid compatibility entry format (not a dict): {type(entry)}")
+            return None
+            
         image = entry.get('image')
         if image:
             # if not image.startswith(f"{docker_registry}/"):
