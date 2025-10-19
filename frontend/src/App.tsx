@@ -360,7 +360,7 @@ function App() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-foreground mb-1">4. Recently Added</h3>
-                  <p>The explorer updates every 12 hours. If you just added your workspace, it will not appear until the next update cycle.</p>
+                  <p>The explorer updates every 24 hours. If you just added your workspace, it will not appear until the next update cycle.</p>
                 </div>
               </div>
               <p className="pt-2">

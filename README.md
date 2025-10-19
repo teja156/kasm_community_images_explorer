@@ -85,7 +85,7 @@ npm run build
 
 The repository includes two GitHub Actions workflows:
 
-1. **`github-search.yml`** - Runs every 12 hours or manually
+1. **`github-search.yml`** - Runs once every day or manually
    - Installs `skopeo` for Docker image validation
    - Searches GitHub for Kasm registries
    - Validates Docker image pullability
