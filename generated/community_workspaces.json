@@ -2,7 +2,7 @@
     "4lge/kasm-4lge": {
         "github_pages": "https://4lge.github.io/kasm-4lge/",
         "stars": 0,
-        "last_commit": "2025-10-19T20:30:56Z",
+        "last_commit": "2025-10-20T09:15:30Z",
         "workspaces": [
             {
                 "Chromium": {
@@ -30196,45 +30196,6 @@
         "github_pages": "https://sfcampbell.github.io/kasm-registry/",
         "stars": 0,
         "last_commit": "2024-01-27T06:08:54Z",
-        "workspaces": [
-            {
-                "Chromium": {
-                    "description": "Chromium is a free and open-source browser, primarily developed and maintained by Google.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "chromium.png",
-                    "name": "kasmweb/chromium:develop",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Browser"
-                    ],
-                    "friendly_name": "Chromium",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        "1.13.x",
-                        "1.14.x"
-                    ],
-                    "uncompressed_size_mb": 2170
-                }
-            }
-        ]
-    },
-    "A153510/kasm-registry": {
-        "github_pages": "https://a153510.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2024-01-22T14:01:25Z",
         "workspaces": [
             {
                 "Chromium": {
