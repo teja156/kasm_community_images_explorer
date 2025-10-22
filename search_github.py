@@ -33,6 +33,14 @@ REPOS = []
 REPO_STATS = {}
 EXPORT_JSON_CONTENT = {}
 
+# Statistics tracking
+STATS = {
+    'total_repos': 0,
+    'profanity_filtered_workspaces': 0,
+    'pullable_workspaces': 0,
+    'unpullable_workspaces': 0
+}
+
 
 def make_request(url, params=None):
     time.sleep(0.5)  # Rate limiting
@@ -134,6 +142,7 @@ def check_profanity_in_workspace(workspace_json, workspace_name):
     for field_name, field_value in fields_to_check.items():
         if field_value and profanity.contains_profanity(str(field_value)):
             print(f"Profanity detected in {field_name}: {field_value}")
+            STATS['profanity_filtered_workspaces'] += 1
             return True
     
     return False
@@ -165,6 +174,7 @@ def check_image_pullability(workspace_json):
         return None
     
     pullable_images = []
+    unpullable_count = 0
 
     for entry in compatibility:
         # Handle both dict and non-dict entries
@@ -179,6 +189,7 @@ def check_image_pullability(workspace_json):
             result = skopeo_inspect(image, docker_registry=docker_registry)
             if not result:
                 print(f"Image {image} is not pullable")
+                unpullable_count += 1
                 continue
 
             # print(f"Image {image} is pullable")
@@ -187,7 +198,11 @@ def check_image_pullability(workspace_json):
 
     if pullable_images:
         workspace_json['compatibility'] = pullable_images
+        STATS['pullable_workspaces'] += 1
         return workspace_json
+    
+    if unpullable_count > 0:
+        STATS['unpullable_workspaces'] += 1
     return None
 
 
@@ -348,6 +363,7 @@ if __name__ == "__main__":
     if not os.path.exists('generated'):
         os.makedirs('generated')
     search_results = get_search_results()
+    STATS['total_repos'] = len(search_results)
     save_results_to_file(search_results, 'generated/repos.json')
     all_workspace_data = {}
     for repo in search_results:
@@ -370,5 +386,12 @@ if __name__ == "__main__":
     # all_categories = parse_categories(all_workspace_data)
     # save_results_to_file(all_categories, filename='generated/categories.json')
 
-    
-    
+    # Print summary statistics
+    print("\n" + "="*60)
+    print("EXECUTION SUMMARY")
+    print("="*60)
+    print(f"Total repositories found: {STATS['total_repos']}")
+    print(f"Workspaces filtered out due to profanity: {STATS['profanity_filtered_workspaces']}")
+    print(f"Pullable workspaces: {STATS['pullable_workspaces']}")
+    print(f"Unpullable workspaces: {STATS['unpullable_workspaces']}")
+    print("="*60)
