@@ -1,4 +1,79 @@
 {
+    "teja156/pentestlabs_workspaces_registry": {
+        "github_pages": "http://registry.tejaswaroop.com/",
+        "stars": 0,
+        "last_commit": "2025-10-22T16:11:17Z",
+        "workspaces": [
+            {
+                "Chromium": {
+                    "description": "Chromium is a free and open-source browser, primarily developed and maintained by Google..",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "chromium.png",
+                    "name": "kasmweb/chromium:develop",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Chromium",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        "1.13.x",
+                        "1.14.x"
+                    ],
+                    "uncompressed_size_mb": 2170
+                }
+            },
+            {
+                "Kali Juice Shop": {
+                    "friendly_name": "Kali Linux Juice Shop",
+                    "image_src": "chromium.png",
+                    "description": "Kali Linux pre-loaded with OWASP Juice Shop for testing out the OWASP Top 10 vulnerabilities.",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "categories": [
+                        "Pentest Lab"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "runtime": "sysbox-runc",
+                        "entrypoint": [
+                            "/sbin/init"
+                        ],
+                        "user": 0
+                    },
+                    "exec_config": {},
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "tejakasm/kasm-kali-juice-shop:1.15.0",
+                            "uncompressed_size_mb": 10400
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "irwindoug/kasm-workspaces": {
         "github_pages": "https://irwindoug.github.io/kasm-workspaces/",
         "stars": 0,
@@ -81,75 +156,6 @@
                             ]
                         }
                     ]
-                }
-            }
-        ]
-    },
-    "teja156/pentestlabs_workspaces_registry": {
-        "github_pages": "http://registry.tejaswaroop.com/",
-        "stars": 0,
-        "last_commit": "2025-10-19T16:08:01Z",
-        "workspaces": [
-            {
-                "Chromium": {
-                    "description": "Chromium is a free and open-source browser, primarily developed and maintained by Google..",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "chromium.png",
-                    "name": "kasmweb/chromium:develop",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Browser"
-                    ],
-                    "friendly_name": "Chromium",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        "1.13.x",
-                        "1.14.x"
-                    ],
-                    "uncompressed_size_mb": 2170
-                }
-            },
-            {
-                "Kali Juice Shop": {
-                    "description": "Kali Linux pre-loaded with OWASP Juice Shop for testing out the OWASP Top 10 vulnerabilities.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "chromium.png",
-                    "name": "tejakasm/kasm-kali-juice-shop:1.15.0",
-                    "run_config": {
-                        "runtime": "sysbox-runc",
-                        "entrypoint": [
-                            "/sbin/init"
-                        ],
-                        "user": 0
-                    },
-                    "exec_config": {},
-                    "categories": [
-                        "Pentest Lab"
-                    ],
-                    "friendly_name": "Kali Linux Juice Shop",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        "1.13.x",
-                        "1.14.x",
-                        "1.15.x",
-                        "1.16.x"
-                    ],
-                    "uncompressed_size_mb": 10400
                 }
             }
         ]
