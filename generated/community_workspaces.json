@@ -1,4 +1,40 @@
 {
+    "MrGasha/mrgasha-registry": {
+        "github_pages": "https://mrgasha.github.io/mrgasha-registry/",
+        "stars": 0,
+        "last_commit": "2025-10-26T03:25:52Z",
+        "workspaces": [
+            {
+                "PDFArranger": {
+                    "description": "PDF Arranger is a free and open-source tool for merging, splitting, rotating, and rearranging PDF documents, built as a user-friendly graphical interface.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "image_src": "pdfarranger.png",
+                    "name": "mrgasha/pdfarranger:1.16.0",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "categories": [
+                        "Productivity",
+                        "PDF"
+                    ],
+                    "friendly_name": "PDF Arranger",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        "1.15.x",
+                        "1.16.x"
+                    ],
+                    "uncompressed_size_mb": 2670
+                }
+            }
+        ]
+    },
     "aaronbrinkerkasm/Kasm_cyber_security_labs": {
         "github_pages": "https://aaronbrinkerkasm.github.io/Kasm_cyber_security_labs/",
         "stars": 0,
@@ -27484,42 +27520,6 @@
                             ]
                         }
                     ]
-                }
-            }
-        ]
-    },
-    "MrGasha/mrgasha-registry": {
-        "github_pages": "https://mrgasha.github.io/mrgasha-registry/",
-        "stars": 0,
-        "last_commit": "2025-02-04T13:44:51Z",
-        "workspaces": [
-            {
-                "PDFArranger": {
-                    "description": "PDF Arranger is a free and open-source tool for merging, splitting, rotating, and rearranging PDF documents, built as a user-friendly graphical interface.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "cores": 2,
-                    "memory": 2768,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "image_src": "pdfarranger.png",
-                    "name": "mrgasha/pdfarranger:1.16.0",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "categories": [
-                        "Productivity",
-                        "PDF"
-                    ],
-                    "friendly_name": "PDF Arranger",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        "1.15.x",
-                        "1.16.x"
-                    ],
-                    "uncompressed_size_mb": 2670
                 }
             }
         ]
