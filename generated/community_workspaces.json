@@ -1,4 +1,129 @@
 {
+    "matkisson-sys/kasm-registry": {
+        "github_pages": "https://matkisson-sys.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2025-10-27T16:33:25Z",
+        "workspaces": [
+            {
+                "Chromium": {
+                    "description": "Chromium is a free and open-source browser, primarily developed and maintained by Google.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "chromium.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Chromium",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "kasmweb/chromium:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "Raspen83/kasm-registry": {
+        "github_pages": "https://raspen83.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2025-10-27T16:06:26Z",
+        "workspaces": [
+            {
+                "Chromium": {
+                    "description": "Chromium is a free and open-source browser, primarily developed and maintained by Google.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "chromium.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Chromium",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "kasmweb/chromium:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "OrcaSlicer": {
+                    "friendly_name": "Orca Slicer",
+                    "image_src": "orcaslicer.png",
+                    "description": "Orca Slicer is an open source slicer for FDM printers. OrcaSlicer is fork of Bambu Studio, it was previously known as BambuStudio-SoftFever, Bambu Studio is forked from PrusaSlicer by Prusa Research, which is from Slic3r by Alessandro Ranellucci and the RepRap community.",
+                    "name": "lscr.io/linuxserver/orcaslicer:latest",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://ghcr.io/",
+                    "categories": [
+                        "Productivity",
+                        "Multimedia"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "entrypoint": [
+                            "/kasminit"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "exec_config": {},
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        "1.16.x",
+                        "1.17.x",
+                        "1.18.x"
+                    ],
+                    "uncompressed_size_mb": 3220
+                }
+            }
+        ]
+    },
     "MrGasha/mrgasha-registry": {
         "github_pages": "https://mrgasha.github.io/mrgasha-registry/",
         "stars": 0,
@@ -76,49 +201,6 @@
                             "uncompressed_size_mb": 2170,
                             "available_tags": [
                                 "latest"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "matkisson-sys/kasm-registry": {
-        "github_pages": "https://matkisson-sys.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2025-10-23T17:43:29Z",
-        "workspaces": [
-            {
-                "Chromium": {
-                    "description": "Chromium is a free and open-source browser, primarily developed and maintained by Google.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "chromium.png",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Browser"
-                    ],
-                    "friendly_name": "Chromium",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "kasmweb/chromium:develop",
-                            "uncompressed_size_mb": 2170,
-                            "available_tags": [
-                                "develop"
                             ]
                         }
                     ]
@@ -14209,7 +14291,7 @@
     },
     "linuxserver/kasm_workspaces_registry": {
         "github_pages": "https://kasmregistry.linuxserver.io/",
-        "stars": 51,
+        "stars": 52,
         "last_commit": "2025-09-16T17:11:14Z",
         "workspaces": [
             {
@@ -22691,7 +22773,7 @@
     },
     "doctorfree/kasm-registry": {
         "github_pages": "https://doctorfree.github.io/kasm-registry/",
-        "stars": 32,
+        "stars": 33,
         "last_commit": "2025-06-25T21:50:24Z",
         "workspaces": [
             {
