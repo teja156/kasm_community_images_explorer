@@ -2,7 +2,7 @@
     "matkisson-sys/kasm-registry": {
         "github_pages": "https://matkisson-sys.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2025-10-27T16:33:25Z",
+        "last_commit": "2025-10-28T16:21:25Z",
         "workspaces": [
             {
                 "Chromium": {
