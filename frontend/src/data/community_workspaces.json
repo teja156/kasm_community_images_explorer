@@ -1,4 +1,133 @@
 {
+    "aaronbrinkerkasm/Educational": {
+        "github_pages": "https://aaronbrinkerkasm.github.io/Educational/",
+        "stars": 0,
+        "last_commit": "2025-10-30T19:37:10Z",
+        "workspaces": [
+            {
+                "Chromium": {
+                    "description": "Chromium is a free and open-source browser, primarily developed and maintained by Google.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "chromium.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Chromium",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "kasmweb/chromium:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "matkisson-sys/kasm-registry": {
+        "github_pages": "https://matkisson-sys.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2025-10-30T15:53:54Z",
+        "workspaces": [
+            {
+                "Chromium": {
+                    "description": "Chromium is a free and open-source browser, primarily developed and maintained by Google.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "chromium.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Chromium",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "kasmweb/chromium:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "coesigned/kasm-registry": {
+        "github_pages": "https://coesigned.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2025-10-30T11:59:47Z",
+        "workspaces": [
+            {
+                "Chromium": {
+                    "description": "Chromium is a free and open-source browser, primarily developed and maintained by Google.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "chromium.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Chromium",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "kasmweb/chromium:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "matkisson-sys/temp": {
         "github_pages": "https://matkisson-sys.github.io/temp/",
         "stars": 0,
@@ -156,54 +285,6 @@
                         "1.16.x"
                     ],
                     "uncompressed_size_mb": 2670
-                }
-            }
-        ]
-    },
-    "aaronbrinkerkasm/Kasm_cyber_security_labs": {
-        "github_pages": "https://aaronbrinkerkasm.github.io/Kasm_cyber_security_labs/",
-        "stars": 0,
-        "last_commit": "2025-10-24T17:40:14Z",
-        "workspaces": [
-            {
-                "Chromium": {
-                    "description": "DVWA is a pentesting lab hosted in kali linux.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "chromium.png",
-                    "run_config": {
-                        "runtime": "sysbox-runc",
-                        "entrypoint": [
-                            "/sbin/init"
-                        ],
-                        "user": 0
-                    },
-                    "exec_config": {},
-                    "categories": [
-                        "Pentest lab"
-                    ],
-                    "friendly_name": "DVWA lab",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.0",
-                            "image": "aaronbrinkerkasm/kasm_dvwa_pentesting_lab:latest",
-                            "uncompressed_size_mb": 2170,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.18.0",
-                            "image": "aaronbrinkerkasm/kasm_dvwa_pentesting_lab:latest",
-                            "uncompressed_size_mb": 2170,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
                 }
             }
         ]
