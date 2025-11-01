@@ -13,8 +13,9 @@ import {
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import rawWorkspacesData from '@/data/community_workspaces.json'
-import { Badge } from '@/components/ui/badge'
 import categoriesData from '@/data/categories.json'
+import { ThemeToggle } from '@/components/theme-toggle'
+import backgroundImage from '@/assets/background1.jpg'
 type RawWorkspacesData = Record<string, RawRepositoryEntry>
 
 type RawRepositoryEntry = {
@@ -40,6 +41,20 @@ type RawWorkspaceDefinition = {
   name?: string
 }
 
+type RawCategoryEntry =
+  | string
+  | {
+      label?: string
+      aliases?: string[]
+    }
+
+type CategoryDefinition = {
+  label: string
+  normalizedLabel: string
+  aliases: string[]
+  normalizedAliases: string[]
+}
+
 const LOAD_STEP = 24
 const DEFAULT_LAST_COMMIT = '2024-01-01T00:00:00Z'
 
@@ -61,29 +76,82 @@ function App() {
   const [visibleCount, setVisibleCount] = useState(LOAD_STEP)
   const [selectedWorkspace, setSelectedWorkspace] = useState<Workspace | null>(null)
   const [showInfoModal, setShowInfoModal] = useState(false)
+  const [showWelcomeModal, setShowWelcomeModal] = useState(true)
+
+  const categoryConfigs = useMemo<CategoryDefinition[]>(() => {
+    if (!Array.isArray(categoriesData)) {
+      return []
+    }
+
+    const entries = categoriesData as RawCategoryEntry[]
+
+    return entries
+      .map((entry) => {
+        if (typeof entry === 'string') {
+          const label = entry.trim()
+          if (label.length === 0) {
+            return null
+          }
+
+          return {
+            label,
+            normalizedLabel: normalizeQuery(label),
+            aliases: [],
+            normalizedAliases: [] as string[],
+          }
+        }
+
+        if (entry && typeof entry === 'object') {
+          const label = typeof entry.label === 'string' ? entry.label.trim() : ''
+          if (label.length === 0) {
+            return null
+          }
+
+          const aliases = Array.isArray(entry.aliases)
+            ? entry.aliases
+                .map((alias) => (typeof alias === 'string' ? alias.trim() : ''))
+                .filter((alias) => alias.length > 0)
+            : []
+
+          return {
+            label,
+            normalizedLabel: normalizeQuery(label),
+            aliases,
+            normalizedAliases: aliases.map((alias) => normalizeQuery(alias)),
+          }
+        }
+
+        return null
+      })
+      .filter((entry): entry is CategoryDefinition => entry !== null)
+  }, [])
+
+  const aliasLookup = useMemo(() => {
+    const map = new Map<string, string>()
+    categoryConfigs.forEach((config) => {
+      map.set(config.normalizedLabel, config.normalizedLabel)
+      config.normalizedAliases.forEach((alias) => {
+        if (!map.has(alias)) {
+          map.set(alias, config.normalizedLabel)
+        }
+      })
+    })
+    return map
+  }, [categoryConfigs])
 
   const availableCategories = useMemo(() => {
-    const catalog = Array.isArray(categoriesData) ? (categoriesData as string[]) : []
-    const normalizedCatalog = catalog
-      .map((entry: string) => normalizeQuery(entry))
-      .filter((entry: string) => entry.length > 0)
-
-    const uniqueCategories = Array.from(new Set(normalizedCatalog)).sort((a, b) =>
+    const normalizedLabels = categoryConfigs.map((config) => config.normalizedLabel)
+    const uniqueNormalized = Array.from(new Set(normalizedLabels)).sort((a, b) =>
       a.localeCompare(b),
     )
 
-    return ['all', ...uniqueCategories, 'other']
-  }, [])
+    return ['all', ...uniqueNormalized, 'other']
+  }, [categoryConfigs])
 
   const filteredWorkspaces = useMemo(() => {
     const needle = normalizeQuery(searchTerm)
     const normalizedCategory = normalizeQuery(selectedCategory)
     const results: Array<{ workspace: Workspace; score: number }> = []
-
-    // Get predefined categories (normalized)
-    const predefinedCategories = Array.isArray(categoriesData) 
-      ? (categoriesData as string[]).map((entry: string) => normalizeQuery(entry))
-      : []
 
     workspaces.forEach((workspace) => {
       const normalizedFields = [
@@ -106,14 +174,17 @@ function App() {
 
       const matchesCategory =
         normalizedCategory === 'all' ||
-        (normalizedCategory === 'other' 
-          ? workspace.categories.some(
-              (category) => !predefinedCategories.includes(normalizeQuery(category))
-            )
-          : workspace.categories.some(
-              (category) => normalizeQuery(category) === normalizedCategory
-            )
-        )
+        (normalizedCategory === 'other'
+          ? workspace.categories.some((category) => {
+              const normalized = normalizeQuery(category)
+              const canonical = aliasLookup.get(normalized)
+              return !canonical
+            })
+          : workspace.categories.some((category) => {
+              const normalized = normalizeQuery(category)
+              const canonical = aliasLookup.get(normalized)
+              return canonical === normalizedCategory
+            }))
 
       if (!matchesCategory) {
         return
@@ -157,7 +228,7 @@ function App() {
     })
 
     return results.map((entry) => entry.workspace)
-  }, [workspaces, searchTerm, selectedCategory, selectedSort])
+  }, [workspaces, searchTerm, selectedCategory, selectedSort, aliasLookup])
 
   useEffect(() => {
     setVisibleCount(LOAD_STEP)
@@ -177,26 +248,33 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="relative min-h-screen overflow-hidden">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.18),transparent_55%)]" />
-        <div className="container relative flex min-h-screen flex-col gap-10 py-10">
-          <header className="space-y-8 pt-6">
-            <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-              <div className="space-y-2">
-                <Badge variant="secondary" className="bg-secondary/50 text-xs uppercase tracking-widest">
-                teja156/kasm_community_images_explorer
-                </Badge>
+    <div className="relative min-h-screen bg-background">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none fixed inset-0 z-0 bg-cover bg-center bg-no-repeat bg-fixed bg-blend-overlay opacity-10 transition-all duration-700 dark:opacity-5"
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundColor: 'rgba(var(--brand-navy-rgb), 0.8)',
+        }}
+      />
+      <div className="relative z-10 min-h-screen overflow-hidden">
+  <div className="container relative flex min-h-screen flex-col gap-10 py-10 pt-12">
+          <header className="space-y-6">
+            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+              <div className="space-y-3">
                 <h1 className="text-3xl font-semibold text-foreground md:text-4xl">
                   Kasm Community Images Explorer
                 </h1>
                 <p className="max-w-2xl text-sm text-muted-foreground md:text-base">
-                  Browse community-created Kasm images, compare stars, and find the workspace that fits your workflow. Search or filter to find exactly what you need.
+                  Browse community-created Kasm images, compare stars, and find the workspace that fits your workflow. Search or filter based on category, most recent updates or most stars.
                 </p>
+              </div>
+              <div className="flex justify-end md:justify-start">
+                <ThemeToggle />
               </div>
             </div>
 
-            <section className="flex flex-col gap-4 rounded-xl border border-border/50 bg-card/60 p-4 shadow-lg backdrop-blur md:flex-row md:items-center">
+            <section className="flex flex-col gap-4 rounded-xl border border-border bg-card p-4 shadow-md md:flex-row md:items-center">
               <div className="flex w-full flex-1 items-center gap-2">
                 <div className="relative w-full md:max-w-md">
                   <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -271,7 +349,7 @@ function App() {
             </div>
 
             {filteredWorkspaces.length === 0 ? (
-              <div className="flex min-h-[200px] flex-col items-center justify-center rounded-xl border border-dashed border-border/50 bg-card/40 text-center text-muted-foreground">
+              <div className="flex min-h-[200px] flex-col items-center justify-center rounded-xl border border-dashed border-border bg-card text-center text-muted-foreground">
                 <p className="text-base font-medium text-foreground/80">
                   No workspaces matched your filters
                 </p>
@@ -309,17 +387,52 @@ function App() {
           </section>
         </div>
       </div>
+      {showWelcomeModal ? (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-background/80 px-4 backdrop-blur"
+          onClick={() => setShowWelcomeModal(false)}
+        >
+          <div
+            className="relative w-full max-w-xl overflow-hidden rounded-2xl border border-border bg-modal text-modal-foreground shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b border-border bg-muted px-6 py-4">
+              <h2 className="text-lg font-semibold text-modal-foreground">Welcome!</h2>
+              <Button
+                type="button"
+                size="icon"
+                variant="ghost"
+                className="text-muted-foreground"
+                onClick={() => setShowWelcomeModal(false)}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+            <div className="space-y-4 px-6 py-5 text-sm text-muted-foreground">
+              <p>
+                The images listed in this explorer are created and maintained by the Kasm
+                community. They are NOT officially QA tested, certified, or supported by
+                Kasm Technologies.
+              </p>
+              <p className="font-medium text-foreground">
+                Use these community images at your own risk. Review the source repository and
+                validate compatibility before deploying to your Kasm Workspaces.
+              </p>
+            </div>
+          </div>
+        </div>
+      ) : null}
       {showInfoModal ? (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 px-4 backdrop-blur"
           onClick={() => setShowInfoModal(false)}
         >
           <div
-            className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-border/60 bg-card/90 shadow-2xl"
+            className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-border bg-modal text-modal-foreground shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-border/50 bg-card/70 px-6 py-4">
-              <h2 className="text-lg font-semibold text-foreground">
+            <div className="flex items-center justify-between border-b border-border bg-muted px-6 py-4">
+              <h2 className="text-lg font-semibold text-modal-foreground">
                 Why isn't my workspace listed here?
               </h2>
               <Button
@@ -385,10 +498,10 @@ function App() {
           onClick={handleCloseDetails}
         >
           <div
-            className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-border/60 bg-card/90 shadow-2xl"
+            className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-border bg-modal text-modal-foreground shadow-2xl"
             onClick={(event) => event.stopPropagation()}
           >
-            <div className="flex items-center justify-between border-b border-border/50 bg-card/70 px-6 py-4">
+            <div className="flex items-center justify-between border-b border-border bg-muted px-6 py-4">
               <div>
                 <h2 className="text-lg font-semibold text-foreground">
                   {selectedWorkspace.name}
@@ -411,7 +524,7 @@ function App() {
               <p className="text-sm text-muted-foreground">
                 Showing raw <code className="rounded bg-muted/60 px-1">workspace.json</code> data for this workspace.
               </p>
-              <pre className="max-h-[60vh] overflow-auto rounded-xl bg-muted/50 p-4 text-xs leading-relaxed text-muted-foreground">
+              <pre className="max-h-[60vh] overflow-auto rounded-xl bg-muted p-4 text-xs leading-relaxed text-muted-foreground">
                 {JSON.stringify(selectedWorkspace.rawWorkspaceData, null, 2)}
               </pre>
             </div>

@@ -5,3 +5,5 @@ search_results.json
 temp_workspacedata.json
 workspace_data.json
 generated/repos.json
+*.pdf
+kasm_colors.json
