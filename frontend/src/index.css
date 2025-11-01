@@ -5,30 +5,84 @@
 @layer base {
   :root {
     --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --background: 235 21% 12%;
-    --foreground: 210 20% 96%;
-    --card: 233 23% 18%;
-    --card-foreground: 210 20% 96%;
-    --popover: 233 23% 18%;
-    --popover-foreground: 210 20% 96%;
-    --primary: 253 91% 66%;
-    --primary-foreground: 232 100% 97%;
-    --secondary: 234 19% 24%;
-    --secondary-foreground: 210 20% 96%;
-    --muted: 232 18% 20%;
-    --muted-foreground: 220 16% 75%;
-    --accent: 253 91% 66%;
-    --accent-foreground: 232 100% 97%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 210 20% 96%;
-    --border: 233 19% 24%;
-    --input: 233 19% 24%;
-    --ring: 253 91% 66%;
+    color-scheme: light;
+    --brand-navy-rgb: 33, 39, 63;
+    --background: 220 10% 88%;
+    --foreground: 200 18% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 200 18% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 200 18% 10%;
+    --primary: 199 78% 47%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 215 19% 35%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 210 43% 97%;
+    --muted-foreground: 215 19% 35%;
+    --accent: 199 78% 47%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 344 100% 39%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 17% 84%;
+    --input: 226 20% 83%;
+    --ring: 199 78% 47%;
+    --sidebar: 228 31% 19%;
+    --sidebar-foreground: 0 0% 100%;
+    --table-header: 210 43% 97%;
+    --table-row: 0 0% 100%;
+    --table-row-hover: 199 78% 47%;
+    --modal: 230 17% 93%;
+    --modal-foreground: 228 31% 19%;
+    --success: 148 57% 43%;
+    --success-foreground: 0 0% 100%;
+    --warning: 30 100% 44%;
+    --warning-foreground: 0 0% 0%;
+    --info: 221 98% 54%;
+    --info-foreground: 0 0% 100%;
     --radius: 0.75rem;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --brand-navy-rgb: 33, 39, 63;
+    --background: 228 31% 19%;
+    --foreground: 213 58% 82%;
+    --card: 228 31% 19%;
+    --card-foreground: 213 58% 82%;
+    --popover: 228 31% 19%;
+    --popover-foreground: 213 58% 82%;
+    --primary: 199 78% 47%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 228 28% 24%;
+    --secondary-foreground: 213 58% 82%;
+    --muted: 228 28% 24%;
+    --muted-foreground: 213 58% 82%;
+    --accent: 199 78% 47%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 344 100% 39%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 228 28% 24%;
+    --input: 228 28% 24%;
+    --ring: 199 78% 47%;
+    --sidebar: 228 31% 19%;
+    --sidebar-foreground: 213 58% 82%;
+    --table-header: 228 28% 24%;
+    --table-row: 228 31% 19%;
+    --table-row-hover: 199 78% 47%;
+    --modal: 228 31% 19%;
+    --modal-foreground: 213 58% 82%;
+    --success: 148 57% 43%;
+    --success-foreground: 0 0% 100%;
+    --warning: 30 100% 44%;
+    --warning-foreground: 0 0% 0%;
+    --info: 216 100% 58%;
+    --info-foreground: 0 0% 100%;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
   }
 
   * {

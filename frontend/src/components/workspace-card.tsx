@@ -36,14 +36,14 @@ type WorkspaceCardProps = {
 export function WorkspaceCard({ workspace, onViewDetails }: WorkspaceCardProps) {
   const updatedLabel = formatRelativeUpdated(workspace.lastCommitTimestamp)
   return (
-    <Card className="flex h-full flex-col justify-between border-border/60 bg-card/80 backdrop-blur-sm transition hover:border-primary/70 hover:shadow-lg">
+  <Card className="flex h-full flex-col justify-between border-border bg-card transition hover:border-primary hover:bg-table-row-hover/10 hover:shadow-lg">
       <CardHeader>
         <div className="flex items-start justify-between gap-4">
           <div className="space-y-1">
             <CardTitle className="text-lg font-semibold text-foreground/90">
               {workspace.name}
             </CardTitle>
-            <CardDescription className="line-clamp-2 text-sm">
+            <CardDescription className="line-clamp-2 text-sm text-muted-foreground">
             <div className="flex items-center gap-1 text-[11px] uppercase tracking-wide text-muted-foreground/80">
               <Clock className="h-3 w-3" />
               <span>{updatedLabel}</span>
@@ -89,7 +89,7 @@ export function WorkspaceCard({ workspace, onViewDetails }: WorkspaceCardProps) 
               <Badge
                 key={`${workspace.slug}-${category}`}
                 variant="outline"
-                className="border-border/60 text-[10px] uppercase tracking-wide text-muted-foreground"
+                className="border-border/70 bg-muted text-[10px] uppercase tracking-wide text-muted-foreground"
               >
                 {category}
               </Badge>

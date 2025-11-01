@@ -33,12 +33,37 @@ REPOS = []
 REPO_STATS = {}
 EXPORT_JSON_CONTENT = {}
 
+IMAGE_NAME_PREFIX_FILTERS = [
+    "kasmweb/"
+]
+
+
+def should_skip_image(image_name, docker_registry=None):
+    """Return True when the image belongs to a blocked registry prefix."""
+    if not image_name:
+        return False
+
+    image_name = image_name.strip()
+    candidates = [image_name]
+
+    if docker_registry:
+        docker_registry = docker_registry.strip()
+        if docker_registry and not image_name.startswith(f"{docker_registry}/"):
+            candidates.append(f"{docker_registry}/{image_name}")
+
+    for candidate in candidates:
+        if any(candidate.startswith(prefix) for prefix in IMAGE_NAME_PREFIX_FILTERS):
+            return True
+
+    return False
+
 # Statistics tracking
 STATS = {
     'total_repos': 0,
     'profanity_filtered_workspaces': 0,
     'pullable_workspaces': 0,
-    'unpullable_workspaces': 0
+    'unpullable_workspaces': 0,
+    'blocked_registry_images': 0
 }
 
 
@@ -184,6 +209,10 @@ def check_image_pullability(workspace_json):
             
         image = entry.get('image')
         if image:
+            if should_skip_image(image, docker_registry=docker_registry):
+                print(f"Skipping image {image}: matches blocked registry prefix")
+                STATS['blocked_registry_images'] += 1
+                continue
             # if not image.startswith(f"{docker_registry}/"):
             #     image = f"{docker_registry}/{image}"
             result = skopeo_inspect(image, docker_registry=docker_registry)
@@ -383,8 +412,6 @@ if __name__ == "__main__":
             all_workspace_data[repo] = temp
     
     save_results_to_file(all_workspace_data, filename='generated/community_workspaces.json')
-    # all_categories = parse_categories(all_workspace_data)
-    # save_results_to_file(all_categories, filename='generated/categories.json')
 
     # Print summary statistics
     print("\n" + "="*60)
@@ -394,4 +421,5 @@ if __name__ == "__main__":
     print(f"Workspaces filtered out due to profanity: {STATS['profanity_filtered_workspaces']}")
     print(f"Pullable workspaces: {STATS['pullable_workspaces']}")
     print(f"Unpullable workspaces: {STATS['unpullable_workspaces']}")
+    print(f"Images skipped due to blocked registries: {STATS['blocked_registry_images']}")
     print("="*60)
