@@ -11518,51 +11518,6 @@
                 }
             },
             {
-                "Swag": {
-                    "friendly_name": "Swag",
-                    "description": "SWAG - Secure Web Application Gateway (formerly known as letsencrypt, no relation to Let's Encrypt\u2122) sets up an Nginx webserver and reverse proxy with php support and a built-in certbot client that automates free SSL server certificate generation and renewal processes (Let's Encrypt and ZeroSSL). It also contains fail2ban for intrusion prevention.",
-                    "image_src": "swag.png",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "categories": [],
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "linuxserver/swag:latest",
-                            "uncompressed_size_mb": 0,
-                            "available_tags": []
-                        }
-                    ],
-                    "run_config": {
-                        "environment": {
-                            "PUID": "1024",
-                            "PGID": "100",
-                            "TZ": "Europe/Amsterdam",
-                            "URL": "yourdomain.url",
-                            "VALIDATION": "http",
-                            "SUBDOMAINS": "www,",
-                            "CERTPROVIDER": "",
-                            "DNSPLUGIN": "cloudflare",
-                            "PROPAGATION": "",
-                            "EMAIL": "",
-                            "ONLY_SUBDOMAINS": "false",
-                            "EXTRA_DOMAINS": "",
-                            "STAGING": "false"
-                        },
-                        "ports": [
-                            "443:443/tcp",
-                            "80:80/tcp"
-                        ],
-                        "volumes": [
-                            "/volume1/docker/swag/config:/config"
-                        ]
-                    },
-                    "notes": "Original logo (not bundled): https://github.com/linuxserver/docker-templates/raw/master/linuxserver.io/img/swag.gif | Portainer App Templates by <a href='https://www.technorabilia.com' target='_blank'>Technorabilia</a> based on data provided by <a href='https://www.linuxserver.io' target='_blank'>LinuxServer.io</a>.</p><p>Don't forget to create the volume directories on the host file system.</p><p>mkdir -p /volume1/docker/swag/config</p>"
-                }
-            },
-            {
                 "SyncThing": {
                     "friendly_name": "SyncThing",
                     "description": "Syncthing is a continuous file synchronization program. It synchronizes files between two or more computers in real time, safely protected from prying eyes.",
