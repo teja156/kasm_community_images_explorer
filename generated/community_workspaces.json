@@ -1,4 +1,55 @@
 {
+    "squirrelworksllc/kasm-registry": {
+        "github_pages": "https://squirrelworksllc.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2025-11-10T15:37:58Z",
+        "workspaces": [
+            {
+                "bitcurator5": {
+                    "description": "Bitcurator is an Ubuntu-based Linux distribution designed to support the needs of library, archive, and museum professionals processing born-digital materials. It includes a suite of open source disk imaging, digital forensics, and data analysis tools curated to support modern workflows.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "BitCurator-Basic-400px.png",
+                    "run_config": {
+                        "hostname": "bitcurator"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Desktop",
+                        "Productivity",
+                        "Archive",
+                        "Forensics",
+                        "Library",
+                        "Information Science"
+                    ],
+                    "friendly_name": "Bitcurator 5",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "squirrelworksllc/bitcurator5:latest",
+                            "cores": 2,
+                            "memory": 8572,
+                            "uncompressed_size_mb": 7380,
+                            "available_tags": [
+                                "1.17.0",
+                                "1.18.0",
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "double16/kasm-workspaces": {
         "github_pages": "https://double16.github.io/kasm-workspaces/",
         "stars": 1,
