@@ -1,0 +1,11 @@
+{
+  "friendly_name": "BadWord Workspace",
+  "name": "test/profanity-image",
+  "description": "This contains damn profanity",
+  "image_src": "test.png",
+  "architecture": ["amd64"],
+  "categories": ["Testing"],
+  "docker_registry": "https://index.docker.io/v1/",
+  "uncompressed_size_mb": 400,
+  "compatibility": ["1.16.x"]
+}

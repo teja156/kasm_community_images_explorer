@@ -1,4 +1,5 @@
-import { Clock, ExternalLink, Github, Globe, Layers3, Star, User } from 'lucide-react'
+import { Check, Clock, Copy, ExternalLink, Github, Globe, Layers3, Star, User } from 'lucide-react'
+import { useState } from 'react'
 
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -25,6 +26,7 @@ export type Workspace = {
   repository: string
   lastCommit?: string | null
   lastCommitTimestamp: number
+  compatibilityVersions: string[]
   rawWorkspaceData: Record<string, unknown>
 }
 
@@ -34,7 +36,47 @@ type WorkspaceCardProps = {
 }
 
 export function WorkspaceCard({ workspace, onViewDetails }: WorkspaceCardProps) {
+  const [copiedImage, setCopiedImage] = useState(false)
+  const [copiedRepo, setCopiedRepo] = useState(false)
+  const [copiedRegistry, setCopiedRegistry] = useState(false)
   const updatedLabel = formatRelativeUpdated(workspace.lastCommitTimestamp)
+  
+  // Use GitHub repo URL as fallback if registry URL is invalid
+  const registryUrl = workspace.registryUrl === 'Valid URL not found'
+    ? `https://github.com/${workspace.repository}`
+    : workspace.registryUrl
+  
+  const handleCopyImage = async () => {
+    if (!workspace.dockerImage) return
+    try {
+      await navigator.clipboard.writeText(workspace.dockerImage)
+      setCopiedImage(true)
+      setTimeout(() => setCopiedImage(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy:', err)
+    }
+  }
+  
+  const handleCopyRepo = async () => {
+    try {
+      await navigator.clipboard.writeText(workspace.repository)
+      setCopiedRepo(true)
+      setTimeout(() => setCopiedRepo(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy:', err)
+    }
+  }
+  
+  const handleCopyRegistry = async () => {
+    try {
+      await navigator.clipboard.writeText(workspace.registryUrl)
+      setCopiedRegistry(true)
+      setTimeout(() => setCopiedRegistry(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy:', err)
+    }
+  }
+  
   return (
   <Card className="flex h-full flex-col justify-between border-border bg-card transition hover:border-primary hover:bg-table-row-hover/10 hover:shadow-lg">
       <CardHeader>
@@ -70,18 +112,60 @@ export function WorkspaceCard({ workspace, onViewDetails }: WorkspaceCardProps) 
           <span className="font-medium text-foreground/80">{workspace.author}</span>
         </div>
         {workspace.dockerImage ? (
-          <div className="flex items-center gap-2 truncate text-xs text-muted-foreground/80">
-            <Layers3 className="h-4 w-4 text-muted-foreground/70" />
-            <span className="truncate">{workspace.dockerImage}</span>
+          <div className="space-y-1">
+            <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/60">Image Name</div>
+            <div className="flex items-center gap-2 text-xs text-muted-foreground/80">
+              <Layers3 className="h-4 w-4 flex-shrink-0 text-muted-foreground/70" />
+              <span className="truncate flex-1">{workspace.dockerImage}</span>
+              <button
+                onClick={handleCopyImage}
+                className={`flex-shrink-0 rounded p-1 transition ${
+                  copiedImage
+                    ? 'bg-green-500/20 text-green-600'
+                    : 'text-muted-foreground/70 hover:bg-muted hover:text-foreground'
+                }`}
+                title={copiedImage ? 'Copied!' : 'Copy image name'}
+              >
+                {copiedImage ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+              </button>
+            </div>
           </div>
         ) : null}
-        <div className="flex items-center gap-2 truncate text-xs text-muted-foreground/80">
-          <Github className="h-4 w-4 text-muted-foreground/70" />
-          <span className="truncate">{workspace.repository}</span>
+        <div className="space-y-1">
+          <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/60">GitHub Repo</div>
+          <div className="flex items-center gap-2 text-xs text-muted-foreground/80">
+            <Github className="h-4 w-4 flex-shrink-0 text-muted-foreground/70" />
+            <span className="truncate flex-1">{workspace.repository}</span>
+            <button
+              onClick={handleCopyRepo}
+              className={`flex-shrink-0 rounded p-1 transition ${
+                copiedRepo
+                  ? 'bg-green-500/20 text-green-600'
+                  : 'text-muted-foreground/70 hover:bg-muted hover:text-foreground'
+              }`}
+              title={copiedRepo ? 'Copied!' : 'Copy repository'}
+            >
+              {copiedRepo ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+            </button>
+          </div>
         </div>
-        <div className="flex items-center gap-2 truncate text-xs text-muted-foreground/80">
-          <Globe className="h-4 w-4 text-muted-foreground/70" />
-          <span className="truncate">{workspace.registryUrl}</span>
+        <div className="space-y-1">
+          <div className="text-[10px] font-semibold uppercase tracking-wider text-muted-foreground/60">Kasm Registry</div>
+          <div className="flex items-center gap-2 text-xs text-muted-foreground/80">
+            <Globe className="h-4 w-4 flex-shrink-0 text-muted-foreground/70" />
+            <span className="truncate flex-1">{workspace.registryUrl}</span>
+            <button
+              onClick={handleCopyRegistry}
+              className={`flex-shrink-0 rounded p-1 transition ${
+                copiedRegistry
+                  ? 'bg-green-500/20 text-green-600'
+                  : 'text-muted-foreground/70 hover:bg-muted hover:text-foreground'
+              }`}
+              title={copiedRegistry ? 'Copied!' : 'Copy registry URL'}
+            >
+              {copiedRegistry ? <Check className="h-3 w-3" /> : <Copy className="h-3 w-3" />}
+            </button>
+          </div>
         </div>
         {workspace.categories.length ? (
           <div className="flex flex-wrap gap-1">
@@ -92,6 +176,19 @@ export function WorkspaceCard({ workspace, onViewDetails }: WorkspaceCardProps) 
                 className="border-border/70 bg-muted text-[10px] uppercase tracking-wide text-muted-foreground"
               >
                 {category}
+              </Badge>
+            ))}
+          </div>
+        ) : null}
+        {workspace.compatibilityVersions.length ? (
+          <div className="flex flex-wrap gap-1">
+            {workspace.compatibilityVersions.map((version) => (
+              <Badge
+                key={`${workspace.slug}-compat-${version}`}
+                variant="secondary"
+                className="border border-primary/30 bg-primary/10 text-[10px] text-primary"
+              >
+                {version}
               </Badge>
             ))}
           </div>
@@ -113,7 +210,7 @@ export function WorkspaceCard({ workspace, onViewDetails }: WorkspaceCardProps) 
           variant="outline"
           className="border-primary/40 text-primary hover:bg-primary/20"
         >
-          <a href={workspace.registryUrl} target="_blank" rel="noopener noreferrer">
+          <a href={registryUrl} target="_blank" rel="noopener noreferrer">
             <ExternalLink className="mr-2 h-4 w-4" />
             View Registry
           </a>

@@ -1,0 +1,22 @@
+{
+  "friendly_name": "Many Compatibility Entries",
+  "description": "Has more than MAX_COMPATIBILITY_ENTRIES",
+  "image_src": "test.png",
+  "architecture": ["amd64"],
+  "categories": ["Testing"],
+  "docker_registry": "https://index.docker.io/v1/",
+  "compatibility": [
+    {"version": "1.10.x", "image": "test/image:1.10", "uncompressed_size_mb": 400},
+    {"version": "1.11.x", "image": "test/image:1.11", "uncompressed_size_mb": 400},
+    {"version": "1.12.x", "image": "test/image:1.12", "uncompressed_size_mb": 400},
+    {"version": "1.13.x", "image": "test/image:1.13", "uncompressed_size_mb": 400},
+    {"version": "1.14.x", "image": "test/image:1.14", "uncompressed_size_mb": 400},
+    {"version": "1.15.x", "image": "test/image:1.15", "uncompressed_size_mb": 400},
+    {"version": "1.16.x", "image": "test/image:1.16", "uncompressed_size_mb": 400},
+    {"version": "1.17.x", "image": "test/image:1.17", "uncompressed_size_mb": 400},
+    {"version": "1.18.x", "image": "test/image:1.18", "uncompressed_size_mb": 400},
+    {"version": "1.19.x", "image": "test/image:1.19", "uncompressed_size_mb": 400},
+    {"version": "1.20.x", "image": "test/image:1.20", "uncompressed_size_mb": 400},
+    {"version": "1.21.x", "image": "test/image:1.21", "uncompressed_size_mb": 400}
+  ]
+}

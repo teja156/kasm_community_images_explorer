@@ -42,6 +42,7 @@ jobs:
           mkdir -p frontend/src/data
           cp generated/community_workspaces.json frontend/src/data/ || echo "community_workspaces.json not found"
           cp generated/categories.json frontend/src/data/ || echo "categories.json not found"
+          cp generated/compatibilities.json frontend/src/data/ || echo "compatibilities.json not found"
 
       - name: Commit and push generated JSON
         run: |

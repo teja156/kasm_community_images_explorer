@@ -7,3 +7,16 @@ workspace_data.json
 generated/repos.json
 *.pdf
 kasm_colors.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+sample_files/*
+
+.github/copilot-instructions.md
+
+code_review/*

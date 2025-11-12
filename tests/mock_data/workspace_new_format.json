@@ -1,0 +1,25 @@
+{
+  "friendly_name": "Test Workspace New Format",
+  "description": "A test workspace using new format",
+  "image_src": "test.png",
+  "architecture": ["amd64", "arm64"],
+  "categories": ["Development", "Testing"],
+  "docker_registry": "https://index.docker.io/v1/",
+  "compatibility": [
+    {
+      "version": "1.15.x",
+      "image": "myregistry/test-image:1.15.0",
+      "uncompressed_size_mb": 500
+    },
+    {
+      "version": "1.16.x",
+      "image": "myregistry/test-image:1.16.0",
+      "uncompressed_size_mb": 510
+    },
+    {
+      "version": "1.17.x",
+      "image": "myregistry/test-image:1.17.0",
+      "uncompressed_size_mb": 520
+    }
+  ]
+}

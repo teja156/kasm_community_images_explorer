@@ -24,6 +24,22 @@ The CI/CD pipeline powered by GitHub Actions does the following:
 - **Image Validation**: Only includes workspaces with publicly pullable Docker images
 - **Content Filtering**: Automatically filters out workspaces containing profanity
 - **Detailed View**: Click on any workspace to see the raw `workspace.json` data
+- **Informational Modals**: Markdown-based modals for welcome message, FAQ, and how-to guides
+
+### Customizing Modal Content
+
+All modal content is stored as markdown files in [`frontend/src/data/markdown/`](frontend/src/data/markdown/):
+
+- **`welcome.md`**: Welcome modal shown on first visit with disclaimer
+- **`info.md`**: FAQ modal explaining why workspaces might not be listed
+- **`how-to-add-workspace.md`**: Step-by-step guide for adding workspaces to Kasm
+
+To update modal content:
+1. Edit the corresponding markdown file in `frontend/src/data/markdown/`
+2. Use standard markdown formatting (headers, lists, links, bold, code blocks)
+3. Changes will automatically appear in the modals after rebuilding the app
+
+The modals use `react-markdown` for rendering with Tailwind's typography plugin for consistent styling.
 
 ### Categories
 

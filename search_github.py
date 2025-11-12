@@ -63,8 +63,18 @@ STATS = {
     'profanity_filtered_workspaces': 0,
     'pullable_workspaces': 0,
     'unpullable_workspaces': 0,
-    'blocked_registry_images': 0
+    'blocked_registry_images': 0,
+    'invalid_registry_urls': 0,
+    'truncated_compatibility_workspaces': 0,
+    'skopeo_timeouts': 0,
+    'cached_image_hits': 0
 }
+
+# Security and performance limits
+MAX_COMPATIBILITY_ENTRIES = 10
+
+# Cache for skopeo image inspections (persists during script execution)
+INSPECTED_IMAGES = {}
 
 
 def make_request(url, params=None):
@@ -79,22 +89,44 @@ def make_request(url, params=None):
 
 
 def skopeo_inspect(image_full_name, docker_registry=None):
+    # Check cache first to avoid redundant inspections
+    cache_key = f"{docker_registry}/{image_full_name}" if docker_registry else image_full_name
+    if cache_key in INSPECTED_IMAGES:
+        STATS['cached_image_hits'] += 1
+        return INSPECTED_IMAGES[cache_key]
+    
     # very hacky, could be improved
     cmd = ["skopeo", "inspect", "--raw", f"docker://{image_full_name}"]
 
-    result = subprocess.run(cmd, capture_output=True, text=True)
-    if result.returncode != 0:
-        print(f"Error inspecting image {image_full_name}")
-        print("Trying with registry prefix..")
-        if docker_registry:
-            cmd = ["skopeo", "inspect", "--raw", f"docker://{docker_registry}/{image_full_name}"]
-            result = subprocess.run(cmd, capture_output=True, text=True)
-            if result.returncode != 0:
-                print(f"Error inspecting image {docker_registry}/{image_full_name}")
-                return False
-            return True
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=45)
+        if result.returncode != 0:
+            print(f"Error inspecting image {image_full_name}")
+            print("Trying with registry prefix..")
+            if docker_registry:
+                cmd = ["skopeo", "inspect", "--raw", f"docker://{docker_registry}/{image_full_name}"]
+                try:
+                    result = subprocess.run(cmd, capture_output=True, text=True, timeout=45)
+                    if result.returncode != 0:
+                        print(f"Error inspecting image {docker_registry}/{image_full_name}")
+                        INSPECTED_IMAGES[cache_key] = False
+                        return False
+                    INSPECTED_IMAGES[cache_key] = True
+                    return True
+                except subprocess.TimeoutExpired:
+                    print(f"Timeout inspecting image {docker_registry}/{image_full_name}")
+                    STATS['skopeo_timeouts'] += 1
+                    INSPECTED_IMAGES[cache_key] = False
+                    return False
+            INSPECTED_IMAGES[cache_key] = False
+            return False
+        INSPECTED_IMAGES[cache_key] = True
+        return True
+    except subprocess.TimeoutExpired:
+        print(f"Timeout inspecting image {image_full_name}")
+        STATS['skopeo_timeouts'] += 1
+        INSPECTED_IMAGES[cache_key] = False
         return False
-    return True
 
 
 def normalize_workspace_json(workspace_json, folder_name):
@@ -198,6 +230,13 @@ def check_image_pullability(workspace_json):
         print(f"Invalid compatibility format (not a list): {type(compatibility)}")
         return None
     
+    # Limit compatibility entries to prevent DoS
+    original_count = len(compatibility)
+    if original_count > MAX_COMPATIBILITY_ENTRIES:
+        print(f"Limiting compatibility entries from {original_count} to {MAX_COMPATIBILITY_ENTRIES}")
+        compatibility = compatibility[:MAX_COMPATIBILITY_ENTRIES]
+        STATS['truncated_compatibility_workspaces'] += 1
+    
     pullable_images = []
     unpullable_count = 0
 
@@ -235,6 +274,59 @@ def check_image_pullability(workspace_json):
     return None
 
 
+def filter_original_workspace_json(original_workspace_json, pullable_workspace_json):
+    """
+    Filter the original workspace JSON to only include pullable compatibility entries.
+    Preserves the original format (old or new structure).
+    
+    Args:
+        original_workspace_json: The original workspace.json (any format)
+        pullable_workspace_json: The normalized workspace.json with filtered compatibility (new format)
+    
+    Returns:
+        dict: Filtered original workspace JSON, or None if no pullable entries
+    """
+    if pullable_workspace_json is None:
+        return None
+    
+    # Create a copy of the original to avoid modifying it
+    filtered = original_workspace_json.copy()
+    
+    # Get pullable images from normalized format
+    pullable_compatibility = pullable_workspace_json.get('compatibility', [])
+    if not pullable_compatibility:
+        return None
+    
+    # Extract the image names/versions from pullable entries
+    pullable_images = {entry.get('image') for entry in pullable_compatibility if entry.get('image')}
+    pullable_versions = {entry.get('version') for entry in pullable_compatibility if entry.get('version')}
+    
+    # Check original format type
+    original_compatibility = original_workspace_json.get('compatibility', [])
+    
+    if not original_compatibility:
+        return None
+    
+    # Determine format: old (string array) or new (object array)
+    if isinstance(original_compatibility[0], str):
+        # Old format: compatibility is array of version strings
+        # Filter by matching versions
+        filtered_compat = [v for v in original_compatibility if v in pullable_versions]
+        if not filtered_compat:
+            return None
+        filtered['compatibility'] = filtered_compat
+    else:
+        # New format: compatibility is array of objects with version/image
+        # Filter by matching images
+        filtered_compat = [
+            entry for entry in original_compatibility 
+            if entry.get('image') in pullable_images
+        ]
+        if not filtered_compat:
+            return None
+        filtered['compatibility'] = filtered_compat
+    
+    return filtered
 
 
 stop_after = 100
@@ -340,9 +432,15 @@ def parse_repo(repo_full_name):
                     print(f"Skipping workspace {ws_name}: No pullable images found in workspace.json")
                     continue
                 
-                # Save the ORIGINAL workspace.json (not the normalized version)
+                # Filter the original workspace.json to only include pullable entries
+                filtered_workspace_json = filter_original_workspace_json(original_workspace_json, pullable_workspace_json)
+                if filtered_workspace_json is None:
+                    print(f"Skipping workspace {ws_name}: No pullable compatibility entries after filtering")
+                    continue
+                
+                # Save the FILTERED original workspace.json (preserves original format)
                 temp = {}
-                temp[ws_name] = original_workspace_json
+                temp[ws_name] = filtered_workspace_json
                 workspace_data.append(temp)
                         
             except json.JSONDecodeError:
@@ -356,6 +454,27 @@ def parse_workspace_json(workspace_json):
     return workspace_json
 
 
+def is_valid_http_url(url_string):
+    """
+    Validate that URL is HTTP or HTTPS only (prevents XSS via javascript:, data:, etc.)
+    
+    Args:
+        url_string: The URL string to validate
+    
+    Returns:
+        bool: True if valid HTTP/HTTPS URL, False otherwise
+    """
+    if not url_string or not isinstance(url_string, str):
+        return False
+    
+    try:
+        from urllib.parse import urlparse
+        parsed = urlparse(url_string)
+        return parsed.scheme in ('http', 'https') and bool(parsed.netloc)
+    except Exception:
+        return False
+
+
 def get_github_pages_url(repo_full_name):
     pages_url = f"https://api.github.com/repos/{repo_full_name}/pages"
     headers = {
@@ -366,7 +485,16 @@ def get_github_pages_url(repo_full_name):
     response = make_request(pages_url)
     if response.status_code == 200:
         data = response.json()
-        return data.get('html_url', None)
+        html_url = data.get('html_url', None)
+        
+        # Validate URL to prevent XSS attacks
+        if html_url and is_valid_http_url(html_url):
+            return html_url
+        else:
+            if html_url:
+                print(f"Invalid GitHub Pages URL for {repo_full_name}: {html_url}")
+                STATS['invalid_registry_urls'] += 1
+            return None
     return None
 
 def save_results_to_file(results, filename='search_results.json'):
@@ -422,4 +550,8 @@ if __name__ == "__main__":
     print(f"Pullable workspaces: {STATS['pullable_workspaces']}")
     print(f"Unpullable workspaces: {STATS['unpullable_workspaces']}")
     print(f"Images skipped due to blocked registries: {STATS['blocked_registry_images']}")
+    print(f"Invalid registry URLs: {STATS['invalid_registry_urls']}")
+    print(f"Workspaces with truncated compatibility entries: {STATS['truncated_compatibility_workspaces']}")
+    print(f"Skopeo inspect timeouts: {STATS['skopeo_timeouts']}")
+    print(f"Cached image hits (avoided redundant checks): {STATS['cached_image_hits']}")
     print("="*60)

@@ -1,0 +1,11 @@
+{
+  "friendly_name": "Test Workspace Old Format",
+  "name": "myregistry/test-image",
+  "description": "A test workspace using old format",
+  "image_src": "test.png",
+  "architecture": ["amd64", "arm64"],
+  "categories": ["Development", "Testing"],
+  "docker_registry": "https://index.docker.io/v1/",
+  "uncompressed_size_mb": 500,
+  "compatibility": ["1.15.x", "1.16.x", "1.17.x"]
+}

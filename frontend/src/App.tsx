@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Search, X } from 'lucide-react'
+import { Check, Copy, Search, X } from 'lucide-react'
+import ReactMarkdown from 'react-markdown'
 
 import type { Workspace } from '@/components/workspace-card'
 import { WorkspaceCard } from '@/components/workspace-card'
@@ -14,6 +15,10 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import rawWorkspacesData from '@/data/community_workspaces.json'
 import categoriesData from '@/data/categories.json'
+import compatibilitiesData from '@/data/compatibilities.json'
+import welcomeContent from '@/data/markdown/welcome.md?raw'
+import infoContent from '@/data/markdown/info.md?raw'
+import howToAddWorkspaceContent from '@/data/markdown/how-to-add-workspace.md?raw'
 import { ThemeToggle } from '@/components/theme-toggle'
 import backgroundImage from '@/assets/background1.jpg'
 type RawWorkspacesData = Record<string, RawRepositoryEntry>
@@ -73,10 +78,13 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [selectedSort, setSelectedSort] = useState<string>('stars')
+  const [selectedCompatibilities, setSelectedCompatibilities] = useState<string[]>([])
   const [visibleCount, setVisibleCount] = useState(LOAD_STEP)
   const [selectedWorkspace, setSelectedWorkspace] = useState<Workspace | null>(null)
+  const [copiedWorkspace, setCopiedWorkspace] = useState(false)
   const [showInfoModal, setShowInfoModal] = useState(false)
   const [showWelcomeModal, setShowWelcomeModal] = useState(true)
+  const [showHowToModal, setShowHowToModal] = useState(false)
 
   const categoryConfigs = useMemo<CategoryDefinition[]>(() => {
     if (!Array.isArray(categoriesData)) {
@@ -148,6 +156,13 @@ function App() {
     return ['all', ...uniqueNormalized, 'other']
   }, [categoryConfigs])
 
+  const availableCompatibilities = useMemo(() => {
+    if (Array.isArray(compatibilitiesData)) {
+      return (compatibilitiesData as string[]).sort()
+    }
+    return []
+  }, [])
+
   const filteredWorkspaces = useMemo(() => {
     const needle = normalizeQuery(searchTerm)
     const normalizedCategory = normalizeQuery(selectedCategory)
@@ -190,6 +205,16 @@ function App() {
         return
       }
 
+      const matchesCompatibility =
+        selectedCompatibilities.length === 0 ||
+        selectedCompatibilities.some((selectedCompat) =>
+          workspace.compatibilityVersions.includes(selectedCompat)
+        )
+
+      if (!matchesCompatibility) {
+        return
+      }
+
       const hasExact =
         needle.length > 0 && normalizedFields.some((field) => field === needle)
       const hasPrefix =
@@ -228,11 +253,11 @@ function App() {
     })
 
     return results.map((entry) => entry.workspace)
-  }, [workspaces, searchTerm, selectedCategory, selectedSort, aliasLookup])
+  }, [workspaces, searchTerm, selectedCategory, selectedSort, selectedCompatibilities, aliasLookup])
 
   useEffect(() => {
     setVisibleCount(LOAD_STEP)
-  }, [searchTerm, selectedCategory, selectedSort])
+  }, [searchTerm, selectedCategory, selectedSort, selectedCompatibilities])
 
   const safeVisibleCount = Math.min(visibleCount, filteredWorkspaces.length)
   const visibleWorkspaces = filteredWorkspaces.slice(0, safeVisibleCount)
@@ -245,6 +270,19 @@ function App() {
 
   const handleCloseDetails = () => {
     setSelectedWorkspace(null)
+    setCopiedWorkspace(false)
+  }
+
+  const handleCopyWorkspaceJson = async () => {
+    if (!selectedWorkspace) return
+    try {
+      const jsonString = JSON.stringify(selectedWorkspace.rawWorkspaceData, null, 2)
+      await navigator.clipboard.writeText(jsonString)
+      setCopiedWorkspace(true)
+      setTimeout(() => setCopiedWorkspace(false), 2000)
+    } catch (err) {
+      console.error('Failed to copy:', err)
+    }
   }
 
   return (
@@ -300,7 +338,7 @@ function App() {
                       {availableCategories.map((category) => (
                         <SelectItem key={category} value={category}>
                           {category === 'all'
-                            ? 'ALL CATEGORIES'
+                            ? 'All Categories'
                             : category === 'other'
                             ? 'OTHER'
                             : formatCategoryLabel(category).toUpperCase()}
@@ -327,6 +365,52 @@ function App() {
                     </SelectContent>
                   </Select>
                 </div>
+
+                <div className="flex min-w-[180px] flex-1 flex-col gap-1">
+                  <label className="text-xs uppercase tracking-wide text-muted-foreground/80">
+                    Compatibility
+                  </label>
+                  <Select
+                    value={selectedCompatibilities.length === 0 ? 'all' : selectedCompatibilities[0]}
+                    onValueChange={(value) => {
+                      if (value === 'all') {
+                        setSelectedCompatibilities([])
+                      } else if (!selectedCompatibilities.includes(value)) {
+                        setSelectedCompatibilities([...selectedCompatibilities, value])
+                      }
+                    }}
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="All versions" />
+                    </SelectTrigger>
+                    <SelectContent className="max-h-[300px] overflow-y-auto">
+                      <SelectItem value="all">ALL VERSIONS</SelectItem>
+                      {availableCompatibilities.map((compat) => (
+                        <SelectItem key={compat} value={compat}>
+                          {compat}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  {selectedCompatibilities.length > 0 && (
+                    <div className="flex flex-wrap gap-1 mt-1">
+                      {selectedCompatibilities.map((compat) => (
+                        <button
+                          key={compat}
+                          onClick={() => {
+                            setSelectedCompatibilities(
+                              selectedCompatibilities.filter((c) => c !== compat)
+                            )
+                          }}
+                          className="inline-flex items-center gap-1 rounded-full border border-primary/40 bg-primary/10 px-2 py-0.5 text-xs text-primary hover:bg-primary/20 transition"
+                        >
+                          {compat}
+                          <X className="h-3 w-3 text-red-500 hover:text-red-600" />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
             </section>
           </header>
@@ -339,12 +423,18 @@ function App() {
               </span>
             </div>
 
-            <div className="flex items-start">
+            <div className="flex flex-col items-start gap-2">
               <button
                 onClick={() => setShowInfoModal(true)}
                 className="text-sm text-primary hover:underline"
               >
                 Why isn't my workspace listed here?
+              </button>
+              <button
+                onClick={() => setShowHowToModal(true)}
+                className="text-sm text-primary hover:underline"
+              >
+                How to add a workspace to my Kasm Workspaces?
               </button>
             </div>
 
@@ -408,16 +498,10 @@ function App() {
                 <X className="h-4 w-4" />
               </Button>
             </div>
-            <div className="space-y-4 px-6 py-5 text-sm text-muted-foreground">
-              <p>
-                The images listed in this explorer are created and maintained by the Kasm
-                community. They are NOT officially QA tested, certified, or supported by
-                Kasm Technologies.
-              </p>
-              <p className="font-medium text-foreground">
-                Use these community images at your own risk. Review the source repository and
-                validate compatibility before deploying to your Kasm Workspaces.
-              </p>
+            <div className="max-h-[70vh] overflow-auto px-6 py-5">
+              <div className="prose prose-sm dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-a:text-primary prose-code:text-foreground prose-code:bg-muted/60 prose-code:px-1 prose-code:rounded">
+                <ReactMarkdown>{welcomeContent}</ReactMarkdown>
+              </div>
             </div>
           </div>
         </div>
@@ -445,49 +529,41 @@ function App() {
                 <X className="h-4 w-4" />
               </Button>
             </div>
-            <div className="space-y-4 px-6 py-5 text-sm text-muted-foreground">
-              <p>
-                This explorer automatically discovers community Kasm workspaces from GitHub repositories. Your workspace might not be listed for several reasons:
-              </p>
-              <div className="space-y-3">
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">1. Repository Not Discoverable</h3>
-                  <p>Make sure your repository includes the discovery identifier <code className="rounded bg-muted/60 px-1">KASM-REGISTRY-DISCOVERY-IDENTIFIER</code> in the README.md file (This comes by default if you created the template from the{' '}
-                  <a
-                    href="https://github.com/kasmtech/workspaces_registry_template"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:underline"
-                  >
-                    Kasm Workspaces Registry Template
-                  </a>
-                  ). Also, make sure your repository is public.</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">2. Images Not Pullable</h3>
-                  <p>All Docker images defined in your workspace.json must be publicly accessible and pullable. Private or inaccessible images are filtered out and only publicly pullable images are listed.</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">3. Profanity</h3>
-                  <p>If your workspace name, description, or categories contain profanity, it will be filtered out.</p>
-                </div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">4. Recently Added</h3>
-                  <p>The explorer updates every 24 hours. If you just added your workspace, it will not appear until the next update cycle.</p>
-                </div>
+            <div className="max-h-[70vh] overflow-auto px-6 py-5">
+              <div className="prose prose-sm dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-a:text-primary prose-code:text-foreground prose-code:bg-muted/60 prose-code:px-1 prose-code:rounded">
+                <ReactMarkdown>{infoContent}</ReactMarkdown>
               </div>
-              <p className="pt-2">
-                For more information, check out {' '}
-                <a
-                  href="https://github.com/teja156/kasm_community_images_explorer/blob/main/README.md"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-primary hover:underline"
-                >
-                  how this app works
-                </a>
-                .
-              </p>
+            </div>
+          </div>
+        </div>
+      ) : null}
+      {showHowToModal ? (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 px-4 backdrop-blur"
+          onClick={() => setShowHowToModal(false)}
+        >
+          <div
+            className="relative w-full max-w-3xl overflow-hidden rounded-2xl border border-border bg-modal text-modal-foreground shadow-2xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b border-border bg-muted px-6 py-4">
+              <h2 className="text-lg font-semibold text-modal-foreground">
+                How to Add a Workspace to My Kasm Workspaces
+              </h2>
+              <Button
+                type="button"
+                size="icon"
+                variant="ghost"
+                className="text-muted-foreground"
+                onClick={() => setShowHowToModal(false)}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+            <div className="max-h-[70vh] overflow-auto px-6 py-5">
+              <div className="prose prose-sm dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-a:text-primary prose-code:text-foreground prose-code:bg-muted/60 prose-code:px-1 prose-code:rounded">
+                <ReactMarkdown>{howToAddWorkspaceContent}</ReactMarkdown>
+              </div>
             </div>
           </div>
         </div>
@@ -527,6 +603,27 @@ function App() {
               <pre className="max-h-[60vh] overflow-auto rounded-xl bg-muted p-4 text-xs leading-relaxed text-muted-foreground">
                 {JSON.stringify(selectedWorkspace.rawWorkspaceData, null, 2)}
               </pre>
+              <div className="flex justify-end">
+                <Button
+                  type="button"
+                  size="sm"
+                  variant="outline"
+                  className="border-primary/40 text-primary hover:bg-primary/20"
+                  onClick={handleCopyWorkspaceJson}
+                >
+                  {copiedWorkspace ? (
+                    <>
+                      <Check className="mr-2 h-4 w-4" />
+                      Copied!
+                    </>
+                  ) : (
+                    <>
+                      <Copy className="mr-2 h-4 w-4" />
+                      Copy workspace.json
+                    </>
+                  )}
+                </Button>
+              </div>
             </div>
           </div>
         </div>
@@ -546,8 +643,14 @@ function normalizeWorkspaces(data: RawWorkspacesData): Workspace[] {
     }
 
     const author = repositoryKey.split('/')[0] ?? repositoryKey
-    const registryUrl =
-      repositoryValue.github_pages ?? `https://github.com/${repositoryKey}`
+    const githubRepoUrl = `https://github.com/${repositoryKey}`
+    const rawRegistryUrl = repositoryValue.github_pages ?? githubRepoUrl
+    
+    // Validate registry URL - set to "Valid URL not found" if invalid
+    const registryUrl = isValidHttpUrl(rawRegistryUrl) 
+      ? rawRegistryUrl 
+      : 'Valid URL not found'
+    
     const repositoryStars = parseStars(repositoryValue.stars)
     const effectiveLastCommit =
       repositoryValue.last_commit ??
@@ -566,6 +669,7 @@ function normalizeWorkspaces(data: RawWorkspacesData): Workspace[] {
           (entry) => entry.available_tags ?? [],
         )
         const dockerImage = deriveDockerImage(slug, details, compatibility)
+        const compatibilityVersions = extractCompatibilityVersions(details)
 
         normalized.push({
           slug,
@@ -581,6 +685,7 @@ function normalizeWorkspaces(data: RawWorkspacesData): Workspace[] {
           repository: repositoryKey,
           lastCommit: effectiveLastCommit,
           lastCommitTimestamp: repositoryLastCommit,
+          compatibilityVersions,
           rawWorkspaceData: details,
         })
       })
@@ -620,6 +725,46 @@ function deriveDockerImage(
 
   return undefined
 }
+
+function extractCompatibilityVersions(details: RawWorkspaceDefinition): string[] {
+  const compatibility = details.compatibility ?? []
+  const versions = new Set<string>()
+
+  compatibility.forEach((entry) => {
+    if (typeof entry === 'string') {
+      // Old format: compatibility is array of strings like ["1.15.x", "1.16.x"]
+      versions.add(normalizeCompatibilityVersion(entry))
+    } else if (entry && typeof entry === 'object' && 'version' in entry) {
+      // New format: compatibility has version field
+      const version = entry.version
+      if (typeof version === 'string') {
+        versions.add(normalizeCompatibilityVersion(version))
+      }
+    }
+  })
+
+  return Array.from(versions).sort()
+}
+
+function normalizeCompatibilityVersion(version: string): string {
+  // Normalize versions like "1.17.0", "1.16.1" to "1.17.x", "1.16.x" format
+  const match = version.match(/^(\d+\.\d+)/)
+  if (match) {
+    return `${match[1]}.x`
+  }
+  return version
+}
+
+function isValidHttpUrl(urlString: string): boolean {
+  // Validate that URL is HTTP or HTTPS only (prevents XSS via javascript:, data:, etc.)
+  try {
+    const url = new URL(urlString)
+    return url.protocol === 'http:' || url.protocol === 'https:'
+  } catch {
+    return false
+  }
+}
+
 function normalizeQuery(input: string | undefined) {
   return input?.toString().trim().toLocaleLowerCase() ?? ''
 }

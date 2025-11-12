@@ -1,0 +1,20 @@
+{
+  "friendly_name": "Blocked Image Workspace",
+  "description": "Uses blocked kasmweb/ prefix",
+  "image_src": "test.png",
+  "architecture": ["amd64"],
+  "categories": ["Development"],
+  "docker_registry": "https://index.docker.io/v1/",
+  "compatibility": [
+    {
+      "version": "1.15.x",
+      "image": "kasmweb/chrome:1.15.0",
+      "uncompressed_size_mb": 600
+    },
+    {
+      "version": "1.16.x",
+      "image": "myregistry/allowed-image:1.16.0",
+      "uncompressed_size_mb": 500
+    }
+  ]
+}
