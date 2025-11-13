@@ -2,7 +2,7 @@
     "squirrelworksllc/kasm-registry": {
         "github_pages": "https://squirrelworksllc.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2025-11-11T14:45:13Z",
+        "last_commit": "2025-11-12T19:38:54Z",
         "workspaces": [
             {
                 "bitcurator5": {
@@ -14135,17 +14135,6 @@
                                 "1.0.4",
                                 "latest"
                             ]
-                        },
-                        {
-                            "version": "1.16.x",
-                            "image": "oxygena/comp-499:develop",
-                            "uncompressed_size_mb": 0,
-                            "available_tags": [
-                                "develop",
-                                "1.16.0",
-                                "1.16.0-rolling-weekly",
-                                "1.16.0-rolling-daily"
-                            ]
                         }
                     ],
                     "categories": [
@@ -14176,17 +14165,6 @@
                             "uncompressed_size_mb": 2170,
                             "available_tags": [
                                 "1.0.3"
-                            ]
-                        },
-                        {
-                            "version": "1.16.x",
-                            "image": "oxygena/comp-499:develop",
-                            "uncompressed_size_mb": 0,
-                            "available_tags": [
-                                "develop",
-                                "1.16.0",
-                                "1.16.0-rolling-weekly",
-                                "1.16.0-rolling-daily"
                             ]
                         }
                     ],
