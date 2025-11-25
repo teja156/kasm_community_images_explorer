@@ -1,8 +1,53 @@
 {
+    "muchowsky/kasm_workspaces_registry": {
+        "github_pages": "https://muchowsky.github.io/kasm_workspaces_registry/",
+        "stars": 0,
+        "last_commit": "2025-11-24T23:31:35Z",
+        "workspaces": [
+            {
+                "BambuStudio": {
+                    "friendly_name": "Bambu Studio",
+                    "description": "Fedora Core with BambuLab Studio and Firefox installed",
+                    "image_src": "bamboo-studio.png",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "muchowsky/kasm-fedora-bambu",
+                            "uncompressed_size_mb": 1782,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ],
+                    "categories": [
+                        "Browser",
+                        "Productivity"
+                    ],
+                    "notes": "Good to map volume to /home/kasm-user/.config/BambuStudio",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "cores": 2,
+                    "memory": 2048,
+                    "volume_mappings": {
+                        "/srv/kasm_user_share/{image_id}/{user_id}/BambuStudioConfig": {
+                            "bind": "/home/kasm-user/.config/BambuStudio",
+                            "mode": "rw",
+                            "uid": 1000,
+                            "gid": 1000,
+                            "required": true,
+                            "skip_check": false
+                        }
+                    }
+                }
+            }
+        ]
+    },
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2025-11-23T23:50:33Z",
+        "last_commit": "2025-11-24T19:54:30Z",
         "workspaces": [
             {
                 "Ghidra 11.4.2": {
@@ -18,20 +63,9 @@
                         "security_opt": [
                             "seccomp=unconfined"
                         ],
-                        "entrypoint": [
-                            "/kasminit"
-                        ],
                         "user": 1000,
                         "environment": {
                             "HOME": "/home/kasm-user"
-                        }
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -lc '/opt/ghidra/ghidraRun'"
-                        },
-                        "assign": {
-                            "cmd": "bash -lc '/opt/ghidra/ghidraRun'"
                         }
                     },
                     "categories": [
@@ -414,36 +448,6 @@
                             ]
                         }
                     ]
-                }
-            }
-        ]
-    },
-    "muchowsky/workspaces_registry_template": {
-        "github_pages": "https://muchowsky.github.io/workspaces_registry_template/",
-        "stars": 0,
-        "last_commit": "2025-11-20T21:16:40Z",
-        "workspaces": [
-            {
-                "BambuStudio": {
-                    "friendly_name": "Bamboo Studio",
-                    "description": "LinuxServer.io Bamboo Studio workspace",
-                    "image_src": "bamboo-studio.png",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "linuxserver/bambustudio:latest",
-                            "uncompressed_size_mb": 1024,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ],
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "cores": 2,
-                    "memory": 4096
                 }
             }
         ]
