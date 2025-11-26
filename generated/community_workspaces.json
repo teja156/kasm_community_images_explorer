@@ -1,54 +1,1213 @@
 {
-    "muchowsky/kasm_workspaces_registry": {
-        "github_pages": "https://muchowsky.github.io/kasm_workspaces_registry/",
+    "SourceDiver42/kasm-registry": {
+        "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2025-11-24T23:31:35Z",
+        "last_commit": "2025-11-25T12:22:13Z",
         "workspaces": [
             {
-                "BambuStudio": {
-                    "friendly_name": "Bambu Studio",
-                    "description": "Fedora Core with BambuLab Studio and Firefox installed",
-                    "image_src": "bamboo-studio.png",
+                "Ghidra 10.1.1": {
+                    "friendly_name": "Ghidra 10.1.1",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
                     "architecture": [
                         "amd64"
                     ],
                     "compatibility": [
                         {
-                            "version": "1.18.x",
-                            "image": "muchowsky/kasm-fedora-bambu",
-                            "uncompressed_size_mb": 1782,
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.1.1:1.17",
                             "available_tags": [
-                                "latest"
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.1.1:1.18",
+                            "available_tags": [
+                                "1.18"
                             ]
                         }
-                    ],
-                    "categories": [
-                        "Browser",
-                        "Productivity"
-                    ],
-                    "notes": "Good to map volume to /home/kasm-user/.config/BambuStudio",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "cores": 2,
-                    "memory": 2048,
-                    "volume_mappings": {
-                        "/srv/kasm_user_share/{image_id}/{user_id}/BambuStudioConfig": {
-                            "bind": "/home/kasm-user/.config/BambuStudio",
-                            "mode": "rw",
-                            "uid": 1000,
-                            "gid": 1000,
-                            "required": true,
-                            "skip_check": false
-                        }
-                    }
+                    ]
                 }
-            }
-        ]
-    },
-    "SourceDiver42/kasm-registry": {
-        "github_pages": "https://sourcediver42.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2025-11-24T19:54:30Z",
-        "workspaces": [
+            },
+            {
+                "Ghidra 10.1.2": {
+                    "friendly_name": "Ghidra 10.1.2",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.1.2:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.1.2:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 10.1.3": {
+                    "friendly_name": "Ghidra 10.1.3",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.1.3:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.1.3:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 10.1.4": {
+                    "friendly_name": "Ghidra 10.1.4",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.1.4:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.1.4:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 10.1.5": {
+                    "friendly_name": "Ghidra 10.1.5",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.1.5:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.1.5:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 10.1": {
+                    "friendly_name": "Ghidra 10.1",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.1:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.1:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 10.2.1": {
+                    "friendly_name": "Ghidra 10.2.1",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.2.1:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.2.1:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 10.2.2": {
+                    "friendly_name": "Ghidra 10.2.2",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.2.2:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.2.2:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 10.2.3": {
+                    "friendly_name": "Ghidra 10.2.3",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.2.3:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.2.3:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 10.2": {
+                    "friendly_name": "Ghidra 10.2",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.2:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.2:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 10.3.1": {
+                    "friendly_name": "Ghidra 10.3.1",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.3.1:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.3.1:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 10.3.2": {
+                    "friendly_name": "Ghidra 10.3.2",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.3.2:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.3.2:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 10.3.3": {
+                    "friendly_name": "Ghidra 10.3.3",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.3.3:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.3.3:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 10.3": {
+                    "friendly_name": "Ghidra 10.3",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.3:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.3:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 10.4": {
+                    "friendly_name": "Ghidra 10.4",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.4:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-10.4:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 11.0.1": {
+                    "friendly_name": "Ghidra 11.0.1",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.0.1:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.0.1:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 11.0.2": {
+                    "friendly_name": "Ghidra 11.0.2",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.0.2:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.0.2:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 11.0.3": {
+                    "friendly_name": "Ghidra 11.0.3",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.0.3:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.0.3:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 11.0": {
+                    "friendly_name": "Ghidra 11.0",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.0:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.0:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 11.1.1": {
+                    "friendly_name": "Ghidra 11.1.1",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.1.1:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.1.1:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 11.1.2": {
+                    "friendly_name": "Ghidra 11.1.2",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.1.2:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.1.2:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 11.1": {
+                    "friendly_name": "Ghidra 11.1",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.1:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.1:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 11.2.1": {
+                    "friendly_name": "Ghidra 11.2.1",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.2.1:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.2.1:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 11.2": {
+                    "friendly_name": "Ghidra 11.2",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.2:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.2:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 11.3.1": {
+                    "friendly_name": "Ghidra 11.3.1",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.3.1:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.3.1:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 11.3.2": {
+                    "friendly_name": "Ghidra 11.3.2",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.3.2:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.3.2:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 11.3": {
+                    "friendly_name": "Ghidra 11.3",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.3:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.3:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 11.4.1": {
+                    "friendly_name": "Ghidra 11.4.1",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.4.1:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.4.1:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
             {
                 "Ghidra 11.4.2": {
                     "friendly_name": "Ghidra 11.4.2",
@@ -85,6 +1244,49 @@
                         {
                             "version": "1.18.x",
                             "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.4.2:1.18",
+                            "available_tags": [
+                                "1.18"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ghidra 11.4": {
+                    "friendly_name": "Ghidra 11.4",
+                    "description": "Ghidra reverse engineering suite",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "icon.png",
+                    "gpu_count": 0,
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.4:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-11.4:1.18",
                             "available_tags": [
                                 "1.18"
                             ]
