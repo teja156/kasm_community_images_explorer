@@ -1,8 +1,448 @@
 {
+    "AlasdairClarkGT/kasm-registry": {
+        "github_pages": "https://alasdairclarkgt.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2025-11-26T23:13:36Z",
+        "workspaces": [
+            {
+                "Robin": {
+                    "friendly_name": "Robin",
+                    "image_src": "robin.png",
+                    "description": "AI-Powered Dark Web OSINT Tool",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "categories": [
+                        "Productivity"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "name": "apurvsg/robin:latest",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "apurvsg/robin:latest",
+                            "uncompressed_size_mb": 2643,
+                            "available_tags": [
+                                "develop",
+                                "1.17.0"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "TideNetworksLLC/kasm-registry": {
+        "github_pages": "https://tidenetworksllc.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2025-11-26T18:46:34Z",
+        "workspaces": [
+            {
+                "Brave": {
+                    "description": "Brave browser with custom root certificates.",
+                    "docker_registry": "https://ghcr.io",
+                    "image_src": "Brave.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Brave",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/tidenetworksllc/kasm-brave-custom:latest",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Chrome": {
+                    "description": "Google Chrome with custom root certificates.",
+                    "docker_registry": "https://ghcr.io",
+                    "image_src": "Chrome.png",
+                    "run_config": {
+                        "hostname": "chrome"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Chrome",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/tidenetworksllc/kasm-custom-images/kasm-chrome-custom:latest",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Chromium": {
+                    "description": "Chromium browser with custom root certificates",
+                    "docker_registry": "https://ghcr.io",
+                    "image_src": "chromium.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Chromium",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/tidenetworksllc/kasm-chromium-custom:latest",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Edge": {
+                    "description": "Edge browser with custom root certificates",
+                    "docker_registry": "https://ghcr.io",
+                    "image_src": "Edge.png",
+                    "run_config": {
+                        "hostname": "edge"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Edge",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/tidenetworksllc/kasm-edge-custom:latest",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Filezilla": {
+                    "description": "FileZilla FTP/SFTP client with custom root certificates.",
+                    "docker_registry": "https://ghcr.io",
+                    "image_src": "FileZilla.png",
+                    "run_config": {
+                        "hostname": "filezilla"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Utilities",
+                        "Networking"
+                    ],
+                    "friendly_name": "FileZilla",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/tidenetworksllc/kasm-filezilla-custom:latest",
+                            "uncompressed_size_mb": 1650,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Firefox": {
+                    "description": "Firefox with custom root certificates.",
+                    "docker_registry": "https://ghcr.io",
+                    "image_src": "Firefox.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Firefox",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/tidenetworksllc/kasm-firefox-custom:latest",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Kali Linux": {
+                    "description": "Kali Rolling desktop environment with tools and custom root certificates.",
+                    "docker_registry": "https://ghcr.io",
+                    "image_src": "Kali.png",
+                    "run_config": {
+                        "hostname": "kali"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Security",
+                        "Linux",
+                        "DevOps"
+                    ],
+                    "friendly_name": "Kali Linux",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/tidenetworksllc/kasm-kali-rolling-desktop:latest",
+                            "uncompressed_size_mb": 2950,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Kasm OS Desktop": {
+                    "description": "Kasmos desktop with productivity apps and custom SSL certs.",
+                    "docker_registry": "https://ghcr.io",
+                    "image_src": "Kasmos.png",
+                    "run_config": {
+                        "hostname": "kasmos"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Productivity",
+                        "Desktop"
+                    ],
+                    "friendly_name": "Kasmos Desktop",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/tidenetworksllc/kasm-kasmos-desktop:latest",
+                            "uncompressed_size_mb": 2400,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Terminal": {
+                    "description": "Terminal workspace with Ansible, Terraform, and developer tools.",
+                    "docker_registry": "https://ghcr.io",
+                    "image_src": "Terminal.png",
+                    "run_config": {
+                        "hostname": "terminal"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Utilities",
+                        "DevOps",
+                        "Terminal"
+                    ],
+                    "friendly_name": "Terminal",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/tidenetworksllc/kasm-terminal-custom:latest",
+                            "uncompressed_size_mb": 1850,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Vivaldi": {
+                    "description": "Vivaldi browser with custom root certificates.",
+                    "docker_registry": "https://ghcr.io",
+                    "image_src": "Vivaldi.png",
+                    "run_config": {
+                        "hostname": "vivaldi"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Vivaldi",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/tidenetworksllc/kasm-custom-images/kasm-vivaldi-custom:latest",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Zoom": {
+                    "description": "Zoom client with custom root certificates.",
+                    "docker_registry": "https://ghcr.io",
+                    "image_src": "Zoom.png",
+                    "run_config": {
+                        "hostname": "zoom"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Communication"
+                    ],
+                    "friendly_name": "Zoom",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/tidenetworksllc/kasm-zoom-custom:latest",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2025-11-25T12:22:13Z",
+        "last_commit": "2025-11-26T12:21:43Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -11425,406 +11865,6 @@
                             "uncompressed_size_mb": 150,
                             "available_tags": [
                                 "1.16.1"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "TideNetworksLLC/kasm-registry": {
-        "github_pages": "https://tidenetworksllc.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2025-03-27T15:42:11Z",
-        "workspaces": [
-            {
-                "Brave": {
-                    "description": "Brave browser with custom root certificates.",
-                    "docker_registry": "https://ghcr.io",
-                    "image_src": "Brave.png",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Browser"
-                    ],
-                    "friendly_name": "Brave",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "ghcr.io/tidenetworksllc/kasm-brave-custom:latest",
-                            "uncompressed_size_mb": 2170,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Chrome": {
-                    "description": "Google Chrome with custom root certificates.",
-                    "docker_registry": "https://ghcr.io",
-                    "image_src": "Chrome.png",
-                    "run_config": {
-                        "hostname": "chrome"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Browser"
-                    ],
-                    "friendly_name": "Chrome",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "ghcr.io/tidenetworksllc/kasm-custom-images/kasm-chrome-custom:latest",
-                            "uncompressed_size_mb": 2170,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Chromium": {
-                    "description": "Chromium browser with custom root certificates",
-                    "docker_registry": "https://ghcr.io",
-                    "image_src": "chromium.png",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Browser"
-                    ],
-                    "friendly_name": "Chromium",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "ghcr.io/tidenetworksllc/kasm-chromium-custom:latest",
-                            "uncompressed_size_mb": 2170,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Edge": {
-                    "description": "Edge browser with custom root certificates",
-                    "docker_registry": "https://ghcr.io",
-                    "image_src": "Edge.png",
-                    "run_config": {
-                        "hostname": "edge"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Browser"
-                    ],
-                    "friendly_name": "Edge",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "ghcr.io/tidenetworksllc/kasm-edge-custom:latest",
-                            "uncompressed_size_mb": 2170,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Filezilla": {
-                    "description": "FileZilla FTP/SFTP client with custom root certificates.",
-                    "docker_registry": "https://ghcr.io",
-                    "image_src": "FileZilla.png",
-                    "run_config": {
-                        "hostname": "filezilla"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Utilities",
-                        "Networking"
-                    ],
-                    "friendly_name": "FileZilla",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "ghcr.io/tidenetworksllc/kasm-filezilla-custom:latest",
-                            "uncompressed_size_mb": 1650,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Firefox": {
-                    "description": "Firefox with custom root certificates.",
-                    "docker_registry": "https://ghcr.io",
-                    "image_src": "Firefox.png",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Browser"
-                    ],
-                    "friendly_name": "Firefox",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "ghcr.io/tidenetworksllc/kasm-firefox-custom:latest",
-                            "uncompressed_size_mb": 2170,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Kali Linux": {
-                    "description": "Kali Rolling desktop environment with tools and custom root certificates.",
-                    "docker_registry": "https://ghcr.io",
-                    "image_src": "Kali.png",
-                    "run_config": {
-                        "hostname": "kali"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Security",
-                        "Linux",
-                        "DevOps"
-                    ],
-                    "friendly_name": "Kali Linux",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "ghcr.io/tidenetworksllc/kasm-kali-rolling-desktop:latest",
-                            "uncompressed_size_mb": 2950,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Kasm OS Desktop": {
-                    "description": "Kasmos desktop with productivity apps and custom SSL certs.",
-                    "docker_registry": "https://ghcr.io",
-                    "image_src": "Kasmos.png",
-                    "run_config": {
-                        "hostname": "kasmos"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Productivity",
-                        "Desktop"
-                    ],
-                    "friendly_name": "Kasmos Desktop",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "ghcr.io/tidenetworksllc/kasm-kasmos-desktop:latest",
-                            "uncompressed_size_mb": 2400,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Terminal": {
-                    "description": "Terminal workspace with Ansible, Terraform, and developer tools.",
-                    "docker_registry": "https://ghcr.io",
-                    "image_src": "Terminal.png",
-                    "run_config": {
-                        "hostname": "terminal"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Utilities",
-                        "DevOps",
-                        "Terminal"
-                    ],
-                    "friendly_name": "Terminal",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "ghcr.io/tidenetworksllc/kasm-terminal-custom:latest",
-                            "uncompressed_size_mb": 1850,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Vivaldi": {
-                    "description": "Vivaldi browser with custom root certificates.",
-                    "docker_registry": "https://ghcr.io",
-                    "image_src": "Vivaldi.png",
-                    "run_config": {
-                        "hostname": "vivaldi"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Browser"
-                    ],
-                    "friendly_name": "Vivaldi",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "ghcr.io/tidenetworksllc/kasm-custom-images/kasm-vivaldi-custom:latest",
-                            "uncompressed_size_mb": 2170,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Zoom": {
-                    "description": "Zoom client with custom root certificates.",
-                    "docker_registry": "https://ghcr.io",
-                    "image_src": "Zoom.png",
-                    "run_config": {
-                        "hostname": "zoom"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Communication"
-                    ],
-                    "friendly_name": "Zoom",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "ghcr.io/tidenetworksllc/kasm-zoom-custom:latest",
-                            "uncompressed_size_mb": 2170,
-                            "available_tags": [
-                                "latest"
                             ]
                         }
                     ]
