@@ -2,39 +2,43 @@
     "AlasdairClarkGT/kasm-registry": {
         "github_pages": "https://alasdairclarkgt.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2025-11-26T23:13:36Z",
+        "last_commit": "2025-11-27T17:14:14Z",
         "workspaces": [
             {
-                "Robin": {
-                    "friendly_name": "Robin",
-                    "image_src": "robin.png",
-                    "description": "AI-Powered Dark Web OSINT Tool",
+                "OSINT": {
+                    "description": "Open Source Intelligence reconnaissance tool, forensics and link analyzer",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "osint.png",
+                    "name": "doctorwhen/kasm:osint",
+                    "friendly_name": "OS Intelligence",
                     "cores": 2,
-                    "memory": 2768,
+                    "memory": 4096,
                     "gpu_count": 0,
                     "cpu_allocation_method": "Inherit",
-                    "docker_registry": "https://index.docker.io/v1/",
+                    "run_config": {
+                        "hostname": "kasm-osint",
+                        "ports": {
+                            "5001/tcp": 5001
+                        }
+                    },
+                    "exec_config": {
+                        "first_launch": {
+                            "user": "root",
+                            "cmd": "bash -c 'echo \"kasm-user  ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers'"
+                        }
+                    },
                     "categories": [
-                        "Productivity"
+                        "Security",
+                        "Browser"
                     ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "name": "apurvsg/robin:latest",
                     "architecture": [
                         "amd64"
                     ],
                     "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "apurvsg/robin:latest",
-                            "uncompressed_size_mb": 2643,
-                            "available_tags": [
-                                "develop",
-                                "1.17.0"
-                            ]
-                        }
-                    ]
+                        "1.15.x",
+                        "1.14.x"
+                    ],
+                    "uncompressed_size_mb": 12900
                 }
             }
         ]
@@ -442,7 +446,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2025-11-26T12:21:43Z",
+        "last_commit": "2025-11-27T12:21:20Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
