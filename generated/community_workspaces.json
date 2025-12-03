@@ -1,4 +1,189 @@
 {
+    "slewantoski/kasm-registry": {
+        "github_pages": "https://slewantoski.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2025-12-02T18:58:32Z",
+        "workspaces": [
+            {
+                "Cura": {
+                    "description": "UltiMaker Cura is free, easy-to-use 3D printing software trusted by millions of users. Fine-tune your 3D model with 400+ settings for the best slicing and printing results.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "cura.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Productivity",
+                        "Multimedia"
+                    ],
+                    "friendly_name": "UltiMaker Cura",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "slewantoski/kasm-cura:latest",
+                            "uncompressed_size_mb": 4823,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "KiCad": {
+                    "description": "KiCad - A Cross Platform and Open Source Electronics Design Automation Suite.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "kicad.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Productivity"
+                    ],
+                    "friendly_name": "KiCad",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "slewantoski/kasm-kicad:latest",
+                            "uncompressed_size_mb": 12698,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "NobleDesktop": {
+                    "description": "Ubuntu is a Linux distribution based on Debian. This Desktop is customized with some Software",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Productivity",
+                        "Desktop",
+                        "Development"
+                    ],
+                    "friendly_name": "Ubuntu Noble Desktop",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "slewantoski/kasm-nobledesktop:latest",
+                            "uncompressed_size_mb": 28672,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Opera": {
+                    "description": "Opera is a multi-platform web browser developed by its namesake company Opera.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "opera.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Opera",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "slewantoski/kasm-opera:latest",
+                            "uncompressed_size_mb": 6185,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "RustDesk": {
+                    "description": "RustDesk is a full-featured open source remote control alternative for self-hosting and security with minimal configuration.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "rustdesk.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Productivity"
+                    ],
+                    "friendly_name": "RustDesk",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "slewantoski/kasm-rustdesk:latest",
+                            "uncompressed_size_mb": 3912,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "sullyschoice/kasm-registry": {
         "github_pages": "https://sullyschoice.github.io/kasm-registry/",
         "stars": 2,
@@ -1024,7 +1209,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2025-12-01T12:21:34Z",
+        "last_commit": "2025-12-02T12:21:52Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -4717,191 +4902,6 @@
                             "version": "1.17.x",
                             "image": "lscr.io/linuxserver/calibre:latest",
                             "uncompressed_size_mb": 1950,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "slewantoski/kasm-registry": {
-        "github_pages": "https://slewantoski.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2025-08-10T17:05:15Z",
-        "workspaces": [
-            {
-                "Cura": {
-                    "description": "UltiMaker Cura is free, easy-to-use 3D printing software trusted by millions of users. Fine-tune your 3D model with 400+ settings for the best slicing and printing results.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "cura.png",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Productivity",
-                        "Multimedia"
-                    ],
-                    "friendly_name": "UltiMaker Cura",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "slewantoski/kasm-cura:latest",
-                            "uncompressed_size_mb": 4823,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "KiCad": {
-                    "description": "KiCad - A Cross Platform and Open Source Electronics Design Automation Suite.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "kicad.png",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Productivity"
-                    ],
-                    "friendly_name": "KiCad",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "slewantoski/kasm-kicad:latest",
-                            "uncompressed_size_mb": 12698,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "NobleDesktop": {
-                    "description": "Ubuntu is a Linux distribution based on Debian. This Desktop is customized with some Software",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "ubuntu.png",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Productivity",
-                        "Desktop",
-                        "Development"
-                    ],
-                    "friendly_name": "Ubuntu Noble Desktop",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "slewantoski/kasm-nobledesktop:latest",
-                            "uncompressed_size_mb": 28672,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Opera": {
-                    "description": "Opera is a multi-platform web browser developed by its namesake company Opera.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "opera.png",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Browser"
-                    ],
-                    "friendly_name": "Opera",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "slewantoski/kasm-opera:latest",
-                            "uncompressed_size_mb": 6185,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "RustDesk": {
-                    "description": "RustDesk is a full-featured open source remote control alternative for self-hosting and security with minimal configuration.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "rustdesk.png",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Productivity"
-                    ],
-                    "friendly_name": "RustDesk",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "slewantoski/kasm-rustdesk:latest",
-                            "uncompressed_size_mb": 3912,
                             "available_tags": [
                                 "latest"
                             ]
