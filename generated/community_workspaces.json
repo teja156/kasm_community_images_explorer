@@ -1,8 +1,147 @@
 {
+    "danstis/kasm-workspaces": {
+        "github_pages": "https://danstis.github.io/kasm-workspaces/",
+        "stars": 0,
+        "last_commit": "2025-12-10T23:58:15Z",
+        "workspaces": [
+            {
+                "RustDesk": {
+                    "friendly_name": "RustDesk",
+                    "image_src": "rustdesk.png",
+                    "description": "RustDesk is a full-featured open source remote control alternative for self-hosting and security with minimal configuration.",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://ghcr.io/",
+                    "categories": [
+                        "Productivity"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "entrypoint": [
+                            "/kasminit"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "exec_config": {},
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lscr.io/linuxserver/rustdesk:latest",
+                            "uncompressed_size_mb": 2470,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "squirrelworksllc/kasm-registry": {
+        "github_pages": "https://squirrelworksllc.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2025-12-10T23:48:04Z",
+        "workspaces": [
+            {
+                "ubuntu_noble": {
+                    "description": "This is a custom Ubuntu 24.04 LTS build.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "noble_numbat_custom.png",
+                    "run_config": {
+                        "hostname": "ubuntu"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Desktop",
+                        "Productivity",
+                        "Development"
+                    ],
+                    "friendly_name": "Ubuntu 24.04 LTS",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "squirrelworksllc/ubuntu-noble-desktop:1.18.0",
+                            "cores": 2,
+                            "memory": 2048,
+                            "uncompressed_size_mb": 3420,
+                            "available_tags": [
+                                "1.18.0",
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "ubuntu_noble_dind": {
+                    "description": "This is a custom Ubuntu 24.04 LTS build.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "noble_dind_custom.png",
+                    "run_config": {
+                        "hostname": "ubuntu"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Desktop",
+                        "Productivity",
+                        "Development"
+                    ],
+                    "friendly_name": "Ubuntu 24.04 DIND",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "squirrelworksllc/ubuntu-noble-dind:1.18.0",
+                            "cores": 2,
+                            "memory": 2048,
+                            "uncompressed_size_mb": 2010,
+                            "available_tags": [
+                                "1.18.0",
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2025-12-09T12:21:55Z",
+        "last_commit": "2025-12-10T12:24:07Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -1375,93 +1514,6 @@
                             "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-12.0:1.18",
                             "available_tags": [
                                 "1.18"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "squirrelworksllc/kasm-registry": {
-        "github_pages": "https://squirrelworksllc.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2025-12-05T15:42:07Z",
-        "workspaces": [
-            {
-                "ubuntu_noble": {
-                    "description": "This is a custom Ubuntu 24.04 LTS build.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "noble_numbat_custom.png",
-                    "run_config": {
-                        "hostname": "ubuntu"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Desktop",
-                        "Productivity",
-                        "Development"
-                    ],
-                    "friendly_name": "Ubuntu 24.04 LTS",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "squirrelworksllc/ubuntu-noble-desktop:1.18.0",
-                            "cores": 2,
-                            "memory": 2048,
-                            "uncompressed_size_mb": 3420,
-                            "available_tags": [
-                                "1.18.0",
-                                "develop"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "ubuntu_noble_dind": {
-                    "description": "This is a custom Ubuntu 24.04 LTS build.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "noble_dind_custom.png",
-                    "run_config": {
-                        "hostname": "ubuntu"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Desktop",
-                        "Productivity",
-                        "Development"
-                    ],
-                    "friendly_name": "Ubuntu 24.04 DIND",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "squirrelworksllc/ubuntu-noble-dind:1.18.0",
-                            "cores": 2,
-                            "memory": 2048,
-                            "uncompressed_size_mb": 2010,
-                            "available_tags": [
-                                "1.18.0",
-                                "develop"
                             ]
                         }
                     ]
@@ -6732,7 +6784,7 @@
     },
     "linuxserver/kasm_workspaces_registry": {
         "github_pages": "https://kasmregistry.linuxserver.io/",
-        "stars": 52,
+        "stars": 53,
         "last_commit": "2025-09-16T17:11:14Z",
         "workspaces": [
             {
