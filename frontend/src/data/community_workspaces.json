@@ -1,46 +1,8 @@
 {
-    "wolfpackmars2/kasm-registry": {
-        "github_pages": "https://wolfpackmars2.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2025-12-15T23:28:42Z",
-        "workspaces": [
-            {
-                "Ubuntu Noble DinD": {
-                    "description": "Ubuntu 24.04: Noble core Docker-in-Docker image with upgrades and patches.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "ubuntu_dind.png",
-                    "run_config": {
-                        "hostname": "noble-dind"
-                    },
-                    "categories": [
-                        "Development"
-                    ],
-                    "friendly_name": "Noble DinD",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "sgroesz/ubuntu-noble-dind-kasm:1.18.0-current",
-                            "cores": 4,
-                            "memory": 4096,
-                            "uncompressed_size_mb": 1234,
-                            "available_tags": [
-                                "1.18.0",
-                                "1.18.0-dev",
-                                "1.18.0-current"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
     "martynvdijke/kasm-registry": {
         "github_pages": "https://martynvdijke.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2025-12-13T17:20:56Z",
+        "last_commit": "2025-12-16T15:28:17Z",
         "workspaces": [
             {
                 "Cura": {
@@ -109,6 +71,183 @@
             }
         ]
     },
+    "squirrelworksllc/kasm-registry": {
+        "github_pages": "https://squirrelworksllc.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2025-12-16T12:43:03Z",
+        "workspaces": [
+            {
+                "ubuntu_noble": {
+                    "description": "This is a custom Ubuntu 24.04 LTS build.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "noble_numbat_custom.png",
+                    "run_config": {
+                        "hostname": "ubuntu"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Desktop",
+                        "Productivity",
+                        "Development"
+                    ],
+                    "friendly_name": "Ubuntu 24.04 LTS",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "squirrelworksllc/ubuntu-noble-desktop:1.18.0",
+                            "cores": 2,
+                            "memory": 2048,
+                            "uncompressed_size_mb": 3492,
+                            "available_tags": [
+                                "1.18.0",
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "ubuntu_noble_dind": {
+                    "description": "This is a custom Ubuntu 24.04 LTS build.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "noble_dind_custom.png",
+                    "run_config": {
+                        "hostname": "ubuntu"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Desktop",
+                        "Productivity",
+                        "Development"
+                    ],
+                    "friendly_name": "Ubuntu 24.04 DIND",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "squirrelworksllc/ubuntu-noble-dind:1.18.0",
+                            "cores": 2,
+                            "memory": 2048,
+                            "uncompressed_size_mb": 2010,
+                            "available_tags": [
+                                "1.18.0",
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "wolfpackmars2/kasm-registry": {
+        "github_pages": "https://wolfpackmars2.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2025-12-15T23:28:42Z",
+        "workspaces": [
+            {
+                "Anycubic Slicer Next": {
+                    "description": "Anycubic Slicer Next. No SUDO access.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "anycubic-slicer.svg",
+                    "categories": [
+                        "Productivity"
+                    ],
+                    "friendly_name": "Anycubic Slicer Next",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "sgroesz/anycubic-slicer-next-kasm:1.18.0-current",
+                            "uncompressed_size_mb": 1234,
+                            "available_tags": [
+                                "1.18.0",
+                                "1.18.0-dev",
+                                "1.18.0-current"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Solvepsace": {
+                    "description": "Solvespace parametric 2d/3d CAD",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "solvespace.svg",
+                    "categories": [
+                        "Productivity"
+                    ],
+                    "friendly_name": "Solvespace",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "sgroesz/solvespace-kasm:1.18.0-current",
+                            "uncompressed_size_mb": 1234,
+                            "available_tags": [
+                                "1.18.0",
+                                "1.18.0-dev",
+                                "1.18.0-current"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ubuntu Noble DinD": {
+                    "description": "Ubuntu 24.04: Noble core Docker-in-Docker image with upgrades and patches.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu_dind.png",
+                    "run_config": {
+                        "hostname": "noble-dind"
+                    },
+                    "categories": [
+                        "Development"
+                    ],
+                    "friendly_name": "Noble DinD",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "sgroesz/ubuntu-noble-dind-kasm:1.18.0-current",
+                            "cores": 4,
+                            "memory": 4096,
+                            "uncompressed_size_mb": 1234,
+                            "available_tags": [
+                                "1.18.0",
+                                "1.18.0-dev",
+                                "1.18.0-current"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "danstis/kasm-workspaces": {
         "github_pages": "https://danstis.github.io/kasm-workspaces/",
         "stars": 0,
@@ -161,97 +300,10 @@
             }
         ]
     },
-    "squirrelworksllc/kasm-registry": {
-        "github_pages": "https://squirrelworksllc.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2025-12-10T23:48:04Z",
-        "workspaces": [
-            {
-                "ubuntu_noble": {
-                    "description": "This is a custom Ubuntu 24.04 LTS build.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "noble_numbat_custom.png",
-                    "run_config": {
-                        "hostname": "ubuntu"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Desktop",
-                        "Productivity",
-                        "Development"
-                    ],
-                    "friendly_name": "Ubuntu 24.04 LTS",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "squirrelworksllc/ubuntu-noble-desktop:1.18.0",
-                            "cores": 2,
-                            "memory": 2048,
-                            "uncompressed_size_mb": 3420,
-                            "available_tags": [
-                                "1.18.0",
-                                "develop"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "ubuntu_noble_dind": {
-                    "description": "This is a custom Ubuntu 24.04 LTS build.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "noble_dind_custom.png",
-                    "run_config": {
-                        "hostname": "ubuntu"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Desktop",
-                        "Productivity",
-                        "Development"
-                    ],
-                    "friendly_name": "Ubuntu 24.04 DIND",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "squirrelworksllc/ubuntu-noble-dind:1.18.0",
-                            "cores": 2,
-                            "memory": 2048,
-                            "uncompressed_size_mb": 2010,
-                            "available_tags": [
-                                "1.18.0",
-                                "develop"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2025-12-15T12:22:43Z",
+        "last_commit": "2025-12-16T12:22:04Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -6894,7 +6946,7 @@
     },
     "linuxserver/kasm_workspaces_registry": {
         "github_pages": "https://kasmregistry.linuxserver.io/",
-        "stars": 54,
+        "stars": 55,
         "last_commit": "2025-09-16T17:11:14Z",
         "workspaces": [
             {
@@ -13602,7 +13654,7 @@
     },
     "doctorfree/kasm-registry": {
         "github_pages": "https://doctorfree.github.io/kasm-registry/",
-        "stars": 35,
+        "stars": 36,
         "last_commit": "2025-06-25T21:50:24Z",
         "workspaces": [
             {
