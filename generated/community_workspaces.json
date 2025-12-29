@@ -1009,7 +1009,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2025-12-27T12:19:44Z",
+        "last_commit": "2025-12-28T12:19:59Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -7151,7 +7151,7 @@
     },
     "linuxserver/kasm_workspaces_registry": {
         "github_pages": "https://kasmregistry.linuxserver.io/",
-        "stars": 55,
+        "stars": 56,
         "last_commit": "2025-09-16T17:11:14Z",
         "workspaces": [
             {
@@ -13698,7 +13698,7 @@
     },
     "doctorfree/kasm-registry": {
         "github_pages": "https://doctorfree.github.io/kasm-registry/",
-        "stars": 37,
+        "stars": 38,
         "last_commit": "2025-06-25T21:50:24Z",
         "workspaces": [
             {
@@ -16598,7 +16598,7 @@
     },
     "kmal808/kasm-registry": {
         "github_pages": "https://kmal808.github.io/kasm-registry/",
-        "stars": 3,
+        "stars": 4,
         "last_commit": "2024-09-11T06:51:31Z",
         "workspaces": [
             {
