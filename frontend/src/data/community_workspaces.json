@@ -1009,7 +1009,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-01-01T12:21:52Z",
+        "last_commit": "2026-01-02T12:21:22Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -7498,51 +7498,6 @@
                         {
                             "version": "1.17.x",
                             "image": "kwrfs/socbox",
-                            "uncompressed_size_mb": 12900,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "bytute/kasm-registry": {
-        "github_pages": "https://bytute.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2025-09-05T07:48:23Z",
-        "workspaces": [
-            {
-                "SOC Box": {
-                    "friendly_name": "SOC Box",
-                    "image_src": "soc-box.png",
-                    "description": "Custom REMnux Image",
-                    "cores": 2,
-                    "memory": 2768,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "categories": [],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "name": "bytute/socbox:latest",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "bytute/socbox",
-                            "uncompressed_size_mb": 12900,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.17.x",
-                            "image": "bytute/socbox",
                             "uncompressed_size_mb": 12900,
                             "available_tags": [
                                 "latest"
