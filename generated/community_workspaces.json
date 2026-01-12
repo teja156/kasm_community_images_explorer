@@ -3933,7 +3933,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-01-10T12:19:11Z",
+        "last_commit": "2026-01-11T12:20:53Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -16577,7 +16577,7 @@
     },
     "doctorfree/kasm-registry": {
         "github_pages": "https://doctorfree.github.io/kasm-registry/",
-        "stars": 38,
+        "stars": 39,
         "last_commit": "2025-06-25T21:50:24Z",
         "workspaces": [
             {
