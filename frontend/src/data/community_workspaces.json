@@ -1,8 +1,40 @@
 {
+    "edgeworks/kasm-registry": {
+        "github_pages": "https://edgeworks.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-01-16T13:08:33Z",
+        "workspaces": [
+            {
+                "Analyst-Desktop": {
+                    "description": "Analyst Desktop based on Kasm Ubuntu Noble Desktop with basic analysis and network utilities preinstalled.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "forensic-icon.png",
+                    "categories": [
+                        "Security",
+                        "Analysis"
+                    ],
+                    "friendly_name": "Analyst-Desktop",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "eegor/analyst-desktop:1.18.0-rolling-weekly",
+                            "uncompressed_size_mb": 0,
+                            "available_tags": [
+                                "1.18.0-rolling-weekly"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-01-15T12:30:39Z",
+        "last_commit": "2026-01-16T12:22:10Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -1418,38 +1450,6 @@
                             "image": "ghcr.io/sourcediver42/kasm-registry/ghidra-12.0:1.18",
                             "available_tags": [
                                 "1.18"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "edgeworks/kasm-registry": {
-        "github_pages": "https://edgeworks.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2026-01-14T16:02:06Z",
-        "workspaces": [
-            {
-                "Analyst-Desktop": {
-                    "description": "Analyst Desktop based on Kasm Ubuntu Noble Desktop with basic analysis and network utilities preinstalled.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "forensic-icon.png",
-                    "categories": [
-                        "Security",
-                        "Analysis"
-                    ],
-                    "friendly_name": "Analyst-Desktop",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "eegor/analyst-desktop:1.18.0-rolling-weekly",
-                            "uncompressed_size_mb": 0,
-                            "available_tags": [
-                                "1.18.0-rolling-weekly"
                             ]
                         }
                     ]
@@ -23348,6 +23348,38 @@
                         "1.14.x"
                     ],
                     "uncompressed_size_mb": 2929
+                }
+            },
+            {
+                "Webtop": {
+                    "friendly_name": "Webtop",
+                    "description": "Webtop is a free and open-source development tools, maintained by BSBrother.",
+                    "docker_registry": "",
+                    "image_src": "webtop.png",
+                    "name": "webos.io/webtop:latest",
+                    "run_config": {
+                        "hostname": "kasm",
+                        "privileged": true
+                    },
+                    "exec_config": {},
+                    "categories": [
+                        "Desktop",
+                        "Development"
+                    ],
+                    "require_gpu": true,
+                    "gpu_count": 1,
+                    "cores": 12,
+                    "memory": 60768,
+                    "cpu_allocation_method": "Inherit",
+                    "uncompressed_size_mb": 4540,
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        "1.13.x",
+                        "1.14.x"
+                    ]
                 }
             },
             {
