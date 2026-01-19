@@ -1,4 +1,37 @@
 {
+    "TeambitDK/KASM_registry": {
+        "github_pages": "https://teambitdk.github.io/KASM_registry/",
+        "stars": 0,
+        "last_commit": "2026-01-18T22:29:04Z",
+        "workspaces": [
+            {
+                "Ubuntu-LibreOffice": {
+                    "description": "Komplet skole-desktop til folkeskoleelever. Ubuntu 24.04 LTS med LibreOffice, TexMaths, Firefox, VS Code, GIMP, Inkscape, VLC og mange flere v\u00e6rkt\u00f8jer.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "fox.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "categories": [
+                        "Desktop",
+                        "Office",
+                        "Education"
+                    ],
+                    "friendly_name": "Skole Desktop",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "teambitdk/kasm_repo:school-latest",
+                            "uncompressed_size_mb": 8500
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "edgeworks/kasm-registry": {
         "github_pages": "https://edgeworks.github.io/kasm-registry/",
         "stars": 0,
@@ -34,7 +67,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-01-17T12:19:16Z",
+        "last_commit": "2026-01-18T12:20:04Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
