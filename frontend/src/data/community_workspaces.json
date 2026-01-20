@@ -1,4 +1,48 @@
 {
+    "vibecoder-ac/workspace-images": {
+        "github_pages": "https://vibecoder-ac.github.io/workspace-images/",
+        "stars": 0,
+        "last_commit": "2026-01-19T01:22:34Z",
+        "workspaces": [
+            {
+                "opencode": {
+                    "description": "OpenCode is an open-source AI coding agent that helps you write code in your terminal, IDE, or desktop.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "opencode.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Developer Tools",
+                        "AI Coding Assistant"
+                    ],
+                    "friendly_name": "OpenCode",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "mastoca/kasm-opencode",
+                            "uncompressed_size_mb": 800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "TeambitDK/KASM_registry": {
         "github_pages": "https://teambitdk.github.io/KASM_registry/",
         "stars": 0,
@@ -67,7 +111,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-01-18T12:20:04Z",
+        "last_commit": "2026-01-19T12:23:52Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
