@@ -111,7 +111,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-01-21T12:23:48Z",
+        "last_commit": "2026-01-22T12:24:37Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -8227,63 +8227,6 @@
                                 "latest",
                                 "winbox-1.17.0"
                             ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "ch-robiche/kasm": {
-        "github_pages": "https://ch-robiche.github.io/kasm/",
-        "stars": 0,
-        "last_commit": "2025-08-15T13:35:12Z",
-        "workspaces": [
-            {
-                "Bambu Studio": {
-                    "friendly_name": "Bambu Studio",
-                    "image_src": "bambustudio-logo.png",
-                    "description": "BambuStudio slicer for FDM printers.",
-                    "cores": 2,
-                    "memory": 3000,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "docker_registry": "https://ghcr.io/",
-                    "categories": [
-                        "Productivity",
-                        "Multimedia"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "name": "ghcr.io/ch-robiche/docker-kasm-bambustudio:master",
-                    "run_config": {
-                        "entrypoint": [
-                            "/kasminit"
-                        ],
-                        "user": 1000,
-                        "environment": {
-                            "HOME": "/home/kasm-user"
-                        }
-                    },
-                    "exec_config": {},
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "ghcr.io/ch-robiche/docker-kasm-bambustudio:master",
-                            "uncompressed_size_mb": 3220
-                        },
-                        {
-                            "version": "1.17.x",
-                            "image": "ghcr.io/ch-robiche/docker-kasm-bambustudio:master",
-                            "uncompressed_size_mb": 3220
-                        },
-                        {
-                            "version": "1.18.x",
-                            "image": "ghcr.io/ch-robiche/docker-kasm-bambustudio:master",
-                            "uncompressed_size_mb": 3220
                         }
                     ]
                 }
