@@ -1,4 +1,79 @@
 {
+    "TheNixon48/kasm-registry": {
+        "github_pages": "https://thenixon48.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-01-24T20:44:15Z",
+        "workspaces": [
+            {
+                "orcaslicer": {
+                    "description": "Orca Slicer is a fork of Bambu Studio.",
+                    "name": "ghcr.io/thenixon48/kasm-orcaslicer:latest",
+                    "image_src": "orcaslicer.png",
+                    "categories": [
+                        "Productivity"
+                    ],
+                    "friendly_name": "Orca Slicer",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/thenixon48/kasm-orcaslicer:latest",
+                            "uncompressed_size_mb": 4360,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "HarunKilic/kasm-registry": {
+        "github_pages": "https://harunkilic.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-01-24T13:24:15Z",
+        "workspaces": [
+            {
+                "Neovim": {
+                    "description": "Neovim is a hyper-extensible text editor derived from Vim",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "neovim.png",
+                    "name": "doctorwhen/kasm:neovim",
+                    "friendly_name": "Neovim",
+                    "cores": 2,
+                    "memory": 5536,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "run_config": {
+                        "hostname": "kasm-neovim"
+                    },
+                    "exec_config": {
+                        "first_launch": {
+                            "user": "root",
+                            "cmd": "bash -c 'echo \"kasm-user  ALL=(ALL) NOPASSWD: ALL\" >> /etc/sudoers'"
+                        }
+                    },
+                    "categories": [
+                        "Development",
+                        "Desktop",
+                        "Productivity"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "doctorwhen/kasm:neovim",
+                            "uncompressed_size_mb": 12700
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "vibecoder-ac/workspace-images": {
         "github_pages": "https://vibecoder-ac.github.io/workspace-images/",
         "stars": 0,
@@ -111,7 +186,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-01-23T12:23:12Z",
+        "last_commit": "2026-01-24T12:19:14Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
