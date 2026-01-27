@@ -1,4 +1,49 @@
 {
+    "frank0234/kasm-registry": {
+        "github_pages": "https://frank0234.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-01-26T13:29:08Z",
+        "workspaces": [
+            {
+                "ubuntu": {
+                    "friendly_name": "Ubuntu Noble pinyin",
+                    "image_src": "ubuntu.png",
+                    "description": "\u5e26\u4e2d\u6587\u8f93\u5165\u6cd5\u7684ubuntu\u684c\u9762",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "categories": [
+                        "Desktop",
+                        "Productivity",
+                        "Development"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "notes": "The Kasm Ubuntu Noble Workspace requires libseccomp => 2.5.3 to run.\n\nThis can be checked by running runc --version\n\nIf you still want to run Ubuntu Noble but do not have the minimum required libseccomp version, it can be run in an unsecure manner by adding: {\"security_opt\":[\"seccomp=unconfined\"]} to the Docker Run Config Override (JSON) setting above.\n\nNOTE: This will run the Workspace without the docker seccomp sandbox and will significantly reduce the amount of protection that Kasm Workspaces can provide.\n",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "frank0234/ubuntu-noble-desktop-pinyin:1.18.0",
+                            "uncompressed_size_mb": 9850,
+                            "available_tags": [
+                                "1.18.0"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "TheNixon48/kasm-registry": {
         "github_pages": "https://thenixon48.github.io/kasm-registry/",
         "stars": 0,
@@ -186,7 +231,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-01-25T12:20:12Z",
+        "last_commit": "2026-01-26T12:24:28Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
