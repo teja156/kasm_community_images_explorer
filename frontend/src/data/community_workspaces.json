@@ -1,4 +1,553 @@
 {
+    "nware-lab/kasm-registry": {
+        "github_pages": "https://nware-lab.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-01-28T22:29:51Z",
+        "workspaces": [
+            {
+                "handbrake": {
+                    "description": "Handbrake",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "handbrake.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Multimedia"
+                    ],
+                    "friendly_name": "Handbrake",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "nwarelab/kasm-handbrake:latest",
+                            "uncompressed_size_mb": 1170,
+                            "available_tags": [
+                                "develop",
+                                "1.18.0"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "double16/kasm-workspaces": {
+        "github_pages": "https://double16.github.io/kasm-workspaces/",
+        "stars": 1,
+        "last_commit": "2026-01-28T16:21:49Z",
+        "workspaces": [
+            {
+                "Bloodhound": {
+                    "friendly_name": "BloodHound",
+                    "description": "BloodHound uses graph theory to reveal the hidden and often unintended relationships within an Active Directory or Azure environment.",
+                    "image_src": "bloodhound.svg",
+                    "allow_network_selection": true,
+                    "cores": 2,
+                    "memory": 2048,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Shares",
+                    "docker_registry": "https://public.ecr.aws/bramblethorn",
+                    "name": "public.ecr.aws/bramblethorn/kasm/bloodhound:1.16.1-rolling-weekly",
+                    "categories": [
+                        "Desktop",
+                        "Security"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "notes": "The container provides an ephemeral environment. Credentials are admin:admin.",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "public.ecr.aws/bramblethorn/kasm/bloodhound:1.16.1-rolling-weekly",
+                            "uncompressed_size_mb": 6000,
+                            "available_tags": [
+                                "1.16.1-rolling-weekly",
+                                "v8.5.1"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "GraphQL-Voyager": {
+                    "friendly_name": "GraphQL Voyager",
+                    "description": "With graphql-voyager you can visually explore your GraphQL API as an interactive graph. This is a great tool when designing or discussing your data model. It includes multiple example GraphQL schemas and also allows you to connect it to your own GraphQL endpoint. ",
+                    "image_src": "graphql-voyager.png",
+                    "allow_network_selection": true,
+                    "cores": 1,
+                    "memory": 1536,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Shares",
+                    "docker_registry": "https://public.ecr.aws/bramblethorn",
+                    "name": "public.ecr.aws/bramblethorn/kasm/graphql-voyager:1.16.1-rolling-weekly",
+                    "categories": [
+                        "Desktop",
+                        "Security"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "notes": "This workspace uses a locally hosted graphql-voyager so that it won't leak your target's data.",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "public.ecr.aws/bramblethorn/kasm/graphql-voyager:1.16.1-rolling-weekly",
+                            "uncompressed_size_mb": 3250,
+                            "available_tags": [
+                                "1.16.1-rolling-weekly"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "IDEA": {
+                    "friendly_name": "IntelliJ IDEA Ultimate",
+                    "description": "The IDE for Java and Kotlin enthusiasts. Requires a valid JetBrains license.",
+                    "image_src": "intellij-idea.svg",
+                    "cores": 1,
+                    "memory": 2048,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Shares",
+                    "docker_registry": "https://public.ecr.aws/bramblethorn",
+                    "name": "public.ecr.aws/bramblethorn/kasm/idea:1.16.1-rolling-weekly",
+                    "categories": [
+                        "Desktop",
+                        "Development"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "notes": "",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "public.ecr.aws/bramblethorn/kasm/idea:1.16.1-rolling-weekly",
+                            "uncompressed_size_mb": 8000,
+                            "available_tags": [
+                                "1.16.1-rolling-weekly",
+                                "2025.2.5"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "IDEACE": {
+                    "friendly_name": "IntelliJ IDEA CE",
+                    "description": "The IDE for Java and Kotlin enthusiasts. IntelliJ IDEA Community Edition is completely free to use.",
+                    "image_src": "intellij-idea.svg",
+                    "cores": 1,
+                    "memory": 2048,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Shares",
+                    "docker_registry": "https://public.ecr.aws/bramblethorn",
+                    "name": "public.ecr.aws/bramblethorn/kasm/ideace:1.16.1-rolling-weekly",
+                    "categories": [
+                        "Desktop",
+                        "Development"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "notes": "",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "public.ecr.aws/bramblethorn/kasm/ideace:1.16.1-rolling-weekly",
+                            "uncompressed_size_mb": 6000,
+                            "available_tags": [
+                                "1.16.1-rolling-weekly",
+                                "2025.2.5"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Kali-lowmem": {
+                    "friendly_name": "Kali Linux BT lowmem",
+                    "image_src": "kali.png",
+                    "description": "Kali Linux is a Debian-derived Linux distribution designed for digital forensics and penetration testing.",
+                    "run_config": {
+                        "hostname": "kali",
+                        "privileged": true,
+                        "cap_add": [
+                            "NET_ADMIN",
+                            "CAP_SYS_ADMIN"
+                        ],
+                        "devices": [
+                            "/dev/net/tun"
+                        ]
+                    },
+                    "exec_config": {
+                        "first_launch": {
+                            "user": "root",
+                            "privileged": true,
+                            "cmd": "/dockerstartup/alternate-gateway.sh"
+                        }
+                    },
+                    "allow_network_selection": true,
+                    "cores": 1,
+                    "memory": 1536,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Shares",
+                    "docker_registry": "https://public.ecr.aws/bramblethorn",
+                    "name": "public.ecr.aws/bramblethorn/kasm/kali:1.16.1-rolling-weekly",
+                    "categories": [
+                        "Desktop",
+                        "Security",
+                        "Development"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "notes": "This low memory workspace is allocated 1536MB of RAM.\n\nThis Kali workspace extends the Kasm Kali workspace as follows:\n  - password-less sudo\n  - more packages including Burp Suite Pro, Postman, ZAP weekly, Caido\n  - VPN sidecar support when the VPN network device is bound to x.x.x.2\n\nIf a network is selected where the x.x.x.2 address is a gateway, traffic will be routed through it. This allows a VPN to run as a container and be shared across containers.",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "public.ecr.aws/bramblethorn/kasm/kali:1.16.1-rolling-weekly",
+                            "uncompressed_size_mb": 30000,
+                            "available_tags": [
+                                "1.16.1-rolling-weekly"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Kali": {
+                    "friendly_name": "Kali Linux BT",
+                    "image_src": "kali.png",
+                    "description": "Kali Linux is a Debian-derived Linux distribution designed for digital forensics and penetration testing.",
+                    "run_config": {
+                        "hostname": "kali",
+                        "privileged": true,
+                        "cap_add": [
+                            "NET_ADMIN",
+                            "CAP_SYS_ADMIN"
+                        ],
+                        "devices": [
+                            "/dev/net/tun"
+                        ]
+                    },
+                    "exec_config": {
+                        "first_launch": {
+                            "user": "root",
+                            "privileged": true,
+                            "cmd": "/dockerstartup/alternate-gateway.sh"
+                        }
+                    },
+                    "allow_network_selection": true,
+                    "cores": 2,
+                    "memory": 4096,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Shares",
+                    "docker_registry": "https://public.ecr.aws/bramblethorn",
+                    "name": "public.ecr.aws/bramblethorn/kasm/kali:1.16.1-rolling-weekly",
+                    "categories": [
+                        "Desktop",
+                        "Security",
+                        "Development"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "notes": "This Kali workspace extends the Kasm Kali workspace as follows:\n  - password-less sudo\n  - more packages including Burp Suite Pro, Postman, ZAP weekly, Caido\n  - VPN sidecar support when the VPN network device is bound to x.x.x.2\n\nIf a network is selected where the x.x.x.2 address is a gateway, traffic will be routed through it. This allows a VPN to run as a container and be shared across containers.",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "public.ecr.aws/bramblethorn/kasm/kali:1.16.1-rolling-weekly",
+                            "uncompressed_size_mb": 30000,
+                            "available_tags": [
+                                "1.16.1-rolling-weekly"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Obsidian": {
+                    "friendly_name": "Obsidian",
+                    "image_src": "obsidian.png",
+                    "description": "A powerful knowledge base that works on top of a local folder of plain text Markdown files.",
+                    "allow_network_selection": false,
+                    "cores": 1,
+                    "memory": 1384,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Shares",
+                    "docker_registry": "https://public.ecr.aws/bramblethorn",
+                    "name": "public.ecr.aws/bramblethorn/kasm/obsidian:1.16.1-rolling-weekly",
+                    "categories": [
+                        "Desktop",
+                        "Productivity"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "notes": "",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "public.ecr.aws/bramblethorn/kasm/obsidian:1.16.1-rolling-weekly",
+                            "uncompressed_size_mb": 4500,
+                            "available_tags": [
+                                "1.10.6",
+                                "1.9.14",
+                                "1.16.1-rolling-weekly"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Parrot-lowmem": {
+                    "friendly_name": "Parrot OS BT lowmem",
+                    "image_src": "parrotos.svg",
+                    "description": "Parrot OS is a Linux distribution based on Debian with a focus on security, privacy, and development.",
+                    "run_config": {
+                        "hostname": "parrot",
+                        "privileged": true,
+                        "cap_add": [
+                            "NET_ADMIN",
+                            "CAP_SYS_ADMIN"
+                        ],
+                        "devices": [
+                            "/dev/net/tun"
+                        ]
+                    },
+                    "exec_config": {
+                        "first_launch": {
+                            "user": "root",
+                            "privileged": true,
+                            "cmd": "/dockerstartup/alternate-gateway.sh"
+                        }
+                    },
+                    "allow_network_selection": true,
+                    "cores": 1,
+                    "memory": 1536,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Shares",
+                    "docker_registry": "https://public.ecr.aws/bramblethorn",
+                    "name": "public.ecr.aws/bramblethorn/kasm/parrot:1.16.1-rolling-weekly",
+                    "categories": [
+                        "Desktop",
+                        "Development",
+                        "Security"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "notes": "This low memory workspace is allocated 1536MB of RAM.\n\nThis Parrot workspace extends the Kasm Parrot workspace as follows:\n  - password-less sudo\n  - more packages including Burp Suite Pro, Postman, ZAP weekly, Caido\n  - VPN sidecar support when the VPN network device is bound to x.x.x.2\n\nIf a network is selected where the x.x.x.2 address is a gateway, traffic will be routed through it. This allows a VPN to run as a container and be shared across containers.",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "public.ecr.aws/bramblethorn/kasm/parrot:1.16.1-rolling-weekly",
+                            "uncompressed_size_mb": 42300,
+                            "available_tags": [
+                                "1.16.1-rolling-weekly"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Parrot": {
+                    "friendly_name": "Parrot OS BT",
+                    "image_src": "parrotos.svg",
+                    "description": "Parrot OS is a Linux distribution based on Debian with a focus on security, privacy, and development.",
+                    "run_config": {
+                        "hostname": "parrot",
+                        "privileged": true,
+                        "cap_add": [
+                            "NET_ADMIN",
+                            "CAP_SYS_ADMIN"
+                        ],
+                        "devices": [
+                            "/dev/net/tun"
+                        ]
+                    },
+                    "exec_config": {
+                        "first_launch": {
+                            "user": "root",
+                            "privileged": true,
+                            "cmd": "/dockerstartup/alternate-gateway.sh"
+                        }
+                    },
+                    "allow_network_selection": true,
+                    "cores": 2,
+                    "memory": 4096,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Shares",
+                    "docker_registry": "https://public.ecr.aws/bramblethorn",
+                    "name": "public.ecr.aws/bramblethorn/kasm/parrot:1.16.1-rolling-weekly",
+                    "categories": [
+                        "Desktop",
+                        "Development",
+                        "Security"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "notes": "This Parrot workspace extends the Kasm Parrot workspace as follows:\n  - password-less sudo\n  - more packages including Burp Suite Pro, Postman, ZAP weekly, Caido\n  - VPN sidecar support when the VPN network device is bound to x.x.x.2\n\nIf a network is selected where the x.x.x.2 address is a gateway, traffic will be routed through it. This allows a VPN to run as a container and be shared across containers.",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "public.ecr.aws/bramblethorn/kasm/parrot:1.16.1-rolling-weekly",
+                            "uncompressed_size_mb": 42300,
+                            "available_tags": [
+                                "1.16.1-rolling-weekly"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Terminal": {
+                    "friendly_name": "Terminal BT",
+                    "image_src": "terminal.png",
+                    "description": "Xfce Terminal is a lightweight and easy to use terminal emulator application with many advanced features including drop down, tabs, unlimited scrolling, full colors, fonts, transparent backgrounds, and more.",
+                    "cores": 0.25,
+                    "memory": 768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Shares",
+                    "docker_registry": "https://public.ecr.aws/bramblethorn",
+                    "categories": [],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "hostname": "kasm",
+                        "environment": {
+                            "TERMINAL_ARGS": "--fullscreen --hide-borders --hide-menubar --zoom=-1 --hide-scrollbar"
+                        }
+                    },
+                    "exec_config": {
+                        "first_launch": {
+                            "user": "root",
+                            "privileged": true,
+                            "cmd": "/dockerstartup/alternate-gateway.sh"
+                        }
+                    },
+                    "allow_network_selection": true,
+                    "notes": "This Terminal workspace extends the Kasm Terminal workspace as follows:\n  - zsh as default\n  - tmux with custom configuration\n  - VPN sidecar support when the VPN network device is bound to x.x.x.2\n\nIf a network is selected where the x.x.x.2 address is a gateway, traffic will be routed through it. This allows a VPN to run as a container and be shared across containers.",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "public.ecr.aws/bramblethorn/kasm/terminal:1.16.1-rolling-weekly",
+                            "uncompressed_size_mb": 3200,
+                            "available_tags": [
+                                "1.16.1-rolling-weekly"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "rojosinalma/kasm-registry": {
+        "github_pages": "https://rojosinalma.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-01-28T12:04:19Z",
+        "workspaces": [
+            {
+                "Gimp": {
+                    "friendly_name": "GIMP",
+                    "image_src": "gimp.png",
+                    "description": "GIMP is a free and open-source raster graphics editor used for image manipulation (retouching) and image editing, free-form drawing, transcoding between different image file formats, and more specialized tasks. It is extensible by means of plugins, and scriptable.",
+                    "name": "lscr.io/linuxserver/gimp:latest",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://ghcr.io/",
+                    "categories": [
+                        "Multimedia"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "entrypoint": [
+                            "/kasminit"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "exec_config": {},
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        "1.13.x",
+                        "1.14.x",
+                        "1.15.x",
+                        "1.16.x"
+                    ],
+                    "uncompressed_size_mb": 1310
+                }
+            }
+        ]
+    },
     "frank0234/kasm-registry": {
         "github_pages": "https://frank0234.github.io/kasm-registry/",
         "stars": 0,
@@ -269,7 +818,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-01-27T12:25:51Z",
+        "last_commit": "2026-01-28T12:24:46Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -2022,462 +2571,6 @@
                             "uncompressed_size_mb": 2831,
                             "available_tags": [
                                 "latest"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "double16/kasm-workspaces": {
-        "github_pages": "https://double16.github.io/kasm-workspaces/",
-        "stars": 1,
-        "last_commit": "2025-12-19T18:26:16Z",
-        "workspaces": [
-            {
-                "Bloodhound": {
-                    "friendly_name": "BloodHound",
-                    "description": "BloodHound uses graph theory to reveal the hidden and often unintended relationships within an Active Directory or Azure environment.",
-                    "image_src": "bloodhound.svg",
-                    "allow_network_selection": true,
-                    "cores": 2,
-                    "memory": 2048,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Shares",
-                    "docker_registry": "https://public.ecr.aws/bramblethorn",
-                    "name": "public.ecr.aws/bramblethorn/kasm/bloodhound:1.16.1-rolling-weekly",
-                    "categories": [
-                        "Desktop",
-                        "Security"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "notes": "The container provides an ephemeral environment. Credentials are admin:admin.",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "public.ecr.aws/bramblethorn/kasm/bloodhound:1.16.1-rolling-weekly",
-                            "uncompressed_size_mb": 6000,
-                            "available_tags": [
-                                "1.16.1-rolling-weekly",
-                                "v7.6.1",
-                                "v8.4.2"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "GraphQL-Voyager": {
-                    "friendly_name": "GraphQL Voyager",
-                    "description": "With graphql-voyager you can visually explore your GraphQL API as an interactive graph. This is a great tool when designing or discussing your data model. It includes multiple example GraphQL schemas and also allows you to connect it to your own GraphQL endpoint. ",
-                    "image_src": "graphql-voyager.png",
-                    "allow_network_selection": true,
-                    "cores": 1,
-                    "memory": 1536,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Shares",
-                    "docker_registry": "https://public.ecr.aws/bramblethorn",
-                    "name": "public.ecr.aws/bramblethorn/kasm/graphql-voyager:1.16.1-rolling-weekly",
-                    "categories": [
-                        "Desktop",
-                        "Security"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "notes": "This workspace uses a locally hosted graphql-voyager so that it won't leak your target's data.",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "public.ecr.aws/bramblethorn/kasm/graphql-voyager:1.16.1-rolling-weekly",
-                            "uncompressed_size_mb": 3250,
-                            "available_tags": [
-                                "1.16.1-rolling-weekly"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "IDEA": {
-                    "friendly_name": "IntelliJ IDEA Ultimate",
-                    "description": "The IDE for Java and Kotlin enthusiasts. Requires a valid JetBrains license.",
-                    "image_src": "intellij-idea.svg",
-                    "cores": 1,
-                    "memory": 2048,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Shares",
-                    "docker_registry": "https://public.ecr.aws/bramblethorn",
-                    "name": "public.ecr.aws/bramblethorn/kasm/idea:1.16.1-rolling-weekly",
-                    "categories": [
-                        "Desktop",
-                        "Development"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "notes": "",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "public.ecr.aws/bramblethorn/kasm/idea:1.16.1-rolling-weekly",
-                            "uncompressed_size_mb": 8000,
-                            "available_tags": [
-                                "1.16.1-rolling-weekly",
-                                "2025.2.5"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "IDEACE": {
-                    "friendly_name": "IntelliJ IDEA CE",
-                    "description": "The IDE for Java and Kotlin enthusiasts. IntelliJ IDEA Community Edition is completely free to use.",
-                    "image_src": "intellij-idea.svg",
-                    "cores": 1,
-                    "memory": 2048,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Shares",
-                    "docker_registry": "https://public.ecr.aws/bramblethorn",
-                    "name": "public.ecr.aws/bramblethorn/kasm/ideace:1.16.1-rolling-weekly",
-                    "categories": [
-                        "Desktop",
-                        "Development"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "notes": "",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "public.ecr.aws/bramblethorn/kasm/ideace:1.16.1-rolling-weekly",
-                            "uncompressed_size_mb": 6000,
-                            "available_tags": [
-                                "1.16.1-rolling-weekly",
-                                "2025.2.5"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Kali-lowmem": {
-                    "friendly_name": "Kali Linux BT lowmem",
-                    "image_src": "kali.png",
-                    "description": "Kali Linux is a Debian-derived Linux distribution designed for digital forensics and penetration testing.",
-                    "run_config": {
-                        "hostname": "kali",
-                        "privileged": true,
-                        "cap_add": [
-                            "NET_ADMIN",
-                            "CAP_SYS_ADMIN"
-                        ],
-                        "devices": [
-                            "/dev/net/tun"
-                        ]
-                    },
-                    "exec_config": {
-                        "first_launch": {
-                            "user": "root",
-                            "privileged": true,
-                            "cmd": "/dockerstartup/alternate-gateway.sh"
-                        }
-                    },
-                    "allow_network_selection": true,
-                    "cores": 1,
-                    "memory": 1536,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Shares",
-                    "docker_registry": "https://public.ecr.aws/bramblethorn",
-                    "name": "public.ecr.aws/bramblethorn/kasm/kali:1.16.1-rolling-weekly",
-                    "categories": [
-                        "Desktop",
-                        "Security",
-                        "Development"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "notes": "This low memory workspace is allocated 1536MB of RAM.\n\nThis Kali workspace extends the Kasm Kali workspace as follows:\n  - password-less sudo\n  - more packages including Burp Suite Pro, Postman, ZAP weekly, Caido\n  - VPN sidecar support when the VPN network device is bound to x.x.x.2\n\nIf a network is selected where the x.x.x.2 address is a gateway, traffic will be routed through it. This allows a VPN to run as a container and be shared across containers.",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "public.ecr.aws/bramblethorn/kasm/kali:1.16.1-rolling-weekly",
-                            "uncompressed_size_mb": 30000,
-                            "available_tags": [
-                                "1.16.1-rolling-weekly"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Kali": {
-                    "friendly_name": "Kali Linux BT",
-                    "image_src": "kali.png",
-                    "description": "Kali Linux is a Debian-derived Linux distribution designed for digital forensics and penetration testing.",
-                    "run_config": {
-                        "hostname": "kali",
-                        "privileged": true,
-                        "cap_add": [
-                            "NET_ADMIN",
-                            "CAP_SYS_ADMIN"
-                        ],
-                        "devices": [
-                            "/dev/net/tun"
-                        ]
-                    },
-                    "exec_config": {
-                        "first_launch": {
-                            "user": "root",
-                            "privileged": true,
-                            "cmd": "/dockerstartup/alternate-gateway.sh"
-                        }
-                    },
-                    "allow_network_selection": true,
-                    "cores": 2,
-                    "memory": 4096,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Shares",
-                    "docker_registry": "https://public.ecr.aws/bramblethorn",
-                    "name": "public.ecr.aws/bramblethorn/kasm/kali:1.16.1-rolling-weekly",
-                    "categories": [
-                        "Desktop",
-                        "Security",
-                        "Development"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "notes": "This Kali workspace extends the Kasm Kali workspace as follows:\n  - password-less sudo\n  - more packages including Burp Suite Pro, Postman, ZAP weekly, Caido\n  - VPN sidecar support when the VPN network device is bound to x.x.x.2\n\nIf a network is selected where the x.x.x.2 address is a gateway, traffic will be routed through it. This allows a VPN to run as a container and be shared across containers.",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "public.ecr.aws/bramblethorn/kasm/kali:1.16.1-rolling-weekly",
-                            "uncompressed_size_mb": 30000,
-                            "available_tags": [
-                                "1.16.1-rolling-weekly"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Obsidian": {
-                    "friendly_name": "Obsidian",
-                    "image_src": "obsidian.png",
-                    "description": "A powerful knowledge base that works on top of a local folder of plain text Markdown files.",
-                    "allow_network_selection": false,
-                    "cores": 1,
-                    "memory": 1384,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Shares",
-                    "docker_registry": "https://public.ecr.aws/bramblethorn",
-                    "name": "public.ecr.aws/bramblethorn/kasm/obsidian:1.16.1-rolling-weekly",
-                    "categories": [
-                        "Desktop",
-                        "Productivity"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "notes": "",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "public.ecr.aws/bramblethorn/kasm/obsidian:1.16.1-rolling-weekly",
-                            "uncompressed_size_mb": 4500,
-                            "available_tags": [
-                                "1.10.6",
-                                "1.9.14",
-                                "1.16.1-rolling-weekly"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Parrot-lowmem": {
-                    "friendly_name": "Parrot OS BT lowmem",
-                    "image_src": "parrotos.svg",
-                    "description": "Parrot OS is a Linux distribution based on Debian with a focus on security, privacy, and development.",
-                    "run_config": {
-                        "hostname": "parrot",
-                        "privileged": true,
-                        "cap_add": [
-                            "NET_ADMIN",
-                            "CAP_SYS_ADMIN"
-                        ],
-                        "devices": [
-                            "/dev/net/tun"
-                        ]
-                    },
-                    "exec_config": {
-                        "first_launch": {
-                            "user": "root",
-                            "privileged": true,
-                            "cmd": "/dockerstartup/alternate-gateway.sh"
-                        }
-                    },
-                    "allow_network_selection": true,
-                    "cores": 1,
-                    "memory": 1536,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Shares",
-                    "docker_registry": "https://public.ecr.aws/bramblethorn",
-                    "name": "public.ecr.aws/bramblethorn/kasm/parrot:1.16.1-rolling-weekly",
-                    "categories": [
-                        "Desktop",
-                        "Development",
-                        "Security"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "notes": "This low memory workspace is allocated 1536MB of RAM.\n\nThis Parrot workspace extends the Kasm Parrot workspace as follows:\n  - password-less sudo\n  - more packages including Burp Suite Pro, Postman, ZAP weekly, Caido\n  - VPN sidecar support when the VPN network device is bound to x.x.x.2\n\nIf a network is selected where the x.x.x.2 address is a gateway, traffic will be routed through it. This allows a VPN to run as a container and be shared across containers.",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "public.ecr.aws/bramblethorn/kasm/parrot:1.16.1-rolling-weekly",
-                            "uncompressed_size_mb": 42300,
-                            "available_tags": [
-                                "1.16.1-rolling-weekly"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Parrot": {
-                    "friendly_name": "Parrot OS BT",
-                    "image_src": "parrotos.svg",
-                    "description": "Parrot OS is a Linux distribution based on Debian with a focus on security, privacy, and development.",
-                    "run_config": {
-                        "hostname": "parrot",
-                        "privileged": true,
-                        "cap_add": [
-                            "NET_ADMIN",
-                            "CAP_SYS_ADMIN"
-                        ],
-                        "devices": [
-                            "/dev/net/tun"
-                        ]
-                    },
-                    "exec_config": {
-                        "first_launch": {
-                            "user": "root",
-                            "privileged": true,
-                            "cmd": "/dockerstartup/alternate-gateway.sh"
-                        }
-                    },
-                    "allow_network_selection": true,
-                    "cores": 2,
-                    "memory": 4096,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Shares",
-                    "docker_registry": "https://public.ecr.aws/bramblethorn",
-                    "name": "public.ecr.aws/bramblethorn/kasm/parrot:1.16.1-rolling-weekly",
-                    "categories": [
-                        "Desktop",
-                        "Development",
-                        "Security"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "notes": "This Parrot workspace extends the Kasm Parrot workspace as follows:\n  - password-less sudo\n  - more packages including Burp Suite Pro, Postman, ZAP weekly, Caido\n  - VPN sidecar support when the VPN network device is bound to x.x.x.2\n\nIf a network is selected where the x.x.x.2 address is a gateway, traffic will be routed through it. This allows a VPN to run as a container and be shared across containers.",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "public.ecr.aws/bramblethorn/kasm/parrot:1.16.1-rolling-weekly",
-                            "uncompressed_size_mb": 42300,
-                            "available_tags": [
-                                "1.16.1-rolling-weekly"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Terminal": {
-                    "friendly_name": "Terminal BT",
-                    "image_src": "terminal.png",
-                    "description": "Xfce Terminal is a lightweight and easy to use terminal emulator application with many advanced features including drop down, tabs, unlimited scrolling, full colors, fonts, transparent backgrounds, and more.",
-                    "cores": 0.25,
-                    "memory": 768,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Shares",
-                    "docker_registry": "https://public.ecr.aws/bramblethorn",
-                    "categories": [],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "run_config": {
-                        "hostname": "kasm",
-                        "environment": {
-                            "TERMINAL_ARGS": "--fullscreen --hide-borders --hide-menubar --zoom=-1 --hide-scrollbar"
-                        }
-                    },
-                    "exec_config": {
-                        "first_launch": {
-                            "user": "root",
-                            "privileged": true,
-                            "cmd": "/dockerstartup/alternate-gateway.sh"
-                        }
-                    },
-                    "allow_network_selection": true,
-                    "notes": "This Terminal workspace extends the Kasm Terminal workspace as follows:\n  - zsh as default\n  - tmux with custom configuration\n  - VPN sidecar support when the VPN network device is bound to x.x.x.2\n\nIf a network is selected where the x.x.x.2 address is a gateway, traffic will be routed through it. This allows a VPN to run as a container and be shared across containers.",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "public.ecr.aws/bramblethorn/kasm/terminal:1.16.1-rolling-weekly",
-                            "uncompressed_size_mb": 3200,
-                            "available_tags": [
-                                "1.16.1-rolling-weekly"
                             ]
                         }
                     ]
