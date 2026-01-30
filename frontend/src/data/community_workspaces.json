@@ -1,52 +1,8 @@
 {
-    "nware-lab/kasm-registry": {
-        "github_pages": "https://nware-lab.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2026-01-28T22:29:51Z",
-        "workspaces": [
-            {
-                "handbrake": {
-                    "description": "Handbrake",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "handbrake.png",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Multimedia"
-                    ],
-                    "friendly_name": "Handbrake",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "nwarelab/kasm-handbrake:latest",
-                            "uncompressed_size_mb": 1170,
-                            "available_tags": [
-                                "develop",
-                                "1.18.0"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
     "double16/kasm-workspaces": {
         "github_pages": "https://double16.github.io/kasm-workspaces/",
         "stars": 1,
-        "last_commit": "2026-01-28T16:21:49Z",
+        "last_commit": "2026-01-29T20:03:01Z",
         "workspaces": [
             {
                 "Bloodhound": {
@@ -304,44 +260,6 @@
                 }
             },
             {
-                "Obsidian": {
-                    "friendly_name": "Obsidian",
-                    "image_src": "obsidian.png",
-                    "description": "A powerful knowledge base that works on top of a local folder of plain text Markdown files.",
-                    "allow_network_selection": false,
-                    "cores": 1,
-                    "memory": 1384,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Shares",
-                    "docker_registry": "https://public.ecr.aws/bramblethorn",
-                    "name": "public.ecr.aws/bramblethorn/kasm/obsidian:1.16.1-rolling-weekly",
-                    "categories": [
-                        "Desktop",
-                        "Productivity"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "notes": "",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "public.ecr.aws/bramblethorn/kasm/obsidian:1.16.1-rolling-weekly",
-                            "uncompressed_size_mb": 4500,
-                            "available_tags": [
-                                "1.10.6",
-                                "1.9.14",
-                                "1.16.1-rolling-weekly"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
                 "Parrot-lowmem": {
                     "friendly_name": "Parrot OS BT lowmem",
                     "image_src": "parrotos.svg",
@@ -491,6 +409,58 @@
                             "uncompressed_size_mb": 3200,
                             "available_tags": [
                                 "1.16.1-rolling-weekly"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "public.ecr.aws/bramblethorn/kasm/terminal:1.18.0-rolling-weekly",
+                            "uncompressed_size_mb": 3200,
+                            "available_tags": [
+                                "1.18.0-rolling-weekly"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "nware-lab/kasm-registry": {
+        "github_pages": "https://nware-lab.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-01-28T22:29:51Z",
+        "workspaces": [
+            {
+                "handbrake": {
+                    "description": "Handbrake",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "handbrake.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Multimedia"
+                    ],
+                    "friendly_name": "Handbrake",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "nwarelab/kasm-handbrake:latest",
+                            "uncompressed_size_mb": 1170,
+                            "available_tags": [
+                                "develop",
+                                "1.18.0"
                             ]
                         }
                     ]
@@ -818,7 +788,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-01-28T12:24:46Z",
+        "last_commit": "2026-01-29T12:29:19Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
