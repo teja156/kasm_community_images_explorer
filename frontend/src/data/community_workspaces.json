@@ -1,34 +1,4 @@
 {
-    "Mad-Mac-Jack/regestry_christian": {
-        "github_pages": "https://mad-mac-jack.github.io/regestry_christian/",
-        "stars": 0,
-        "last_commit": "2026-01-31T22:43:58Z",
-        "workspaces": [
-            {
-                "ChrisDesktoop": {
-                    "friendly_name": "Christian Ubuntu Jammy Dev",
-                    "description": "Ubuntu Jammy Desktop mit Git, GitHub Desktop und Notepadqq",
-                    "image_src": "christian_desk.png",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "categories": [
-                        "Development"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "inpwos4dh/kasm-ubuntu-jammy-dev:1.3",
-                            "uncompressed_size_mb": 13000,
-                            "available_tags": [
-                                "1.3"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
     "Snowflake6413/someregistry": {
         "github_pages": "https://snowflake6413.github.io/someregistry/",
         "stars": 0,
@@ -64,7 +34,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-01-31T12:22:11Z",
+        "last_commit": "2026-02-01T12:24:12Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -7213,6 +7183,80 @@
                         "1.18.x"
                     ],
                     "uncompressed_size_mb": 4222
+                }
+            }
+        ]
+    },
+    "EligiaOfficial/Kasm-Registry": {
+        "github_pages": "https://registry.eligia.net/",
+        "stars": 0,
+        "last_commit": "2025-11-03T19:39:30Z",
+        "workspaces": [
+            {
+                "Vesktop": {
+                    "friendly_name": "Vesktop",
+                    "image_src": "vesktop.png",
+                    "description": "Vesktop is a customizable and privacy friendly Discord desktop app.",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://git.ebeli.net/v2/",
+                    "categories": [
+                        "Communication",
+                        "Games"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "git.ebeli.net/apps/vesktop:dev",
+                            "uncompressed_size_mb": 3233
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "git.ebeli.net/apps/vesktop:dev",
+                            "uncompressed_size_mb": 3233
+                        }
+                    ]
+                }
+            },
+            {
+                "Zen": {
+                    "friendly_name": "Zen Browser",
+                    "image_src": "zen.png",
+                    "description": "Zen Browser with betterfox and ublock origin.",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://git.ebeli.net/v2/",
+                    "categories": [
+                        "Browser"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "git.ebeli.net/apps/zen-browser:dev",
+                            "uncompressed_size_mb": 3653
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "git.ebeli.net/apps/zen-browser:dev",
+                            "uncompressed_size_mb": 3653
+                        }
+                    ]
                 }
             }
         ]
