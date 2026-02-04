@@ -2,12 +2,12 @@
     "RuffyJK/kasm-registry": {
         "github_pages": "https://ruffyjk.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-02-02T18:40:52Z",
+        "last_commit": "2026-02-03T11:42:30Z",
         "workspaces": [
             {
-                "Kali": {
-                    "friendly_name": "Kali Rolling Desktop - Default Tools",
-                    "description": "Kali Rolling Desktop (Kasm) with the kali-linux-default metapackage installed.",
+                "Release": {
+                    "friendly_name": "Kali Rolling Desktop - RELEASE",
+                    "description": "RELEASE FOR CUSTOM IMAGE AMIGO",
                     "image_src": "pepe-hacker.jpg",
                     "categories": [
                         "Security",
@@ -17,19 +17,15 @@
                         "amd64"
                     ],
                     "docker_registry": "https://ghcr.io",
-                    "cores": 4,
-                    "memory": 8192,
+                    "cores": 2,
+                    "memory": 4096,
                     "gpu_count": 0,
                     "cpu_allocation_method": "Inherit",
-                    "notes": "Heavier desktop image (kali-linux-default). If sessions restart/crash, increase memory/cores and verify the agent host has sufficient free RAM/CPU.",
                     "compatibility": [
                         {
                             "version": "1.18.x",
-                            "image": "ghcr.io/ruffyjk/kasm-kali-default:1.18.0-kali-default",
-                            "uncompressed_size_mb": 15000,
-                            "available_tags": [
-                                "1.18.0-kali-default"
-                            ]
+                            "image": "ghcr.io/ruffyjk/kasm-kali-default:1.18.0-Release3",
+                            "uncompressed_size_mb": 15000
                         }
                     ]
                 }
@@ -97,7 +93,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-02-02T12:31:46Z",
+        "last_commit": "2026-02-03T12:33:21Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -3946,6 +3942,42 @@
                         "1.16.x"
                     ],
                     "uncompressed_size_mb": 1660
+                }
+            },
+            {
+                "digikam": {
+                    "description": "digiKam a professional Photo Management with the Power of Open Source.",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "digikam.png",
+                    "name": "lscr.io/linuxserver/digikam:latest",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "entrypoint": [
+                            "/kasminit"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "exec_config": {},
+                    "categories": [
+                        "Multimedia"
+                    ],
+                    "friendly_name": "digiKam",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        "1.13.x",
+                        "1.14.x",
+                        "1.15.x",
+                        "1.16.x"
+                    ],
+                    "uncompressed_size_mb": 3580
                 }
             },
             {
@@ -9216,6 +9248,46 @@
                 }
             },
             {
+                "digikam": {
+                    "description": "digiKam a professional Photo Management with the Power of Open Source.",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "digikam.png",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "entrypoint": [
+                            "/kasminit"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "exec_config": {},
+                    "categories": [
+                        "Multimedia"
+                    ],
+                    "friendly_name": "digiKam",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "lscr.io/linuxserver/digikam:latest",
+                            "uncompressed_size_mb": 3580
+                        },
+                        {
+                            "version": "1.17.x",
+                            "image": "lscr.io/linuxserver/digikam:latest",
+                            "uncompressed_size_mb": 3580
+                        }
+                    ]
+                }
+            },
+            {
                 "doublecommander": {
                     "description": "Double Commander is a free cross platform open source file manager with two panels side by side. It is inspired by Total Commander and features new ideas.",
                     "docker_registry": "https://ghcr.io/",
@@ -11980,6 +12052,46 @@
                             "version": "1.17.x",
                             "image": "lscr.io/linuxserver/webtop:debian-xfce",
                             "uncompressed_size_mb": 1660
+                        }
+                    ]
+                }
+            },
+            {
+                "digikam": {
+                    "description": "digiKam a professional Photo Management with the Power of Open Source.",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "digikam.png",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "entrypoint": [
+                            "/kasminit"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "exec_config": {},
+                    "categories": [
+                        "Multimedia"
+                    ],
+                    "friendly_name": "digiKam",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "lscr.io/linuxserver/digikam:latest",
+                            "uncompressed_size_mb": 3580
+                        },
+                        {
+                            "version": "1.17.x",
+                            "image": "lscr.io/linuxserver/digikam:latest",
+                            "uncompressed_size_mb": 3580
                         }
                     ]
                 }
@@ -18271,6 +18383,39 @@
                 }
             },
             {
+                "digikam": {
+                    "description": "digiKam a professional Photo Management with the Power of Open Source.",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "digikam.png",
+                    "name": "lscr.io/linuxserver/digikam:latest",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "entrypoint": [
+                            "/kasminit"
+                        ],
+                        "user": 1000
+                    },
+                    "exec_config": {},
+                    "categories": [
+                        "Multimedia"
+                    ],
+                    "friendly_name": "digiKam",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        "1.13.x",
+                        "1.14.x",
+                        "1.15.x",
+                        "1.16.x"
+                    ],
+                    "uncompressed_size_mb": 3580
+                }
+            },
+            {
                 "doublecommander": {
                     "description": "Double Commander is a free cross platform open source file manager with two panels side by side. It is inspired by Total Commander and features new ideas.",
                     "docker_registry": "https://ghcr.io/",
@@ -24404,6 +24549,37 @@
                 }
             },
             {
+                "digikam": {
+                    "description": "digiKam a professional Photo Management with the Power of Open Source.",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "digikam.png",
+                    "name": "lscr.io/linuxserver/digikam:latest",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "entrypoint": [
+                            "/kasminit"
+                        ],
+                        "user": 1000
+                    },
+                    "exec_config": {},
+                    "categories": [
+                        "Multimedia"
+                    ],
+                    "friendly_name": "digiKam",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        "1.13.x",
+                        "1.14.x"
+                    ],
+                    "uncompressed_size_mb": 3580
+                }
+            },
+            {
                 "doublecommander": {
                     "description": "Double Commander is a free cross platform open source file manager with two panels side by side. It is inspired by Total Commander and features new ideas.",
                     "docker_registry": "https://ghcr.io/",
@@ -26111,6 +26287,37 @@
                         "1.14.x"
                     ],
                     "uncompressed_size_mb": 1660
+                }
+            },
+            {
+                "digikam": {
+                    "description": "digiKam a professional Photo Management with the Power of Open Source.",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "digikam.png",
+                    "name": "lscr.io/linuxserver/digikam:latest",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "entrypoint": [
+                            "/kasminit"
+                        ],
+                        "user": 1000
+                    },
+                    "exec_config": {},
+                    "categories": [
+                        "Multimedia"
+                    ],
+                    "friendly_name": "digiKam",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        "1.13.x",
+                        "1.14.x"
+                    ],
+                    "uncompressed_size_mb": 3580
                 }
             },
             {
@@ -29235,6 +29442,37 @@
                 }
             },
             {
+                "digikam": {
+                    "description": "digiKam a professional Photo Management with the Power of Open Source.",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "digikam.png",
+                    "name": "lscr.io/linuxserver/digikam:latest",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "entrypoint": [
+                            "/kasminit"
+                        ],
+                        "user": 1000
+                    },
+                    "exec_config": {},
+                    "categories": [
+                        "Multimedia"
+                    ],
+                    "friendly_name": "digiKam",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        "1.13.x",
+                        "1.14.x"
+                    ],
+                    "uncompressed_size_mb": 3580
+                }
+            },
+            {
                 "doublecommander": {
                     "description": "Double Commander is a free cross platform open source file manager with two panels side by side. It is inspired by Total Commander and features new ideas.",
                     "docker_registry": "https://ghcr.io/",
@@ -31357,6 +31595,36 @@
                         "1.13.x"
                     ],
                     "uncompressed_size_mb": 1660
+                }
+            },
+            {
+                "digikam": {
+                    "description": "digiKam a professional Photo Management with the Power of Open Source.",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "digikam.png",
+                    "name": "lscr.io/linuxserver/digikam:latest",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "entrypoint": [
+                            "/kasminit"
+                        ],
+                        "user": 1000
+                    },
+                    "exec_config": {},
+                    "categories": [
+                        "Multimedia"
+                    ],
+                    "friendly_name": "digiKam",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        "1.13.x"
+                    ],
+                    "uncompressed_size_mb": 3580
                 }
             },
             {
