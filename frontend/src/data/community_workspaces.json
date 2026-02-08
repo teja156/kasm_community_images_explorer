@@ -1,8 +1,8 @@
 {
     "nware-lab/kasm-registry": {
         "github_pages": "https://nware-lab.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2026-02-06T22:24:18Z",
+        "stars": 1,
+        "last_commit": "2026-02-07T12:52:59Z",
         "workspaces": [
             {
                 "handbrake": {
@@ -36,6 +36,122 @@
                             "available_tags": [
                                 "develop",
                                 "1.18.0"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "wolfpackmars2/kasm-registry": {
+        "github_pages": "https://wolfpackmars2.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-02-07T03:25:45Z",
+        "workspaces": [
+            {
+                "Anycubic Slicer Next": {
+                    "description": "Anycubic Slicer Next. No SUDO access.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "anycubic-slicer.svg",
+                    "categories": [
+                        "Productivity"
+                    ],
+                    "friendly_name": "Anycubic Slicer Next",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "sgroesz/anycubic-slicer-next-kasm:1.18.0-current",
+                            "uncompressed_size_mb": 1234,
+                            "available_tags": [
+                                "1.18.0",
+                                "1.18.0-dev",
+                                "1.18.0-current"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Minecraft": {
+                    "description": "Solvespace parametric 2d/3d CAD",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "minecraft.jpg",
+                    "categories": [
+                        "Games"
+                    ],
+                    "friendly_name": "Minecraft",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "sgroesz/minecraft-kasm:1.18.0-current",
+                            "uncompressed_size_mb": 1234,
+                            "available_tags": [
+                                "1.18.0",
+                                "1.18.0-dev",
+                                "1.18.0-current"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Solvepsace": {
+                    "description": "Solvespace parametric 2d/3d CAD",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "solvespace.svg",
+                    "categories": [
+                        "Productivity"
+                    ],
+                    "friendly_name": "Solvespace",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "sgroesz/solvespace-kasm:1.18.0-current",
+                            "uncompressed_size_mb": 1234,
+                            "available_tags": [
+                                "1.18.0",
+                                "1.18.0-dev",
+                                "1.18.0-current"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ubuntu Noble DinD": {
+                    "description": "Ubuntu 24.04: Noble core Docker-in-Docker image with upgrades and patches.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu_dind.png",
+                    "run_config": {
+                        "hostname": "noble-dind"
+                    },
+                    "categories": [
+                        "Development"
+                    ],
+                    "friendly_name": "Noble DinD",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "sgroesz/ubuntu-noble-dind-kasm:1.18.0-current",
+                            "cores": 4,
+                            "memory": 4096,
+                            "uncompressed_size_mb": 1234,
+                            "available_tags": [
+                                "1.18.0",
+                                "1.18.0-dev",
+                                "1.18.0-current"
                             ]
                         }
                     ]
@@ -568,7 +684,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-02-06T12:31:48Z",
+        "last_commit": "2026-02-07T12:22:31Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -2753,96 +2869,6 @@
                             "uncompressed_size_mb": 2643,
                             "available_tags": [
                                 "latest"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "wolfpackmars2/kasm-registry": {
-        "github_pages": "https://wolfpackmars2.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2025-12-15T23:28:42Z",
-        "workspaces": [
-            {
-                "Anycubic Slicer Next": {
-                    "description": "Anycubic Slicer Next. No SUDO access.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "anycubic-slicer.svg",
-                    "categories": [
-                        "Productivity"
-                    ],
-                    "friendly_name": "Anycubic Slicer Next",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "sgroesz/anycubic-slicer-next-kasm:1.18.0-current",
-                            "uncompressed_size_mb": 1234,
-                            "available_tags": [
-                                "1.18.0",
-                                "1.18.0-dev",
-                                "1.18.0-current"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Solvepsace": {
-                    "description": "Solvespace parametric 2d/3d CAD",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "solvespace.svg",
-                    "categories": [
-                        "Productivity"
-                    ],
-                    "friendly_name": "Solvespace",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "sgroesz/solvespace-kasm:1.18.0-current",
-                            "uncompressed_size_mb": 1234,
-                            "available_tags": [
-                                "1.18.0",
-                                "1.18.0-dev",
-                                "1.18.0-current"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Ubuntu Noble DinD": {
-                    "description": "Ubuntu 24.04: Noble core Docker-in-Docker image with upgrades and patches.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "ubuntu_dind.png",
-                    "run_config": {
-                        "hostname": "noble-dind"
-                    },
-                    "categories": [
-                        "Development"
-                    ],
-                    "friendly_name": "Noble DinD",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "sgroesz/ubuntu-noble-dind-kasm:1.18.0-current",
-                            "cores": 4,
-                            "memory": 4096,
-                            "uncompressed_size_mb": 1234,
-                            "available_tags": [
-                                "1.18.0",
-                                "1.18.0-dev",
-                                "1.18.0-current"
                             ]
                         }
                     ]
