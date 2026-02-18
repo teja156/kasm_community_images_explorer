@@ -500,7 +500,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-02-16T12:34:39Z",
+        "last_commit": "2026-02-17T12:34:48Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -27994,33 +27994,6 @@
                         "1.14.x"
                     ],
                     "uncompressed_size_mb": 2098
-                }
-            }
-        ]
-    },
-    "GourouLubrik/kasm-registry": {
-        "github_pages": "https://gouroulubrik.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2024-01-02T10:13:20Z",
-        "workspaces": [
-            {
-                "debian-desktop": {
-                    "description": "Guru's version of lsio debian kde desktop",
-                    "docker_registry": "https://gitea.home.burnthewit.ch",
-                    "name": "docker/debian-desktop:latest",
-                    "image_src": "debian-kde.png",
-                    "categories": [
-                        "Desktop"
-                    ],
-                    "friendly_name": "Guru Debian Kde Desktop",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        "1.13.x",
-                        "1.14.x"
-                    ],
-                    "uncompressed_size_mb": 3540
                 }
             }
         ]
