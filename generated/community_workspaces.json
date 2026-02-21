@@ -1,4 +1,522 @@
 {
+    "sullyschoice/kasm-registry": {
+        "github_pages": "https://sullyschoice.github.io/kasm-registry/",
+        "stars": 2,
+        "last_commit": "2026-02-20T21:29:41Z",
+        "workspaces": [
+            {
+                "AI-Toolkit": {
+                    "description": "AI Toolkit is an all in one training suite for diffusion models.",
+                    "docker_registry": "https://sccr.sullyschoice.net",
+                    "image_src": "ai-toolkit.png",
+                    "gpu_count": 1,
+                    "run_config": {},
+                    "exec_config": {},
+                    "categories": [
+                        "AI",
+                        "Utilities",
+                        "Multimedia"
+                    ],
+                    "friendly_name": "AI Toolkit",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-ai-toolkit:latest",
+                            "uncompressed_size_mb": 16000,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-ai-toolkit:latest",
+                            "uncompressed_size_mb": 16000,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.19.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-ai-toolkit:latest",
+                            "uncompressed_size_mb": 16000,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "COLMAP": {
+                    "description": "COLMAP is a general-purpose Structure-from-Motion (SfM) and Multi-View Stereo (MVS) pipeline with a graphical and command-line interface.",
+                    "docker_registry": "https://sccr.sullyschoice.net",
+                    "image_src": "colmap.png",
+                    "gpu_count": 1,
+                    "run_config": {},
+                    "exec_config": {},
+                    "categories": [
+                        "Multimedia",
+                        "Utilities",
+                        "3D"
+                    ],
+                    "friendly_name": "COLMAP",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-colmap:latest",
+                            "uncompressed_size_mb": 17000,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-colmap:latest",
+                            "uncompressed_size_mb": 17000,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.19.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-colmap:latest",
+                            "uncompressed_size_mb": 17000,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "ComfyUI": {
+                    "description": "The most powerful and modular visual AI engine and application.",
+                    "docker_registry": "https://sccr.sullyschoice.net",
+                    "image_src": "comfyui.png",
+                    "gpu_count": 1,
+                    "run_config": {},
+                    "exec_config": {},
+                    "categories": [
+                        "AI",
+                        "Utilities",
+                        "Multimedia"
+                    ],
+                    "friendly_name": "ComfyUI",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-comfyui:latest",
+                            "uncompressed_size_mb": 12800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-comfyui:latest",
+                            "uncompressed_size_mb": 12800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.19.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-comfyui:latest",
+                            "uncompressed_size_mb": 12800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Doom3": {
+                    "description": "Doom 3 (Demo) is a sci-fi horror first-person shooter computer game developed by id Software and published by Activision",
+                    "docker_registry": "https://sccr.sullyschoice.net",
+                    "image_src": "doom3.png",
+                    "gpu_count": 1,
+                    "run_config": {},
+                    "exec_config": {},
+                    "categories": [
+                        "Games"
+                    ],
+                    "friendly_name": "Doom3",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-doom3:latest",
+                            "uncompressed_size_mb": 3800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-doom3:latest",
+                            "uncompressed_size_mb": 3800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.19.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-doom3:latest",
+                            "uncompressed_size_mb": 3800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "GravityMark": {
+                    "description": "GravityMark GPU Benchmark demonstrates the capabilities of modern GPUs by rendering an enormous quantity of objects in real-time, utilizing GPU acceleration.",
+                    "docker_registry": "https://sccr.sullyschoice.net",
+                    "image_src": "gravitymark.png",
+                    "gpu_count": 1,
+                    "run_config": {},
+                    "exec_config": {},
+                    "categories": [
+                        "Games"
+                    ],
+                    "friendly_name": "GravityMark",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-gravitymark:latest",
+                            "uncompressed_size_mb": 3800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-gravitymark:latest",
+                            "uncompressed_size_mb": 3800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.19.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-gravitymark:latest",
+                            "uncompressed_size_mb": 3800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "IW3": {
+                    "description": "Convert any 2D image/video into side-by-side 3D image/video",
+                    "docker_registry": "https://sccr.sullyschoice.net",
+                    "image_src": "iw3.png",
+                    "gpu_count": 1,
+                    "run_config": {},
+                    "exec_config": {},
+                    "categories": [
+                        "Multimedia",
+                        "Utilities"
+                    ],
+                    "friendly_name": "IW3",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-iw3:latest",
+                            "uncompressed_size_mb": 13800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-iw3:latest",
+                            "uncompressed_size_mb": 13800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.19.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-iw3:latest",
+                            "uncompressed_size_mb": 13800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Kdenlive": {
+                    "description": "Free and Open Source Video Editor.",
+                    "docker_registry": "https://sccr.sullyschoice.net",
+                    "image_src": "kdenlive.png",
+                    "gpu_count": 1,
+                    "run_config": {},
+                    "exec_config": {},
+                    "categories": [
+                        "Multimedia",
+                        "Utilities",
+                        "Video Editing"
+                    ],
+                    "friendly_name": "Kdenlive",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-kdenlive:latest",
+                            "uncompressed_size_mb": 4500,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-kdenlive:latest",
+                            "uncompressed_size_mb": 4500,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.19.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-kdenlive:latest",
+                            "uncompressed_size_mb": 4500,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "LichtFeld-Studio": {
+                    "description": "LichtFeld-Studio is a free, open-source implementation of 3D Gaussian Splatting that pushes the boundaries of real-time rendering performance",
+                    "docker_registry": "https://sccr.sullyschoice.net",
+                    "image_src": "ls.png",
+                    "gpu_count": 1,
+                    "run_config": {},
+                    "exec_config": {},
+                    "categories": [
+                        "Multimedia",
+                        "Utilities",
+                        "3D"
+                    ],
+                    "friendly_name": "LichtFeld-Studio",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-lichtfeld-studio:latest",
+                            "uncompressed_size_mb": 26000,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-lichtfeld-studio:latest",
+                            "uncompressed_size_mb": 26000,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.19.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-lichtfeld-studio:latest",
+                            "uncompressed_size_mb": 26000,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "OpenArena": {
+                    "description": "OpenArena is a community-produced deathmatch FPS based on GPL idTech3 technology.",
+                    "docker_registry": "https://sccr.sullyschoice.net",
+                    "image_src": "openarena.png",
+                    "run_config": {},
+                    "exec_config": {},
+                    "categories": [
+                        "Games"
+                    ],
+                    "friendly_name": "OpenArena",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-openarena:latest",
+                            "uncompressed_size_mb": 3800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-openarena:latest",
+                            "uncompressed_size_mb": 3800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.19.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-openarena:latest",
+                            "uncompressed_size_mb": 3800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "UT2004": {
+                    "description": "First-person arena shooter video game developed by Epic Games .",
+                    "docker_registry": "https://sccr.sullyschoice.net",
+                    "image_src": "ut2004.png",
+                    "gpu_count": 0,
+                    "run_config": {},
+                    "exec_config": {},
+                    "categories": [
+                        "Games"
+                    ],
+                    "friendly_name": "Unreal Tournament 2004",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-unreal-tournament-2004:latest",
+                            "uncompressed_size_mb": 9700,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-unreal-tournament-2004:latest",
+                            "uncompressed_size_mb": 9700,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "UT99": {
+                    "description": "Unreal Tournament is a 1999 first-person shooter game developed by Epic Games",
+                    "docker_registry": "https://sccr.sullyschoice.net",
+                    "image_src": "ut99.png",
+                    "gpu_count": 0,
+                    "run_config": {},
+                    "exec_config": {},
+                    "categories": [
+                        "Games"
+                    ],
+                    "friendly_name": "Unreal Tournament",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-unreal-tournament-1999:latest",
+                            "uncompressed_size_mb": 4400,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-unreal-tournament-1999:latest",
+                            "uncompressed_size_mb": 4400,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Unigen-Heaven": {
+                    "description": "Heaven Benchmark is benchmarking software based on the UNIGINE Engine",
+                    "docker_registry": "https://sccr.sullyschoice.net",
+                    "image_src": "unigen.png",
+                    "gpu_count": 1,
+                    "run_config": {},
+                    "exec_config": {},
+                    "categories": [
+                        "Games",
+                        "Utilities"
+                    ],
+                    "friendly_name": "Unigen Heaven",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-unigen-heaven:latest",
+                            "uncompressed_size_mb": 3800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-unigen-heaven:latest",
+                            "uncompressed_size_mb": 3800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.19.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-unigen-heaven:latest",
+                            "uncompressed_size_mb": 3800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "double16/kasm-workspaces": {
         "github_pages": "https://double16.github.io/kasm-workspaces/",
         "stars": 1,
@@ -881,7 +1399,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-02-19T12:35:38Z",
+        "last_commit": "2026-02-20T12:32:40Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -6505,454 +7023,6 @@
             }
         ]
     },
-    "sullyschoice/kasm-registry": {
-        "github_pages": "https://sullyschoice.github.io/kasm-registry/",
-        "stars": 2,
-        "last_commit": "2025-12-01T17:02:09Z",
-        "workspaces": [
-            {
-                "AI-Toolkit": {
-                    "description": "AI Toolkit is an all in one training suite for diffusion models.",
-                    "docker_registry": "https://sccr.sullyschoice.net",
-                    "image_src": "ai-toolkit.png",
-                    "gpu_count": 1,
-                    "run_config": {},
-                    "exec_config": {},
-                    "categories": [
-                        "AI",
-                        "Utilities",
-                        "Multimedia"
-                    ],
-                    "friendly_name": "AI Toolkit",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-ai-toolkit:latest",
-                            "uncompressed_size_mb": 16000,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.18.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-ai-toolkit:latest",
-                            "uncompressed_size_mb": 16000,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.19.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-ai-toolkit:latest",
-                            "uncompressed_size_mb": 16000,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "COLMAP": {
-                    "description": "COLMAP is a general-purpose Structure-from-Motion (SfM) and Multi-View Stereo (MVS) pipeline with a graphical and command-line interface.",
-                    "docker_registry": "https://sccr.sullyschoice.net",
-                    "image_src": "colmap.png",
-                    "gpu_count": 1,
-                    "run_config": {},
-                    "exec_config": {},
-                    "categories": [
-                        "Multimedia",
-                        "Utilities",
-                        "3D"
-                    ],
-                    "friendly_name": "COLMAP",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-colmap:latest",
-                            "uncompressed_size_mb": 17000,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.18.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-colmap:latest",
-                            "uncompressed_size_mb": 17000,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.19.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-colmap:latest",
-                            "uncompressed_size_mb": 17000,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "ComfyUI": {
-                    "description": "The most powerful and modular visual AI engine and application.",
-                    "docker_registry": "https://sccr.sullyschoice.net",
-                    "image_src": "comfyui.png",
-                    "gpu_count": 1,
-                    "run_config": {},
-                    "exec_config": {},
-                    "categories": [
-                        "AI",
-                        "Utilities",
-                        "Multimedia"
-                    ],
-                    "friendly_name": "ComfyUI",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-comfyui:latest",
-                            "uncompressed_size_mb": 12800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.18.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-comfyui:latest",
-                            "uncompressed_size_mb": 12800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.19.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-comfyui:latest",
-                            "uncompressed_size_mb": 12800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Doom3": {
-                    "description": "Doom 3 (Demo) is a sci-fi horror first-person shooter computer game developed by id Software and published by Activision",
-                    "docker_registry": "https://sccr.sullyschoice.net",
-                    "image_src": "doom3.png",
-                    "gpu_count": 1,
-                    "run_config": {},
-                    "exec_config": {},
-                    "categories": [
-                        "Games"
-                    ],
-                    "friendly_name": "Doom3",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-doom3:latest",
-                            "uncompressed_size_mb": 3800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.18.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-doom3:latest",
-                            "uncompressed_size_mb": 3800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.19.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-doom3:latest",
-                            "uncompressed_size_mb": 3800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "GravityMark": {
-                    "description": "GravityMark GPU Benchmark demonstrates the capabilities of modern GPUs by rendering an enormous quantity of objects in real-time, utilizing GPU acceleration.",
-                    "docker_registry": "https://sccr.sullyschoice.net",
-                    "image_src": "gravitymark.png",
-                    "gpu_count": 1,
-                    "run_config": {},
-                    "exec_config": {},
-                    "categories": [
-                        "Games"
-                    ],
-                    "friendly_name": "GravityMark",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-gravitymark:latest",
-                            "uncompressed_size_mb": 3800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.18.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-gravitymark:latest",
-                            "uncompressed_size_mb": 3800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.19.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-gravitymark:latest",
-                            "uncompressed_size_mb": 3800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "IW3": {
-                    "description": "Convert any 2D image/video into side-by-side 3D image/video",
-                    "docker_registry": "https://sccr.sullyschoice.net",
-                    "image_src": "iw3.png",
-                    "gpu_count": 1,
-                    "run_config": {},
-                    "exec_config": {},
-                    "categories": [
-                        "Multimedia",
-                        "Utilities"
-                    ],
-                    "friendly_name": "IW3",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-iw3:latest",
-                            "uncompressed_size_mb": 13800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.18.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-iw3:latest",
-                            "uncompressed_size_mb": 13800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.19.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-iw3:latest",
-                            "uncompressed_size_mb": 13800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Kdenlive": {
-                    "description": "Free and Open Source Video Editor.",
-                    "docker_registry": "https://sccr.sullyschoice.net",
-                    "image_src": "kdenlive.png",
-                    "gpu_count": 1,
-                    "run_config": {},
-                    "exec_config": {},
-                    "categories": [
-                        "Multimedia",
-                        "Utilities",
-                        "Video Editing"
-                    ],
-                    "friendly_name": "Kdenlive",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-kdenlive:latest",
-                            "uncompressed_size_mb": 4500,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.18.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-kdenlive:latest",
-                            "uncompressed_size_mb": 4500,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.19.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-kdenlive:latest",
-                            "uncompressed_size_mb": 4500,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "LichtFeld-Studio": {
-                    "description": "LichtFeld-Studio is a free, open-source implementation of 3D Gaussian Splatting that pushes the boundaries of real-time rendering performance",
-                    "docker_registry": "https://sccr.sullyschoice.net",
-                    "image_src": "ls.png",
-                    "gpu_count": 1,
-                    "run_config": {},
-                    "exec_config": {},
-                    "categories": [
-                        "Multimedia",
-                        "Utilities",
-                        "3D"
-                    ],
-                    "friendly_name": "LichtFeld-Studio",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-lichtfeld-studio:latest",
-                            "uncompressed_size_mb": 26000,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.18.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-lichtfeld-studio:latest",
-                            "uncompressed_size_mb": 26000,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.19.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-lichtfeld-studio:latest",
-                            "uncompressed_size_mb": 26000,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "OpenArena": {
-                    "description": "OpenArena is a community-produced deathmatch FPS based on GPL idTech3 technology.",
-                    "docker_registry": "https://sccr.sullyschoice.net",
-                    "image_src": "openarena.png",
-                    "run_config": {},
-                    "exec_config": {},
-                    "categories": [
-                        "Games"
-                    ],
-                    "friendly_name": "OpenArena",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-openarena:latest",
-                            "uncompressed_size_mb": 3800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.18.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-openarena:latest",
-                            "uncompressed_size_mb": 3800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.19.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-openarena:latest",
-                            "uncompressed_size_mb": 3800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Unigen-Heaven": {
-                    "description": "Heaven Benchmark is benchmarking software based on the UNIGINE Engine",
-                    "docker_registry": "https://sccr.sullyschoice.net",
-                    "image_src": "unigen.png",
-                    "gpu_count": 1,
-                    "run_config": {},
-                    "exec_config": {},
-                    "categories": [
-                        "Games",
-                        "Utilities"
-                    ],
-                    "friendly_name": "Unigen Heaven",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-unigen-heaven:latest",
-                            "uncompressed_size_mb": 3800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.18.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-unigen-heaven:latest",
-                            "uncompressed_size_mb": 3800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.19.x",
-                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-unigen-heaven:latest",
-                            "uncompressed_size_mb": 3800,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
     "TsukiSama9292/kasm_registry": {
         "github_pages": "https://tsukisama9292.github.io/kasm_registry/",
         "stars": 0,
@@ -7701,80 +7771,6 @@
                         "1.18.x"
                     ],
                     "uncompressed_size_mb": 4222
-                }
-            }
-        ]
-    },
-    "EligiaOfficial/Kasm-Registry": {
-        "github_pages": "https://registry.eligia.net/",
-        "stars": 0,
-        "last_commit": "2025-11-03T19:39:30Z",
-        "workspaces": [
-            {
-                "Vesktop": {
-                    "friendly_name": "Vesktop",
-                    "image_src": "vesktop.png",
-                    "description": "Vesktop is a customizable and privacy friendly Discord desktop app.",
-                    "cores": 2,
-                    "memory": 2768,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "docker_registry": "https://git.ebeli.net/v2/",
-                    "categories": [
-                        "Communication",
-                        "Games"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "git.ebeli.net/apps/vesktop:dev",
-                            "uncompressed_size_mb": 3233
-                        },
-                        {
-                            "version": "1.18.x",
-                            "image": "git.ebeli.net/apps/vesktop:dev",
-                            "uncompressed_size_mb": 3233
-                        }
-                    ]
-                }
-            },
-            {
-                "Zen": {
-                    "friendly_name": "Zen Browser",
-                    "image_src": "zen.png",
-                    "description": "Zen Browser with betterfox and ublock origin.",
-                    "cores": 2,
-                    "memory": 2768,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "docker_registry": "https://git.ebeli.net/v2/",
-                    "categories": [
-                        "Browser"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "git.ebeli.net/apps/zen-browser:dev",
-                            "uncompressed_size_mb": 3653
-                        },
-                        {
-                            "version": "1.18.x",
-                            "image": "git.ebeli.net/apps/zen-browser:dev",
-                            "uncompressed_size_mb": 3653
-                        }
-                    ]
                 }
             }
         ]
