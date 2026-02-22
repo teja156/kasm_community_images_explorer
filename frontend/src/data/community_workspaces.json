@@ -2,7 +2,7 @@
     "sullyschoice/kasm-registry": {
         "github_pages": "https://sullyschoice.github.io/kasm-registry/",
         "stars": 2,
-        "last_commit": "2026-02-20T21:29:41Z",
+        "last_commit": "2026-02-21T04:55:17Z",
         "workspaces": [
             {
                 "AI-Toolkit": {
@@ -407,14 +407,19 @@
                     "docker_registry": "https://sccr.sullyschoice.net",
                     "image_src": "ut2004.png",
                     "gpu_count": 0,
-                    "run_config": {},
+                    "run_config": {
+                        "environment": {
+                            "DISABLE_CUSTOM_STARTUP": "1"
+                        }
+                    },
                     "exec_config": {},
                     "categories": [
                         "Games"
                     ],
                     "friendly_name": "Unreal Tournament 2004",
                     "architecture": [
-                        "amd64"
+                        "amd64",
+                        "arm64"
                     ],
                     "compatibility": [
                         {
@@ -442,7 +447,11 @@
                     "docker_registry": "https://sccr.sullyschoice.net",
                     "image_src": "ut99.png",
                     "gpu_count": 0,
-                    "run_config": {},
+                    "run_config": {
+                        "environment": {
+                            "DISABLE_CUSTOM_STARTUP": "1"
+                        }
+                    },
                     "exec_config": {},
                     "categories": [
                         "Games"
@@ -508,6 +517,46 @@
                             "version": "1.19.x",
                             "image": "sccr.sullyschoice.net/sullyschoice/kasm-unigen-heaven:latest",
                             "uncompressed_size_mb": 3800,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "unreal": {
+                    "description": "Unreal is a 1998 first-person shooter game developed by Epic Games",
+                    "docker_registry": "https://sccr.sullyschoice.net",
+                    "image_src": "unreal.png",
+                    "gpu_count": 0,
+                    "run_config": {
+                        "environment": {
+                            "DISABLE_CUSTOM_STARTUP": "1"
+                        }
+                    },
+                    "exec_config": {},
+                    "categories": [
+                        "Games"
+                    ],
+                    "friendly_name": "Unreal",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-unreal:latest",
+                            "uncompressed_size_mb": 4400,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-unreal:latest",
+                            "uncompressed_size_mb": 4400,
                             "available_tags": [
                                 "latest"
                             ]
@@ -1399,7 +1448,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-02-20T12:32:40Z",
+        "last_commit": "2026-02-21T12:22:51Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
