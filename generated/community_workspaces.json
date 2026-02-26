@@ -1,4 +1,47 @@
 {
+    "BezalelDigitalLLC/kasm-registry": {
+        "github_pages": "https://bezaleldigitalllc.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-02-25T16:58:12Z",
+        "workspaces": [
+            {
+                "Azure CLI Terminal": {
+                    "description": "Kasm terminal workspace with Azure CLI pre-installed for managing Azure resources.",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "azure-cli.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "categories": [
+                        "Development"
+                    ],
+                    "friendly_name": "Azure CLI Terminal",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/bezaleldigitalllc/kasm-azure-cli:1.17.0",
+                            "uncompressed_size_mb": 1480,
+                            "available_tags": [
+                                "1.17.0"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/bezaleldigitalllc/kasm-azure-cli:1.18.0",
+                            "uncompressed_size_mb": 1480,
+                            "available_tags": [
+                                "1.18.0",
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "sullyschoice/kasm-registry": {
         "github_pages": "https://sullyschoice.github.io/kasm-registry/",
         "stars": 2,
@@ -1448,7 +1491,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-02-24T12:36:31Z",
+        "last_commit": "2026-02-25T12:36:34Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
