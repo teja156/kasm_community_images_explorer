@@ -44,7 +44,7 @@
     },
     "sullyschoice/kasm-registry": {
         "github_pages": "https://sullyschoice.github.io/kasm-registry/",
-        "stars": 2,
+        "stars": 3,
         "last_commit": "2026-02-21T04:55:17Z",
         "workspaces": [
             {
@@ -1491,7 +1491,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-02-27T12:32:31Z",
+        "last_commit": "2026-02-28T12:21:43Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
