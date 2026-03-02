@@ -1,41 +1,49 @@
 {
-    "BezalelDigitalLLC/kasm-registry": {
-        "github_pages": "https://bezaleldigitalllc.github.io/kasm-registry/",
+    "dmptrluke/kasm-registry": {
+        "github_pages": "https://dmptrluke.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-02-25T16:58:12Z",
+        "last_commit": "2026-03-01T22:29:05Z",
         "workspaces": [
             {
-                "Azure CLI Terminal": {
-                    "description": "Kasm terminal workspace with Azure CLI pre-installed for managing Azure resources.",
+                "Ubuntu Noble": {
+                    "friendly_name": "Ubuntu Noble",
+                    "image_src": "ubuntu.png",
+                    "description": "Ubuntu is a Linux distribution based on Debian.",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
                     "docker_registry": "https://ghcr.io/",
-                    "image_src": "azure-cli.png",
+                    "categories": [
+                        "Desktop",
+                        "Productivity",
+                        "Development"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
                     "run_config": {
                         "hostname": "kasm"
                     },
-                    "categories": [
-                        "Development"
-                    ],
-                    "friendly_name": "Azure CLI Terminal",
+                    "notes": "The Kasm Ubuntu Noble Workspace requires libseccomp => 2.5.3 to run.\n\nThis can be checked by running runc --version\n\nIf you still want to run Ubuntu Noble but do not have the minimum required libseccomp version, it can be run in an unsecure manner by adding: {\"security_opt\":[\"seccomp=unconfined\"]} to the Docker Run Config Override (JSON) setting above.\n\nNOTE: This will run the Workspace without the docker seccomp sandbox and will significantly reduce the amount of protection that Kasm Workspaces can provide.\n",
                     "architecture": [
                         "amd64"
                     ],
                     "compatibility": [
                         {
+                            "version": "1.16.x",
+                            "image": "ghcr.io/dmptrluke/kasm-workspace-ubuntu-noble-desktop:1.16.1",
+                            "uncompressed_size_mb": 5415
+                        },
+                        {
                             "version": "1.17.x",
-                            "image": "ghcr.io/bezaleldigitalllc/kasm-azure-cli:1.17.0",
-                            "uncompressed_size_mb": 1480,
-                            "available_tags": [
-                                "1.17.0"
-                            ]
+                            "image": "ghcr.io/dmptrluke/kasm-workspace-ubuntu-noble-desktop:1.17.0",
+                            "uncompressed_size_mb": 5415
                         },
                         {
                             "version": "1.18.x",
-                            "image": "ghcr.io/bezaleldigitalllc/kasm-azure-cli:1.18.0",
-                            "uncompressed_size_mb": 1480,
-                            "available_tags": [
-                                "1.18.0",
-                                "latest"
-                            ]
+                            "image": "ghcr.io/dmptrluke/kasm-workspace-ubuntu-noble-desktop:1.18.0",
+                            "uncompressed_size_mb": 5415
                         }
                     ]
                 }
@@ -45,7 +53,7 @@
     "sullyschoice/kasm-registry": {
         "github_pages": "https://sullyschoice.github.io/kasm-registry/",
         "stars": 3,
-        "last_commit": "2026-02-21T04:55:17Z",
+        "last_commit": "2026-03-01T14:32:51Z",
         "workspaces": [
             {
                 "AI-Toolkit": {
@@ -445,6 +453,51 @@
                 }
             },
             {
+                "OpenClaw": {
+                    "description": "The AI that actually does things.",
+                    "docker_registry": "https://sccr.sullyschoice.net",
+                    "image_src": "openclaw.png",
+                    "gpu_count": 0,
+                    "run_config": {},
+                    "exec_config": {},
+                    "categories": [
+                        "AI",
+                        "Utilities"
+                    ],
+                    "friendly_name": "OpenClaw",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-openclaw:latest",
+                            "uncompressed_size_mb": 18000,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-openclaw:latest",
+                            "uncompressed_size_mb": 18000,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.19.x",
+                            "image": "sccr.sullyschoice.net/sullyschoice/kasm-openclaw:latest",
+                            "uncompressed_size_mb": 18000,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
                 "UT2004": {
                     "description": "First-person arena shooter video game developed by Epic Games .",
                     "docker_registry": "https://sccr.sullyschoice.net",
@@ -601,6 +654,49 @@
                             "image": "sccr.sullyschoice.net/sullyschoice/kasm-unreal:latest",
                             "uncompressed_size_mb": 4400,
                             "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "BezalelDigitalLLC/kasm-registry": {
+        "github_pages": "https://bezaleldigitalllc.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-02-25T16:58:12Z",
+        "workspaces": [
+            {
+                "Azure CLI Terminal": {
+                    "description": "Kasm terminal workspace with Azure CLI pre-installed for managing Azure resources.",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "azure-cli.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "categories": [
+                        "Development"
+                    ],
+                    "friendly_name": "Azure CLI Terminal",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/bezaleldigitalllc/kasm-azure-cli:1.17.0",
+                            "uncompressed_size_mb": 1480,
+                            "available_tags": [
+                                "1.17.0"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/bezaleldigitalllc/kasm-azure-cli:1.18.0",
+                            "uncompressed_size_mb": 1480,
+                            "available_tags": [
+                                "1.18.0",
                                 "latest"
                             ]
                         }
@@ -1491,7 +1587,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-02-28T12:21:43Z",
+        "last_commit": "2026-03-01T12:23:45Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -16874,47 +16970,6 @@
                         "1.16.x"
                     ],
                     "uncompressed_size_mb": 2170
-                }
-            }
-        ]
-    },
-    "dmptrluke/kasm-registry": {
-        "github_pages": "https://dmptrluke.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2024-12-08T21:34:38Z",
-        "workspaces": [
-            {
-                "Ubuntu Noble": {
-                    "friendly_name": "Ubuntu Noble",
-                    "image_src": "ubuntu.png",
-                    "description": "Ubuntu is a Linux distribution based on Debian.",
-                    "cores": 2,
-                    "memory": 2768,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "docker_registry": "https://ghcr.io/",
-                    "categories": [
-                        "Desktop",
-                        "Productivity",
-                        "Development"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "notes": "The Kasm Ubuntu Noble Workspace requires libseccomp => 2.5.3 to run.\n\nThis can be checked by running runc --version\n\nIf you still want to run Ubuntu Noble but do not have the minimum required libseccomp version, it can be run in an unsecure manner by adding: {\"security_opt\":[\"seccomp=unconfined\"]} to the Docker Run Config Override (JSON) setting above.\n\nNOTE: This will run the Workspace without the docker seccomp sandbox and will significantly reduce the amount of protection that Kasm Workspaces can provide.\n",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "ghcr.io/dmptrluke/kasm-workspace-ubuntu-noble-desktop:1.16.1",
-                            "uncompressed_size_mb": 5415
-                        }
-                    ]
                 }
             }
         ]
