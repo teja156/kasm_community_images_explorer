@@ -1587,7 +1587,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-03-01T12:23:45Z",
+        "last_commit": "2026-03-02T12:32:04Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -3694,7 +3694,7 @@
     "yuyuvn/kasm-registry": {
         "github_pages": "https://yuyuvn.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-01-31T03:52:46Z",
+        "last_commit": "2026-03-02T08:24:33Z",
         "workspaces": [
             {
                 "Bambustudio": {
@@ -3940,7 +3940,7 @@
     "martynvdijke/kasm-registry": {
         "github_pages": "https://martynvdijke.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-01-31T03:46:45Z",
+        "last_commit": "2026-03-02T03:23:35Z",
         "workspaces": [
             {
                 "Cura": {
@@ -4012,7 +4012,7 @@
     "danstis/kasm-workspaces": {
         "github_pages": "https://danstis.github.io/kasm-workspaces/",
         "stars": 0,
-        "last_commit": "2026-01-30T08:06:56Z",
+        "last_commit": "2026-03-02T12:38:41Z",
         "workspaces": [
             {
                 "RustDesk": {
