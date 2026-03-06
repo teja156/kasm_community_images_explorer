@@ -1,4 +1,53 @@
 {
+    "Mad-Mac-Jack/regestry_christian": {
+        "github_pages": "https://mad-mac-jack.github.io/regestry_christian/",
+        "stars": 0,
+        "last_commit": "2026-03-05T21:56:56Z",
+        "workspaces": [
+            {
+                "ChrisDesktoop": {
+                    "friendly_name": "Mein Desktop",
+                    "image_src": "christian_desk.png",
+                    "description": "Meiner Halt",
+                    "cores": 4,
+                    "memory": 8000,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "categories": [
+                        "Desktop",
+                        "Productivity",
+                        "Development"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "notes": "The Kasm Ubuntu Jammy Workspace requires libseccomp => 2.5.3 to run.\n\nThis can be checked by running runc --version\n\nIf you still want to run Ubuntu Jammy but do not have the minimum required libseccomp version, it can be run in an unsecure manner by adding: {\"security_opt\":[\"seccomp=unconfined\"]} to the Docker Run Config Override (JSON) setting above.\n\nNOTE: This will run the Workspace without the docker seccomp sandbox and will significantly reduce the amount of protection that Kasm Workspaces can provide.\n",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "inpwos4dh/christian_kasm_desktops:1.0",
+                            "uncompressed_size_mb": 37000,
+                            "available_tags": [
+                                "latest",
+                                "1.0",
+                                "1.1",
+                                "1.3",
+                                "1.4",
+                                "1.5"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "double16/kasm-workspaces": {
         "github_pages": "https://double16.github.io/kasm-workspaces/",
         "stars": 2,
@@ -383,7 +432,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-03-04T12:38:25Z",
+        "last_commit": "2026-03-05T12:33:40Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -3273,52 +3322,6 @@
                                 "1.17.0",
                                 "1.17.0-rolling-weekly",
                                 "1.17.0-rolling-daily"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "Mad-Mac-Jack/regestry_christian": {
-        "github_pages": "https://mad-mac-jack.github.io/regestry_christian/",
-        "stars": 0,
-        "last_commit": "2026-02-11T12:12:40Z",
-        "workspaces": [
-            {
-                "JamyUndDrive": {
-                    "friendly_name": "JamyUndDrive",
-                    "image_src": "christian_desk.pn",
-                    "description": "BeinDesktop",
-                    "cores": 2,
-                    "memory": 2768,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "categories": [
-                        "Desktop",
-                        "Productivity",
-                        "Development"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "notes": "The Kasm Ubuntu Jammy Workspace requires libseccomp => 2.5.3 to run.\n\nThis can be checked by running runc --version\n\nIf you still want to run Ubuntu Jammy but do not have the minimum required libseccomp version, it can be run in an unsecure manner by adding: {\"security_opt\":[\"seccomp=unconfined\"]} to the Docker Run Config Override (JSON) setting above.\n\nNOTE: This will run the Workspace without the docker seccomp sandbox and will significantly reduce the amount of protection that Kasm Workspaces can provide.\n",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "inpwos4dh/kasm-ubuntu-synology:1.0",
-                            "uncompressed_size_mb": 8572,
-                            "available_tags": [
-                                "latest",
-                                "1.0"
                             ]
                         }
                     ]
@@ -27658,33 +27661,6 @@
                         "1.14.x"
                     ],
                     "uncompressed_size_mb": 2098
-                }
-            }
-        ]
-    },
-    "GourouLubrik/kasm-registry": {
-        "github_pages": "https://gouroulubrik.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2024-01-02T10:13:20Z",
-        "workspaces": [
-            {
-                "debian-desktop": {
-                    "description": "Guru's version of lsio debian kde desktop",
-                    "docker_registry": "https://gitea.home.burnthewit.ch",
-                    "name": "docker/debian-desktop:latest",
-                    "image_src": "debian-kde.png",
-                    "categories": [
-                        "Desktop"
-                    ],
-                    "friendly_name": "Guru Debian Kde Desktop",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        "1.13.x",
-                        "1.14.x"
-                    ],
-                    "uncompressed_size_mb": 3540
                 }
             }
         ]
