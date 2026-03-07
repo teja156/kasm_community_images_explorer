@@ -2,7 +2,7 @@
     "Mad-Mac-Jack/regestry_christian": {
         "github_pages": "https://mad-mac-jack.github.io/regestry_christian/",
         "stars": 0,
-        "last_commit": "2026-03-05T21:56:56Z",
+        "last_commit": "2026-03-06T08:21:17Z",
         "workspaces": [
             {
                 "ChrisDesktoop": {
@@ -40,7 +40,10 @@
                                 "1.1",
                                 "1.3",
                                 "1.4",
-                                "1.5"
+                                "1.5",
+                                "1.6",
+                                "1.7",
+                                "1.8"
                             ]
                         }
                     ]
@@ -432,7 +435,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-03-05T12:33:40Z",
+        "last_commit": "2026-03-06T12:28:33Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
