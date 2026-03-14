@@ -480,7 +480,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-03-12T12:32:44Z",
+        "last_commit": "2026-03-13T12:31:47Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -17374,8 +17374,8 @@
             }
         ]
     },
-    "CyberOneHQ/kasm-registry": {
-        "github_pages": "https://cyberonehq.github.io/kasm-registry/",
+    "AuvaLabs/kasm-registry": {
+        "github_pages": "https://auvalabs.github.io/kasm-registry/",
         "stars": 0,
         "last_commit": "2024-11-03T17:32:48Z",
         "workspaces": [
