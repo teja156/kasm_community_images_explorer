@@ -1,4 +1,209 @@
 {
+    "DjSni/kasm_workspaces_registry": {
+        "github_pages": "https://djsni.github.io/kasm_workspaces_registry/",
+        "stars": 0,
+        "last_commit": "2026-03-18T19:12:40Z",
+        "workspaces": [
+            {
+                "Ubuntu Snis Edit": {
+                    "description": "A edided Ubuntu Desktop",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Desktop"
+                    ],
+                    "friendly_name": "Snis Ubuntu",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "dersni/docker-kasm-ubuntu-dektop-edit:latest",
+                            "uncompressed_size_mb": 5000,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.17.x",
+                            "image": "dersni/docker-kasm-ubuntu-dektop-edit:latest",
+                            "uncompressed_size_mb": 5000,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ubuntu": {
+                    "description": "A edided Ubuntu Desktop",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Desktop"
+                    ],
+                    "friendly_name": "Ubuntu",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "dersni/kasm-images:ubuntu-desktop-1.16.1",
+                            "uncompressed_size_mb": 3300,
+                            "available_tags": [
+                                "ubuntu-desktop-1.16.1"
+                            ]
+                        },
+                        {
+                            "version": "1.17.x",
+                            "image": "dersni/kasm-images:ubuntu-desktop-1.17.0",
+                            "uncompressed_size_mb": 3300,
+                            "available_tags": [
+                                "ubuntu-desktop-1.17.0"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "dersni/kasm-images:ubuntu-desktop-1.18.0",
+                            "uncompressed_size_mb": 3300,
+                            "available_tags": [
+                                "ubuntu-desktop-1.18.0",
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Winbox": {
+                    "description": "Winbox is a small utility that allows administration of MikroTik RouterOS using a fast and simple GUI.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "winbox.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Remote Access"
+                    ],
+                    "friendly_name": "Winbox",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "obebete/winbox:latest",
+                            "uncompressed_size_mb": 1500,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.17.x",
+                            "image": "obebete/winbox:latest",
+                            "uncompressed_size_mb": 1500,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "obebete/winbox:latest",
+                            "uncompressed_size_mb": 1500,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Winbox4": {
+                    "description": "Winbox4 is a small utility that allows administration of MikroTik RouterOS using a fast and simple GUI.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "winbox4.png",
+                    "run_config": {
+                        "hostname": "winbox4"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Remote Access"
+                    ],
+                    "friendly_name": "Winbox4",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "dersni/kasm-images:winbox-1.16.1",
+                            "uncompressed_size_mb": 1200,
+                            "available_tags": [
+                                "winbox-1.16.1"
+                            ]
+                        },
+                        {
+                            "version": "1.17.x",
+                            "image": "dersni/kasm-images:winbox-1.17.0",
+                            "uncompressed_size_mb": 1200,
+                            "available_tags": [
+                                "winbox-1.17.0"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "dersni/kasm-images:winbox-1.18.0",
+                            "uncompressed_size_mb": 1200,
+                            "available_tags": [
+                                "latest",
+                                "winbox-1.18.0"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "adziedzic2127/dzkasm": {
         "github_pages": "https://adziedzic2127.github.io/dzkasm/",
         "stars": 0,
@@ -480,7 +685,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-03-17T12:41:48Z",
+        "last_commit": "2026-03-18T12:42:13Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -9387,189 +9592,6 @@
                             "version": "1.17.x",
                             "image": "linuxserver/inkscape:latest",
                             "uncompressed_size_mb": 1400
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "DjSni/kasm_workspaces_registry": {
-        "github_pages": "https://djsni.github.io/kasm_workspaces_registry/",
-        "stars": 0,
-        "last_commit": "2025-08-18T17:32:17Z",
-        "workspaces": [
-            {
-                "Ubuntu Snis Edit": {
-                    "description": "A edided Ubuntu Desktop",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "ubuntu.png",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Desktop"
-                    ],
-                    "friendly_name": "Snis Ubuntu",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "dersni/docker-kasm-ubuntu-dektop-edit:latest",
-                            "uncompressed_size_mb": 5000,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.17.x",
-                            "image": "dersni/docker-kasm-ubuntu-dektop-edit:latest",
-                            "uncompressed_size_mb": 5000,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Ubuntu": {
-                    "description": "A edided Ubuntu Desktop",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "ubuntu.png",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Desktop"
-                    ],
-                    "friendly_name": "Ubuntu",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "dersni/kasm-images:ubuntu-desktop-1.16.1",
-                            "uncompressed_size_mb": 3300,
-                            "available_tags": [
-                                "latest",
-                                "ubuntu-desktop-1.16.1"
-                            ]
-                        },
-                        {
-                            "version": "1.17.x",
-                            "image": "dersni/kasm-images:ubuntu-desktop-1.17.0",
-                            "uncompressed_size_mb": 3300,
-                            "available_tags": [
-                                "latest",
-                                "ubuntu-desktop-1.17.0"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Winbox": {
-                    "description": "Winbox is a small utility that allows administration of MikroTik RouterOS using a fast and simple GUI.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "winbox.png",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Remote Access"
-                    ],
-                    "friendly_name": "Winbox",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "obebete/winbox:latest",
-                            "uncompressed_size_mb": 1500,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        },
-                        {
-                            "version": "1.17.x",
-                            "image": "obebete/winbox:latest",
-                            "uncompressed_size_mb": 1500,
-                            "available_tags": [
-                                "latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Winbox4": {
-                    "description": "Winbox4 is a small utility that allows administration of MikroTik RouterOS using a fast and simple GUI.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "winbox4.png",
-                    "run_config": {
-                        "hostname": "winbox4"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Remote Access"
-                    ],
-                    "friendly_name": "Winbox4",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "dersni/kasm-images:winbox-1.16.1",
-                            "uncompressed_size_mb": 1200,
-                            "available_tags": [
-                                "latest",
-                                "winbox-1.16.1"
-                            ]
-                        },
-                        {
-                            "version": "1.17.x",
-                            "image": "dersni/kasm-images:winbox-1.17.0",
-                            "uncompressed_size_mb": 1200,
-                            "available_tags": [
-                                "latest",
-                                "winbox-1.17.0"
-                            ]
                         }
                     ]
                 }
