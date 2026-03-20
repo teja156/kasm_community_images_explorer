@@ -685,7 +685,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-03-18T12:42:13Z",
+        "last_commit": "2026-03-19T12:35:05Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -2411,6 +2411,57 @@
             }
         ]
     },
+    "dmptrluke/kasm-registry": {
+        "github_pages": "https://dmptrluke.github.io/kasm-registry/",
+        "stars": 1,
+        "last_commit": "2026-03-04T01:36:56Z",
+        "workspaces": [
+            {
+                "Ubuntu Noble": {
+                    "friendly_name": "Ubuntu Noble",
+                    "image_src": "ubuntu.png",
+                    "description": "Ubuntu is a Linux distribution based on Debian.",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://ghcr.io/",
+                    "categories": [
+                        "Desktop",
+                        "Productivity",
+                        "Development"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "notes": "The Kasm Ubuntu Noble Workspace requires libseccomp => 2.5.3 to run.\n\nThis can be checked by running runc --version\n\nIf you still want to run Ubuntu Noble but do not have the minimum required libseccomp version, it can be run in an unsecure manner by adding: {\"security_opt\":[\"seccomp=unconfined\"]} to the Docker Run Config Override (JSON) setting above.\n\nNOTE: This will run the Workspace without the docker seccomp sandbox and will significantly reduce the amount of protection that Kasm Workspaces can provide.\n",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "ghcr.io/dmptrluke/kasm-workspace-ubuntu-noble-desktop:1.16.1",
+                            "uncompressed_size_mb": 5415
+                        },
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/dmptrluke/kasm-workspace-ubuntu-noble-desktop:1.17.0",
+                            "uncompressed_size_mb": 5415
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/dmptrluke/kasm-workspace-ubuntu-noble-desktop:1.18.0",
+                            "uncompressed_size_mb": 5415
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "mdelgert/kasm-registry": {
         "github_pages": "https://mdelgert.github.io/kasm-registry/",
         "stars": 0,
@@ -2516,57 +2567,6 @@
                             "version": "1.18.x",
                             "image": "lscr.io/linuxserver/firefox:kasm",
                             "uncompressed_size_mb": 1230
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "dmptrluke/kasm-registry": {
-        "github_pages": "https://dmptrluke.github.io/kasm-registry/",
-        "stars": 1,
-        "last_commit": "2026-03-04T01:36:56Z",
-        "workspaces": [
-            {
-                "Ubuntu Noble": {
-                    "friendly_name": "Ubuntu Noble",
-                    "image_src": "ubuntu.png",
-                    "description": "Ubuntu is a Linux distribution based on Debian.",
-                    "cores": 2,
-                    "memory": 2768,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "docker_registry": "https://ghcr.io/",
-                    "categories": [
-                        "Desktop",
-                        "Productivity",
-                        "Development"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "notes": "The Kasm Ubuntu Noble Workspace requires libseccomp => 2.5.3 to run.\n\nThis can be checked by running runc --version\n\nIf you still want to run Ubuntu Noble but do not have the minimum required libseccomp version, it can be run in an unsecure manner by adding: {\"security_opt\":[\"seccomp=unconfined\"]} to the Docker Run Config Override (JSON) setting above.\n\nNOTE: This will run the Workspace without the docker seccomp sandbox and will significantly reduce the amount of protection that Kasm Workspaces can provide.\n",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "ghcr.io/dmptrluke/kasm-workspace-ubuntu-noble-desktop:1.16.1",
-                            "uncompressed_size_mb": 5415
-                        },
-                        {
-                            "version": "1.17.x",
-                            "image": "ghcr.io/dmptrluke/kasm-workspace-ubuntu-noble-desktop:1.17.0",
-                            "uncompressed_size_mb": 5415
-                        },
-                        {
-                            "version": "1.18.x",
-                            "image": "ghcr.io/dmptrluke/kasm-workspace-ubuntu-noble-desktop:1.18.0",
-                            "uncompressed_size_mb": 5415
                         }
                     ]
                 }
@@ -3726,7 +3726,7 @@
     "rojosinalma/kasm-registry": {
         "github_pages": "https://rojosinalma.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-01-30T08:05:47Z",
+        "last_commit": "2026-03-20T00:33:42Z",
         "workspaces": [
             {
                 "Gimp": {
@@ -4134,7 +4134,7 @@
     "yuyuvn/kasm-registry": {
         "github_pages": "https://yuyuvn.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-03-02T08:24:33Z",
+        "last_commit": "2026-03-19T23:55:03Z",
         "workspaces": [
             {
                 "Bambustudio": {
@@ -4380,7 +4380,7 @@
     "martynvdijke/kasm-registry": {
         "github_pages": "https://martynvdijke.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-03-02T03:23:35Z",
+        "last_commit": "2026-03-19T23:43:45Z",
         "workspaces": [
             {
                 "Cura": {
