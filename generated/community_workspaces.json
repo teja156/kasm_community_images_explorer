@@ -685,7 +685,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-03-19T12:35:05Z",
+        "last_commit": "2026-03-20T12:31:29Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -3726,7 +3726,7 @@
     "rojosinalma/kasm-registry": {
         "github_pages": "https://rojosinalma.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-03-20T00:33:42Z",
+        "last_commit": "2026-03-20T10:19:43Z",
         "workspaces": [
             {
                 "Gimp": {
