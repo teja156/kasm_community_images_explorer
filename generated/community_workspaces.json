@@ -1,4 +1,54 @@
 {
+    "noobthepro500/legendary-fortnight": {
+        "github_pages": "http://tn.ryet.ru/legendary-fortnight/",
+        "stars": 0,
+        "last_commit": "2026-03-23T16:20:34Z",
+        "workspaces": [
+            {
+                "KDE": {
+                    "friendly_name": "Arch KDE",
+                    "image_src": "arch-kde.png",
+                    "description": "Arch with the KDE desktop environment.",
+                    "name": "lscr.io/linuxserver/webtop:arch-kde",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://ghcr.io/",
+                    "categories": [
+                        "Desktop"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "entrypoint": [
+                            "/kasminit"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "exec_config": {},
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        "1.13.x",
+                        "1.14.x",
+                        "1.15.x",
+                        "1.16.x"
+                    ],
+                    "uncompressed_size_mb": 3340
+                }
+            }
+        ]
+    },
     "martynvdijke/kasm-registry": {
         "github_pages": "https://martynvdijke.github.io/kasm-registry/",
         "stars": 0,
@@ -757,7 +807,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-03-22T12:24:52Z",
+        "last_commit": "2026-03-23T12:39:06Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
