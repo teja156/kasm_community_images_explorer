@@ -1,4 +1,316 @@
 {
+    "dcat23/kasm-registry": {
+        "github_pages": "https://dcat23.github.io/kasm-registry/",
+        "stars": 1,
+        "last_commit": "2026-03-31T12:22:26Z",
+        "workspaces": [
+            {
+                "Java Development": {
+                    "friendly_name": "Java Development",
+                    "image_src": "java-development.png",
+                    "description": "Tools and editors for java based development environment. ",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "categories": [
+                        "Development",
+                        "Desktop"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "name": "macchiato23/kasm-development:develop",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "macchiato23/kasm-development:develop",
+                            "uncompressed_size_mb": 5040,
+                            "available_tags": [
+                                "develop",
+                                "0.1.0"
+                            ]
+                        },
+                        {
+                            "version": "1.17.x",
+                            "image": "macchiato23/kasm-development:develop",
+                            "uncompressed_size_mb": 5040,
+                            "available_tags": [
+                                "develop",
+                                "0.1.0"
+                            ]
+                        },
+                        {
+                            "version": "1.16.x",
+                            "image": "macchiato23/kasm-development:develop",
+                            "uncompressed_size_mb": 5040,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Tailscale VPN": {
+                    "friendly_name": "Tailscale VPN",
+                    "image_src": "tailscale-vpn.png",
+                    "description": "Best VPN Service for secure networks",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "categories": [
+                        "Privacy"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "name": "macchiato23/kasm-tailscalevpn:develop",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "macchiato23/kasm-tailscalevpn:develop",
+                            "uncompressed_size_mb": 3350,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        },
+                        {
+                            "version": "1.17.x",
+                            "image": "macchiato23/kasm-tailscalevpn:develop",
+                            "uncompressed_size_mb": 3350,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        },
+                        {
+                            "version": "1.16.x",
+                            "image": "macchiato23/kasm-tailscalevpn:develop",
+                            "uncompressed_size_mb": 3350,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
+    "wolfpackmars2/kasm-registry": {
+        "github_pages": "https://wolfpackmars2.github.io/kasm-registry/",
+        "stars": 1,
+        "last_commit": "2026-03-31T01:49:15Z",
+        "workspaces": [
+            {
+                "Alpine Desktop Base": {
+                    "description": "Alpine 3.21: Base image desktop for test and development of new workspaces.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "alpine_linux.png",
+                    "run_config": {
+                        "hostname": "alpine-base"
+                    },
+                    "categories": [
+                        "Development"
+                    ],
+                    "friendly_name": "Alpine Desktop Base",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "sgroesz/kasm-alpine-desktop-basic:1.18.0-latest",
+                            "cores": 2,
+                            "memory": 2048,
+                            "uncompressed_size_mb": 3000,
+                            "available_tags": [
+                                "1.18.0",
+                                "1.18.0-latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Anycubic Slicer Next": {
+                    "description": "Anycubic Slicer Next. No SUDO access.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "anycubic-slicer.svg",
+                    "categories": [
+                        "Productivity"
+                    ],
+                    "friendly_name": "Anycubic Slicer Next",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "sgroesz/anycubic-slicer-next-kasm:1.18.0-latest",
+                            "uncompressed_size_mb": 1234,
+                            "available_tags": [
+                                "1.18.0",
+                                "1.18.0-latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Dev Desktop": {
+                    "description": "Ubuntu 24.04: Xfce desktop image with VS Code and Docker-in-Docker.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu_linux.svg",
+                    "run_config": {
+                        "hostname": "dev-desktop"
+                    },
+                    "categories": [
+                        "Development"
+                    ],
+                    "friendly_name": "Ubuntu Development Workspace",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "sgroesz/kasm-noble-dev-desktop:1.18.0-latest",
+                            "cores": 2,
+                            "memory": 4096,
+                            "uncompressed_size_mb": 3200,
+                            "available_tags": [
+                                "1.18.0",
+                                "1.18.0-latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Minecraft": {
+                    "description": "Solvespace parametric 2d/3d CAD",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "minecraft.jpg",
+                    "categories": [
+                        "Games"
+                    ],
+                    "friendly_name": "Minecraft",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "sgroesz/minecraft-kasm:1.18.0-current",
+                            "uncompressed_size_mb": 1234,
+                            "available_tags": [
+                                "1.18.0",
+                                "1.18.0-dev",
+                                "1.18.0-current"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Solvespace": {
+                    "description": "Solvespace parametric 2d/3d CAD",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "solvespace.svg",
+                    "categories": [
+                        "Productivity"
+                    ],
+                    "friendly_name": "Solvespace",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "sgroesz/solvespace-kasm:1.18.0-latest",
+                            "uncompressed_size_mb": 1234,
+                            "available_tags": [
+                                "1.18.0",
+                                "1.18.0-latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ubuntu Noble Desktop Base": {
+                    "description": "Ubuntu 24.04: Base image desktop for test and development of new workspaces.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu_linux.svg",
+                    "run_config": {
+                        "hostname": "noble-base"
+                    },
+                    "categories": [
+                        "Development"
+                    ],
+                    "friendly_name": "Ubuntu Noble Desktop Base",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "sgroesz/kasm-noble-desktop-basic:1.18.0-latest",
+                            "cores": 2,
+                            "memory": 2048,
+                            "uncompressed_size_mb": 3200,
+                            "available_tags": [
+                                "1.18.0",
+                                "1.18.0-latest"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ubuntu Noble DinD": {
+                    "description": "Ubuntu 24.04: Noble core Docker-in-Docker image with upgrades and patches.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu_dind.png",
+                    "run_config": {
+                        "hostname": "noble-dind"
+                    },
+                    "categories": [
+                        "Development"
+                    ],
+                    "friendly_name": "Noble DinD",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "sgroesz/ubuntu-noble-dind-kasm:1.18.0-current",
+                            "cores": 4,
+                            "memory": 4096,
+                            "uncompressed_size_mb": 1234,
+                            "available_tags": [
+                                "1.18.0",
+                                "1.18.0-dev",
+                                "1.18.0-current"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "nguyentubadat833/kasm-registry": {
         "github_pages": "https://nguyentubadat833.github.io/kasm-registry/",
         "stars": 0,
@@ -1559,7 +1871,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-03-30T12:49:33Z",
+        "last_commit": "2026-03-31T12:47:00Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -3111,180 +3423,6 @@
             }
         ]
     },
-    "wolfpackmars2/kasm-registry": {
-        "github_pages": "https://wolfpackmars2.github.io/kasm-registry/",
-        "stars": 1,
-        "last_commit": "2026-03-04T04:59:59Z",
-        "workspaces": [
-            {
-                "Alpine Desktop Base": {
-                    "description": "Alpine 3.21: Base image desktop for test and development of new workspaces.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "alpine_linux.png",
-                    "run_config": {
-                        "hostname": "alpine-base"
-                    },
-                    "categories": [
-                        "Development"
-                    ],
-                    "friendly_name": "Alpine Desktop Base",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "sgroesz/kasm-alpine-desktop-basic:1.18.0-latest",
-                            "cores": 2,
-                            "memory": 2048,
-                            "uncompressed_size_mb": 3000,
-                            "available_tags": [
-                                "1.18.0",
-                                "1.18.0-latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Anycubic Slicer Next": {
-                    "description": "Anycubic Slicer Next. No SUDO access.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "anycubic-slicer.svg",
-                    "categories": [
-                        "Productivity"
-                    ],
-                    "friendly_name": "Anycubic Slicer Next",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "sgroesz/anycubic-slicer-next-kasm:1.18.0-latest",
-                            "uncompressed_size_mb": 1234,
-                            "available_tags": [
-                                "1.18.0",
-                                "1.18.0-latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Minecraft": {
-                    "description": "Solvespace parametric 2d/3d CAD",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "minecraft.jpg",
-                    "categories": [
-                        "Games"
-                    ],
-                    "friendly_name": "Minecraft",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "sgroesz/minecraft-kasm:1.18.0-current",
-                            "uncompressed_size_mb": 1234,
-                            "available_tags": [
-                                "1.18.0",
-                                "1.18.0-dev",
-                                "1.18.0-current"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Solvespace": {
-                    "description": "Solvespace parametric 2d/3d CAD",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "solvespace.svg",
-                    "categories": [
-                        "Productivity"
-                    ],
-                    "friendly_name": "Solvespace",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "sgroesz/solvespace-kasm:1.18.0-latest",
-                            "uncompressed_size_mb": 1234,
-                            "available_tags": [
-                                "1.18.0",
-                                "1.18.0-latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Ubuntu Noble Desktop Base": {
-                    "description": "Ubuntu 24.04: Base image desktop for test and development of new workspaces.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "ubuntu_linux.svg",
-                    "run_config": {
-                        "hostname": "noble-base"
-                    },
-                    "categories": [
-                        "Development"
-                    ],
-                    "friendly_name": "Ubuntu Noble Desktop Base",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "sgroesz/kasm-noble-desktop-basic:1.18.0-latest",
-                            "cores": 2,
-                            "memory": 2048,
-                            "uncompressed_size_mb": 3200,
-                            "available_tags": [
-                                "1.18.0",
-                                "1.18.0-latest"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Ubuntu Noble DinD": {
-                    "description": "Ubuntu 24.04: Noble core Docker-in-Docker image with upgrades and patches.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "ubuntu_dind.png",
-                    "run_config": {
-                        "hostname": "noble-dind"
-                    },
-                    "categories": [
-                        "Development"
-                    ],
-                    "friendly_name": "Noble DinD",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "sgroesz/ubuntu-noble-dind-kasm:1.18.0-current",
-                            "cores": 4,
-                            "memory": 4096,
-                            "uncompressed_size_mb": 1234,
-                            "available_tags": [
-                                "1.18.0",
-                                "1.18.0-dev",
-                                "1.18.0-current"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
     "mdelgert/kasm-registry": {
         "github_pages": "https://mdelgert.github.io/kasm-registry/",
         "stars": 0,
@@ -4373,112 +4511,6 @@
                             "uncompressed_size_mb": 1250,
                             "available_tags": [
                                 "latest"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "dcat23/kasm-registry": {
-        "github_pages": "https://dcat23.github.io/kasm-registry/",
-        "stars": 1,
-        "last_commit": "2025-12-21T21:12:27Z",
-        "workspaces": [
-            {
-                "Java Development": {
-                    "friendly_name": "Java Development",
-                    "image_src": "java-development.png",
-                    "description": "Tools and editors for java based development environment. ",
-                    "cores": 2,
-                    "memory": 2768,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "categories": [
-                        "Development",
-                        "Desktop"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "name": "macchiato23/kasm-development:develop",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "macchiato23/kasm-development:develop",
-                            "uncompressed_size_mb": 5040,
-                            "available_tags": [
-                                "develop"
-                            ]
-                        },
-                        {
-                            "version": "1.17.x",
-                            "image": "macchiato23/kasm-development:develop",
-                            "uncompressed_size_mb": 5040,
-                            "available_tags": [
-                                "develop"
-                            ]
-                        },
-                        {
-                            "version": "1.16.x",
-                            "image": "macchiato23/kasm-development:develop",
-                            "uncompressed_size_mb": 5040,
-                            "available_tags": [
-                                "develop"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Tailscale VPN": {
-                    "friendly_name": "Tailscale VPN",
-                    "image_src": "tailscale-vpn.png",
-                    "description": "Best VPN Service for secure networks",
-                    "cores": 2,
-                    "memory": 2768,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "categories": [
-                        "Privacy"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "name": "macchiato23/kasm-tailscalevpn:develop",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "macchiato23/kasm-tailscalevpn:develop",
-                            "uncompressed_size_mb": 3350,
-                            "available_tags": [
-                                "develop"
-                            ]
-                        },
-                        {
-                            "version": "1.17.x",
-                            "image": "macchiato23/kasm-tailscalevpn:develop",
-                            "uncompressed_size_mb": 3350,
-                            "available_tags": [
-                                "develop"
-                            ]
-                        },
-                        {
-                            "version": "1.16.x",
-                            "image": "macchiato23/kasm-tailscalevpn:develop",
-                            "uncompressed_size_mb": 3350,
-                            "available_tags": [
-                                "develop"
                             ]
                         }
                     ]
