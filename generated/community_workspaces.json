@@ -1,4 +1,49 @@
 {
+    "dispersive-dev-ki/kasm-registry": {
+        "github_pages": "https://dispersive-dev-ki.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-04-02T20:48:16Z",
+        "workspaces": [
+            {
+                "Rocky8-Dispersive": {
+                    "description": "Rocky Linux 8 with Dispersive Stealh Networking.",
+                    "docker_registry": "https://ghcr.io",
+                    "image_src": "RockyLinux-Dispersive.png",
+                    "run_config": {
+                        "hostname": "kasm",
+                        "cap_add": [
+                            "NET_ADMIN",
+                            "NET_RAW"
+                        ]
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Desktop",
+                        "Network",
+                        "Security"
+                    ],
+                    "friendly_name": "Rocky8-Dispersive",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/dispersive-dev-ki/kasm-docker-images/rocky8-dispersive-desktop:0.0.1",
+                            "uncompressed_size_mb": 16107
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "wolfpackmars2/kasm-registry": {
         "github_pages": "https://wolfpackmars2.github.io/kasm-registry/",
         "stars": 1,
@@ -1872,7 +1917,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-01T12:49:28Z",
+        "last_commit": "2026-04-02T12:44:06Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -15848,39 +15893,6 @@
                         "Browser"
                     ],
                     "friendly_name": "SensimeshPortal",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        "1.13.x",
-                        "1.14.x",
-                        "1.15.x"
-                    ],
-                    "uncompressed_size_mb": 2170
-                }
-            },
-            {
-                "Terminal": {
-                    "description": "TRE TERMINAL",
-                    "docker_registry": "https://ghcr.io/",
-                    "image_src": "terminal.png",
-                    "name": "nchcdev/workspaces-images/terminal:latest",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        }
-                    },
-                    "categories": [
-                        "Browser"
-                    ],
-                    "friendly_name": "Terminal",
                     "architecture": [
                         "amd64",
                         "arm64"
