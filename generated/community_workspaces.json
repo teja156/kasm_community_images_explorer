@@ -2,11 +2,11 @@
     "dispersive-dev-ki/kasm-registry": {
         "github_pages": "https://dispersive-dev-ki.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-02T20:48:16Z",
+        "last_commit": "2026-04-03T22:13:42Z",
         "workspaces": [
             {
                 "Rocky8-Dispersive": {
-                    "description": "Rocky Linux 8 with Dispersive Stealh Networking.",
+                    "description": "Rocky Linux 8 Desktop with Dispersive Stealh Networking.",
                     "docker_registry": "https://ghcr.io",
                     "image_src": "RockyLinux-Dispersive.png",
                     "run_config": {
@@ -14,6 +14,11 @@
                         "cap_add": [
                             "NET_ADMIN",
                             "NET_RAW"
+                        ],
+                        "dns": [
+                            "9.9.9.9",
+                            "149.112.112.112",
+                            "1.1.1.1"
                         ]
                     },
                     "exec_config": {
@@ -38,6 +43,49 @@
                             "version": "1.18.x",
                             "image": "ghcr.io/dispersive-dev-ki/kasm-docker-images/rocky8-dispersive-desktop:0.0.1",
                             "uncompressed_size_mb": 16107
+                        }
+                    ]
+                }
+            },
+            {
+                "UbuntuNoble-Dispersive": {
+                    "description": "Ubuntu Linux 24.04 (Noble) Desktop with Dispersive Stealh Networking.",
+                    "docker_registry": "https://ghcr.io",
+                    "image_src": "UbuntuLogo-With-Dispersive.png",
+                    "run_config": {
+                        "hostname": "kasm",
+                        "cap_add": [
+                            "NET_ADMIN",
+                            "NET_RAW"
+                        ],
+                        "dns": [
+                            "9.9.9.9",
+                            "149.112.112.112",
+                            "1.1.1.1"
+                        ]
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Desktop",
+                        "Network",
+                        "Security"
+                    ],
+                    "friendly_name": "Ubuntu-Noble-Dispersive",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/dispersive-dev-ki/kasm-docker-images/ubuntu-noble-dispersive-desktop:0.0.1",
+                            "uncompressed_size_mb": 16150
                         }
                     ]
                 }
@@ -1917,7 +1965,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-02T12:44:06Z",
+        "last_commit": "2026-04-03T12:36:18Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -15893,6 +15941,39 @@
                         "Browser"
                     ],
                     "friendly_name": "SensimeshPortal",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        "1.13.x",
+                        "1.14.x",
+                        "1.15.x"
+                    ],
+                    "uncompressed_size_mb": 2170
+                }
+            },
+            {
+                "Terminal": {
+                    "description": "TRE TERMINAL",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "terminal.png",
+                    "name": "nchcdev/workspaces-images/terminal:latest",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Terminal",
                     "architecture": [
                         "amd64",
                         "arm64"
@@ -30894,120 +30975,6 @@
                         "1.13.x"
                     ],
                     "uncompressed_size_mb": 2170
-                }
-            }
-        ]
-    },
-    "Geektasticdad/kasm-registry": {
-        "github_pages": "https://geektasticdad.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2023-06-28T03:57:22Z",
-        "workspaces": [
-            {
-                "MapTool-1.13.0": {
-                    "description": "MapTool Built on Ubuntu Focal",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "maptool.png",
-                    "name": "geektasticdad/kasmweb-maptool:1.13.0",
-                    "cores": 4,
-                    "memory": 8192,
-                    "gpu_count": 0,
-                    "run_config": {
-                        "hostname": "kasm-maptool",
-                        "user": "root"
-                    },
-                    "categories": [
-                        "Desktop"
-                    ],
-                    "friendly_name": "MapTool 1.13.0",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        "1.13.x"
-                    ],
-                    "uncompressed_size_mb": 2240
-                }
-            },
-            {
-                "MapTool-1.13.1-apponly": {
-                    "description": "MapTool Built on Ubuntu Focal",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "maptool.png",
-                    "name": "geektasticdad/kasmweb-maptool:1.13.1-apponly",
-                    "cores": 4,
-                    "memory": 8192,
-                    "gpu_count": 0,
-                    "run_config": {
-                        "hostname": "kasm-maptool",
-                        "user": "root"
-                    },
-                    "categories": [
-                        "Desktop"
-                    ],
-                    "friendly_name": "MapTool 1.13.1 App Only",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        "1.13.x"
-                    ],
-                    "uncompressed_size_mb": 2240
-                }
-            },
-            {
-                "MapTool-1.13.1": {
-                    "description": "MapTool Built on Ubuntu Focal",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "maptool.png",
-                    "name": "geektasticdad/kasmweb-maptool:1.13.1",
-                    "cores": 4,
-                    "memory": 8192,
-                    "gpu_count": 0,
-                    "run_config": {
-                        "hostname": "kasm-maptool",
-                        "user": "root"
-                    },
-                    "categories": [
-                        "Desktop"
-                    ],
-                    "friendly_name": "MapTool 1.13.1",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        "1.13.x"
-                    ],
-                    "uncompressed_size_mb": 2240
-                }
-            },
-            {
-                "MapTool": {
-                    "description": "MapTool Built on Ubuntu Focal",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "maptool.png",
-                    "name": "geektasticdad/kasmweb-maptool:1.10.2-apponly_1.2",
-                    "cores": 4,
-                    "memory": 8192,
-                    "gpu_count": 0,
-                    "run_config": {
-                        "hostname": "kasm-maptool",
-                        "user": "root"
-                    },
-                    "categories": [
-                        "Desktop"
-                    ],
-                    "friendly_name": "MapTool 1.10.2",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        "1.13.x"
-                    ],
-                    "uncompressed_size_mb": 2240
                 }
             }
         ]
