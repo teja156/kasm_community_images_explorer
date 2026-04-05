@@ -1965,7 +1965,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-03T12:36:18Z",
+        "last_commit": "2026-04-04T12:29:57Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
