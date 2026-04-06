@@ -1,4 +1,54 @@
 {
+    "hendrik2510/kasm-registry": {
+        "github_pages": "https://hendrik2510.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-04-05T23:50:34Z",
+        "workspaces": [
+            {
+                "rustdesk": {
+                    "description": "RustDesk is a full-featured open source remote control alternative for self-hosting and security with minimal configuration.",
+                    "docker_registry": "https://ghcr.io/",
+                    "image_src": "rustdesk.png",
+                    "run_config": {
+                        "security_opt": [
+                            "seccomp=unconfined"
+                        ],
+                        "user": 1000,
+                        "environment": {
+                            "HOME": "/home/kasm-user"
+                        }
+                    },
+                    "exec_config": {},
+                    "categories": [
+                        "Productivity"
+                    ],
+                    "friendly_name": "RustDesk",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "lscr.io/linuxserver/rustdesk:latest",
+                            "uncompressed_size_mb": 2470,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "lscr.io/linuxserver/rustdesk:latest",
+                            "uncompressed_size_mb": 2470,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "dispersive-dev-ki/kasm-registry": {
         "github_pages": "https://dispersive-dev-ki.github.io/kasm-registry/",
         "stars": 0,
@@ -1965,7 +2015,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-04T12:29:57Z",
+        "last_commit": "2026-04-05T12:30:02Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
