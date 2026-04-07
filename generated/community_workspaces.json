@@ -1,4 +1,39 @@
 {
+    "TannerFilip/kasm-registry": {
+        "github_pages": "http://tannerfilip.org/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-04-07T00:39:49Z",
+        "workspaces": [
+            {
+                "malcove": {
+                    "description": "Malcove is a lightweight malware analysis environment designed for use within the Kasm workspace platform.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "malcove.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "categories": [
+                        "Security",
+                        "Malware Analysis"
+                    ],
+                    "friendly_name": "Malcove",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "tanner/malcove:develop",
+                            "uncompressed_size_mb": 2500,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "hendrik2510/kasm-registry": {
         "github_pages": "https://hendrik2510.github.io/kasm-registry/",
         "stars": 0,
@@ -2015,7 +2050,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-05T12:30:02Z",
+        "last_commit": "2026-04-06T12:44:18Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
