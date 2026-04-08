@@ -2,21 +2,28 @@
     "TannerFilip/kasm-registry": {
         "github_pages": "http://tannerfilip.org/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-07T00:39:49Z",
+        "last_commit": "2026-04-07T20:13:32Z",
         "workspaces": [
             {
                 "malcove": {
-                    "description": "Malcove is a lightweight malware analysis environment designed for use within the Kasm workspace platform.",
-                    "docker_registry": "https://index.docker.io/v1/",
+                    "friendly_name": "Malcove",
                     "image_src": "malcove.png",
-                    "run_config": {
-                        "hostname": "kasm"
-                    },
+                    "description": "Malcove is a lightweight malware analysis environment designed for use within the Kasm workspace platform.",
+                    "cores": 2,
+                    "memory": 4096,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://index.docker.io/v1/",
                     "categories": [
                         "Security",
                         "Malware Analysis"
                     ],
-                    "friendly_name": "Malcove",
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
                     "architecture": [
                         "amd64"
                     ],
@@ -29,7 +36,8 @@
                                 "develop"
                             ]
                         }
-                    ]
+                    ],
+                    "name": "tanner/malcove:develop"
                 }
             }
         ]
@@ -2050,7 +2058,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-06T12:44:18Z",
+        "last_commit": "2026-04-07T12:53:33Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -4254,7 +4262,7 @@
     "rojosinalma/kasm-registry": {
         "github_pages": "https://rojosinalma.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-03-26T21:11:33Z",
+        "last_commit": "2026-04-07T23:33:56Z",
         "workspaces": [
             {
                 "Gimp": {
@@ -4662,7 +4670,7 @@
     "yuyuvn/kasm-registry": {
         "github_pages": "https://yuyuvn.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-03-26T22:31:11Z",
+        "last_commit": "2026-04-07T22:21:30Z",
         "workspaces": [
             {
                 "Bambustudio": {
@@ -4802,7 +4810,7 @@
     "danstis/kasm-workspaces": {
         "github_pages": "https://danstis.github.io/kasm-workspaces/",
         "stars": 0,
-        "last_commit": "2026-03-02T12:38:41Z",
+        "last_commit": "2026-04-07T22:13:49Z",
         "workspaces": [
             {
                 "RustDesk": {
