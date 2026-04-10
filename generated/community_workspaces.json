@@ -2,7 +2,7 @@
     "TannerFilip/kasm-registry": {
         "github_pages": "http://tannerfilip.org/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-07T20:13:32Z",
+        "last_commit": "2026-04-09T02:40:06Z",
         "workspaces": [
             {
                 "malcove": {
@@ -29,7 +29,7 @@
                     ],
                     "compatibility": [
                         {
-                            "version": "1.17.x",
+                            "version": "1.18.x",
                             "image": "tanner/malcove:develop",
                             "uncompressed_size_mb": 2500,
                             "available_tags": [
@@ -2058,7 +2058,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-08T12:51:52Z",
+        "last_commit": "2026-04-09T12:55:47Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -8716,7 +8716,7 @@
     },
     "xpipe-io/kasm-registry": {
         "github_pages": "https://kasm.xpipe.io/",
-        "stars": 4,
+        "stars": 5,
         "last_commit": "2025-11-18T21:49:26Z",
         "workspaces": [
             {
