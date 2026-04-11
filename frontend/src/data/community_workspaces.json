@@ -1,4 +1,194 @@
 {
+    "josep-the-great/rblx-kasm": {
+        "github_pages": "https://josep-the-great.github.io/rblx-kasm/",
+        "stars": 0,
+        "last_commit": "2026-04-10T16:53:37Z",
+        "workspaces": [
+            {
+                "Roblox Studio": {
+                    "description": "Customized Ubuntu 22.04 (Jammy) desktop with extras",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu-jammy.png",
+                    "name": "doctorwhen/kasm:ubuntu-jammy",
+                    "friendly_name": "Ubuntu 22.04",
+                    "cores": 8,
+                    "memory": 8192,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "run_config": {
+                        "hostname": "kasm-jammy"
+                    },
+                    "exec_config": {
+                        "first_launch": {
+                            "user": "root",
+                            "cmd": "flatpak run org.vinegarhq.Vinegar studio"
+                        }
+                    },
+                    "categories": [
+                        "Desktop",
+                        "Productivity"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        "1.15.x",
+                        "1.14.x"
+                    ],
+                    "uncompressed_size_mb": 10600
+                }
+            }
+        ]
+    },
+    "josep-the-great/kasm": {
+        "github_pages": "https://josep-the-great.github.io/kasm/",
+        "stars": 0,
+        "last_commit": "2026-04-10T16:19:07Z",
+        "workspaces": [
+            {
+                "Roblox Studio": {
+                    "description": "Customized Ubuntu 22.04 (Jammy) desktop with extras",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu-jammy.png",
+                    "name": "doctorwhen/kasm:ubuntu-jammy",
+                    "friendly_name": "Ubuntu 22.04",
+                    "cores": 8,
+                    "memory": 8192,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "run_config": {
+                        "hostname": "kasm-jammy"
+                    },
+                    "exec_config": {
+                        "first_launch": {
+                            "user": "root",
+                            "cmd": "flatpak run org.vinegarhq.Vinegar studio"
+                        }
+                    },
+                    "categories": [
+                        "Desktop",
+                        "Productivity"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        "1.15.x",
+                        "1.14.x"
+                    ],
+                    "uncompressed_size_mb": 10600
+                }
+            }
+        ]
+    },
+    "dcat23/kasm-registry": {
+        "github_pages": "https://dcat23.github.io/kasm-registry/",
+        "stars": 1,
+        "last_commit": "2026-04-10T15:13:11Z",
+        "workspaces": [
+            {
+                "Java Development": {
+                    "friendly_name": "Java Development",
+                    "image_src": "java-development.png",
+                    "description": "Tools and editors for java based development environment. ",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "categories": [
+                        "Development",
+                        "Desktop"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "name": "macchiato23/kasm-development:latest",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "macchiato23/kasm-development:latest",
+                            "uncompressed_size_mb": 4660,
+                            "available_tags": [
+                                "develop",
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.17.x",
+                            "image": "macchiato23/kasm-development:latest",
+                            "uncompressed_size_mb": 4660,
+                            "available_tags": [
+                                "develop",
+                                "latest"
+                            ]
+                        },
+                        {
+                            "version": "1.16.x",
+                            "image": "macchiato23/kasm-development:develop",
+                            "uncompressed_size_mb": 5040,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Tailscale VPN": {
+                    "friendly_name": "Tailscale VPN",
+                    "image_src": "tailscale-vpn.png",
+                    "description": "Best VPN Service for secure networks",
+                    "cores": 2,
+                    "memory": 2768,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "categories": [
+                        "Privacy"
+                    ],
+                    "require_gpu": false,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "name": "macchiato23/kasm-tailscalevpn:develop",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "macchiato23/kasm-tailscalevpn:develop",
+                            "uncompressed_size_mb": 3350,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        },
+                        {
+                            "version": "1.17.x",
+                            "image": "macchiato23/kasm-tailscalevpn:develop",
+                            "uncompressed_size_mb": 3350,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        },
+                        {
+                            "version": "1.16.x",
+                            "image": "macchiato23/kasm-tailscalevpn:develop",
+                            "uncompressed_size_mb": 3350,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "TannerFilip/kasm-registry": {
         "github_pages": "http://tannerfilip.org/kasm-registry/",
         "stars": 0,
@@ -383,114 +573,6 @@
                                 "1.18.0",
                                 "1.18.0-dev",
                                 "1.18.0-current"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "dcat23/kasm-registry": {
-        "github_pages": "https://dcat23.github.io/kasm-registry/",
-        "stars": 1,
-        "last_commit": "2026-03-31T12:22:26Z",
-        "workspaces": [
-            {
-                "Java Development": {
-                    "friendly_name": "Java Development",
-                    "image_src": "java-development.png",
-                    "description": "Tools and editors for java based development environment. ",
-                    "cores": 2,
-                    "memory": 2768,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "categories": [
-                        "Development",
-                        "Desktop"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "name": "macchiato23/kasm-development:develop",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "macchiato23/kasm-development:develop",
-                            "uncompressed_size_mb": 5040,
-                            "available_tags": [
-                                "develop",
-                                "0.1.0"
-                            ]
-                        },
-                        {
-                            "version": "1.17.x",
-                            "image": "macchiato23/kasm-development:develop",
-                            "uncompressed_size_mb": 5040,
-                            "available_tags": [
-                                "develop",
-                                "0.1.0"
-                            ]
-                        },
-                        {
-                            "version": "1.16.x",
-                            "image": "macchiato23/kasm-development:develop",
-                            "uncompressed_size_mb": 5040,
-                            "available_tags": [
-                                "develop"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Tailscale VPN": {
-                    "friendly_name": "Tailscale VPN",
-                    "image_src": "tailscale-vpn.png",
-                    "description": "Best VPN Service for secure networks",
-                    "cores": 2,
-                    "memory": 2768,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "categories": [
-                        "Privacy"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "name": "macchiato23/kasm-tailscalevpn:develop",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "macchiato23/kasm-tailscalevpn:develop",
-                            "uncompressed_size_mb": 3350,
-                            "available_tags": [
-                                "develop"
-                            ]
-                        },
-                        {
-                            "version": "1.17.x",
-                            "image": "macchiato23/kasm-tailscalevpn:develop",
-                            "uncompressed_size_mb": 3350,
-                            "available_tags": [
-                                "develop"
-                            ]
-                        },
-                        {
-                            "version": "1.16.x",
-                            "image": "macchiato23/kasm-tailscalevpn:develop",
-                            "uncompressed_size_mb": 3350,
-                            "available_tags": [
-                                "develop"
                             ]
                         }
                     ]
@@ -2058,7 +2140,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-09T12:55:47Z",
+        "last_commit": "2026-04-10T12:41:50Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
