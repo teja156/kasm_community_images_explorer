@@ -1,4 +1,490 @@
 {
+    "lathanaspa/kasm-registry": {
+        "github_pages": "https://lathanaspa.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-04-11T14:30:44Z",
+        "workspaces": [
+            {
+                "Brave VPN": {
+                    "description": "The Brave browser is a fast, private and secure web browser.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "brave.png",
+                    "run_config": {
+                        "hostname": "kasm",
+                        "dns": [
+                            "1.1.1.1",
+                            "1.0.0.1"
+                        ],
+                        "sysctls": {
+                            "net.ipv4.conf.all.src_valid_mark": 1
+                        },
+                        "environment": {
+                            "TAILSCALE_KEY": "",
+                            "SHOW_IP_STATUS": "1",
+                            "SHOW_VPN_STATUS": "1"
+                        }
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        },
+                        "first_launch": {
+                            "cmd": "bash -c '/usr/bin/desktop_ready && /dockerstartup/start_vpn.sh'",
+                            "user": "root",
+                            "privileged": true
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Brave - VPN",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-brave-vpn:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Chrome VPN": {
+                    "description": "Google Chrome is a cross-platform web browser developed by Google.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "chrome.png",
+                    "run_config": {
+                        "hostname": "kasm",
+                        "dns": [
+                            "1.1.1.1",
+                            "1.0.0.1"
+                        ],
+                        "sysctls": {
+                            "net.ipv4.conf.all.src_valid_mark": 1
+                        },
+                        "environment": {
+                            "TAILSCALE_KEY": "",
+                            "SHOW_IP_STATUS": "1",
+                            "SHOW_VPN_STATUS": "1"
+                        }
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        },
+                        "first_launch": {
+                            "cmd": "bash -c '/usr/bin/desktop_ready && /dockerstartup/start_vpn.sh'",
+                            "user": "root",
+                            "privileged": true
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Chrome - VPN",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-chrome-vpn:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Edge VPN": {
+                    "description": "Microsoft Edge is a cross-platform web browser developed by Microsoft.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "edge.png",
+                    "run_config": {
+                        "hostname": "kasm",
+                        "dns": [
+                            "1.1.1.1",
+                            "1.0.0.1"
+                        ],
+                        "sysctls": {
+                            "net.ipv4.conf.all.src_valid_mark": 1
+                        },
+                        "environment": {
+                            "TAILSCALE_KEY": "",
+                            "SHOW_IP_STATUS": "1",
+                            "SHOW_VPN_STATUS": "1"
+                        }
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        },
+                        "first_launch": {
+                            "cmd": "bash -c '/usr/bin/desktop_ready && /dockerstartup/start_vpn.sh'",
+                            "user": "root",
+                            "privileged": true
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Edge - VPN",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-firefox-vpn:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Firefox VPN": {
+                    "description": "Firefox was created by Mozilla as a faster, more private alternative to browsers like Internet Explorer, and now Chrome.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "firefox.png",
+                    "run_config": {
+                        "hostname": "kasm",
+                        "dns": [
+                            "1.1.1.1",
+                            "1.0.0.1"
+                        ],
+                        "sysctls": {
+                            "net.ipv4.conf.all.src_valid_mark": 1
+                        },
+                        "environment": {
+                            "TAILSCALE_KEY": "",
+                            "SHOW_IP_STATUS": "1",
+                            "SHOW_VPN_STATUS": "1"
+                        }
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        },
+                        "first_launch": {
+                            "cmd": "bash -c '/usr/bin/desktop_ready && /dockerstartup/start_vpn.sh'",
+                            "user": "root",
+                            "privileged": true
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Firefox - VPN",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-edge-vpn:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ubuntu Focal VPN": {
+                    "description": "Ubuntu is a Linux distribution based on Debian. This container includes Ubuntu Jammy with tools for using popular VPN services.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu.png",
+                    "run_config": {
+                        "hostname": "kasm",
+                        "dns": [
+                            "1.1.1.1",
+                            "1.0.0.1"
+                        ],
+                        "sysctls": {
+                            "net.ipv4.conf.all.src_valid_mark": 1
+                        },
+                        "environment": {
+                            "TAILSCALE_KEY": "",
+                            "SHOW_IP_STATUS": "1",
+                            "SHOW_VPN_STATUS": "1"
+                        }
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        },
+                        "first_launch": {
+                            "cmd": "bash -c '/usr/bin/desktop_ready && /dockerstartup/start_vpn.sh'",
+                            "user": "root",
+                            "privileged": true
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Ubuntu Focal - VPN",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-ubuntu-focal-desktop:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ubuntu Focal": {
+                    "description": "Ubuntu is a Linux distribution based on Debian.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Ubuntu Focal",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-ubuntu-focal-desktop-vpn:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ubuntu Jammy VPN": {
+                    "description": "Ubuntu is a Linux distribution based on Debian. This container includes Ubuntu Jammy with tools for using popular VPN services.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu.png",
+                    "run_config": {
+                        "hostname": "kasm",
+                        "dns": [
+                            "1.1.1.1",
+                            "1.0.0.1"
+                        ],
+                        "sysctls": {
+                            "net.ipv4.conf.all.src_valid_mark": 1
+                        },
+                        "environment": {
+                            "TAILSCALE_KEY": "",
+                            "SHOW_IP_STATUS": "1",
+                            "SHOW_VPN_STATUS": "1"
+                        }
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        },
+                        "first_launch": {
+                            "cmd": "bash -c '/usr/bin/desktop_ready && /dockerstartup/start_vpn.sh'",
+                            "user": "root",
+                            "privileged": true
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Ubuntu Jammy - VPN",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-ubuntu-jammy-desktop-vpn:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ubuntu Jammy": {
+                    "description": "Ubuntu is a Linux distribution based on Debian.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Ubuntu Jammy",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-ubuntu-jammy-desktop:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ubuntu Noble VPN": {
+                    "description": "Ubuntu is a Linux distribution based on Debian. This container includes Ubuntu Jammy with tools for using popular VPN services.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu.png",
+                    "run_config": {
+                        "hostname": "kasm",
+                        "dns": [
+                            "1.1.1.1",
+                            "1.0.0.1"
+                        ],
+                        "sysctls": {
+                            "net.ipv4.conf.all.src_valid_mark": 1
+                        },
+                        "environment": {
+                            "TAILSCALE_KEY": "",
+                            "SHOW_IP_STATUS": "1",
+                            "SHOW_VPN_STATUS": "1"
+                        }
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        },
+                        "first_launch": {
+                            "cmd": "bash -c '/usr/bin/desktop_ready && /dockerstartup/start_vpn.sh'",
+                            "user": "root",
+                            "privileged": true
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Ubuntu Noble - VPN",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-ubuntu-noble-desktop-vpn:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ubuntu Noble": {
+                    "description": "Ubuntu is a Linux distribution based on Debian.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Ubuntu Noble",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-ubuntu-noble-desktop:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "josep-the-great/rblx-kasm": {
         "github_pages": "https://josep-the-great.github.io/rblx-kasm/",
         "stars": 0,
@@ -2140,7 +2626,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-10T12:41:50Z",
+        "last_commit": "2026-04-11T12:31:31Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
