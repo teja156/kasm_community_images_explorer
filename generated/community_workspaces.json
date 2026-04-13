@@ -2,7 +2,7 @@
     "lathanaspa/kasm-registry": {
         "github_pages": "https://lathanaspa.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-11T14:30:44Z",
+        "last_commit": "2026-04-12T09:38:06Z",
         "workspaces": [
             {
                 "Brave VPN": {
@@ -217,6 +217,42 @@
                 }
             },
             {
+                "Ubuntu Focal Developer": {
+                    "description": "Ubuntu is a Linux distribution based on Debian.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Ubuntu Focal - Developer",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-ubuntu-focal-developer:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
                 "Ubuntu Focal VPN": {
                     "description": "Ubuntu is a Linux distribution based on Debian. This container includes Ubuntu Jammy with tools for using popular VPN services.",
                     "docker_registry": "https://index.docker.io/v1/",
@@ -306,6 +342,42 @@
                 }
             },
             {
+                "Ubuntu Jammy Developer": {
+                    "description": "Ubuntu is a Linux distribution based on Debian.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Ubuntu Jammy - Developer",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-ubuntu-jammy-developer:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
                 "Ubuntu Jammy VPN": {
                     "description": "Ubuntu is a Linux distribution based on Debian. This container includes Ubuntu Jammy with tools for using popular VPN services.",
                     "docker_registry": "https://index.docker.io/v1/",
@@ -386,6 +458,42 @@
                         {
                             "version": "1.18.x",
                             "image": "lathanaspa/kasm-ubuntu-jammy-desktop:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ubuntu Noble Developer": {
+                    "description": "Ubuntu is a Linux distribution based on Debian.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Ubuntu Noble - Developer",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-ubuntu-noble-developer:develop",
                             "uncompressed_size_mb": 2170,
                             "available_tags": [
                                 "develop"
@@ -2626,7 +2734,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-11T12:31:31Z",
+        "last_commit": "2026-04-12T12:34:56Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -4830,7 +4938,7 @@
     "rojosinalma/kasm-registry": {
         "github_pages": "https://rojosinalma.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-07T23:33:56Z",
+        "last_commit": "2026-04-12T21:42:32Z",
         "workspaces": [
             {
                 "Gimp": {
