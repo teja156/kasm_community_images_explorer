@@ -2,7 +2,7 @@
     "lathanaspa/kasm-registry": {
         "github_pages": "https://lathanaspa.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-12T09:38:06Z",
+        "last_commit": "2026-04-13T05:57:11Z",
         "workspaces": [
             {
                 "Brave VPN": {
@@ -233,7 +233,9 @@
                         }
                     },
                     "categories": [
-                        "Browser"
+                        "Desktop",
+                        "Productivity",
+                        "Development"
                     ],
                     "friendly_name": "Ubuntu Focal - Developer",
                     "architecture": [
@@ -286,7 +288,9 @@
                         }
                     },
                     "categories": [
-                        "Browser"
+                        "Desktop",
+                        "Productivity",
+                        "Development"
                     ],
                     "friendly_name": "Ubuntu Focal - VPN",
                     "architecture": [
@@ -322,7 +326,9 @@
                         }
                     },
                     "categories": [
-                        "Browser"
+                        "Desktop",
+                        "Productivity",
+                        "Development"
                     ],
                     "friendly_name": "Ubuntu Focal",
                     "architecture": [
@@ -358,7 +364,9 @@
                         }
                     },
                     "categories": [
-                        "Browser"
+                        "Desktop",
+                        "Productivity",
+                        "Development"
                     ],
                     "friendly_name": "Ubuntu Jammy - Developer",
                     "architecture": [
@@ -411,7 +419,9 @@
                         }
                     },
                     "categories": [
-                        "Browser"
+                        "Desktop",
+                        "Productivity",
+                        "Development"
                     ],
                     "friendly_name": "Ubuntu Jammy - VPN",
                     "architecture": [
@@ -447,7 +457,9 @@
                         }
                     },
                     "categories": [
-                        "Browser"
+                        "Desktop",
+                        "Productivity",
+                        "Development"
                     ],
                     "friendly_name": "Ubuntu Jammy",
                     "architecture": [
@@ -483,7 +495,9 @@
                         }
                     },
                     "categories": [
-                        "Browser"
+                        "Desktop",
+                        "Productivity",
+                        "Development"
                     ],
                     "friendly_name": "Ubuntu Noble - Developer",
                     "architecture": [
@@ -536,7 +550,9 @@
                         }
                     },
                     "categories": [
-                        "Browser"
+                        "Desktop",
+                        "Productivity",
+                        "Development"
                     ],
                     "friendly_name": "Ubuntu Noble - VPN",
                     "architecture": [
@@ -572,7 +588,9 @@
                         }
                     },
                     "categories": [
-                        "Browser"
+                        "Desktop",
+                        "Productivity",
+                        "Development"
                     ],
                     "friendly_name": "Ubuntu Noble",
                     "architecture": [
@@ -583,6 +601,42 @@
                         {
                             "version": "1.18.x",
                             "image": "lathanaspa/kasm-ubuntu-noble-desktop:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Zoho Mail": {
+                    "description": "The comfort of your webmail now in your desktop with the Zoho Mail Desktop Lite client.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "zoho-mail.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Productivity",
+                        "Communication"
+                    ],
+                    "friendly_name": "Zoho Mail",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-zoho-mail:develop",
                             "uncompressed_size_mb": 2170,
                             "available_tags": [
                                 "develop"
@@ -1220,7 +1274,7 @@
     "martynvdijke/kasm-registry": {
         "github_pages": "https://martynvdijke.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-03-29T19:15:00Z",
+        "last_commit": "2026-04-14T00:07:38Z",
         "workspaces": [
             {
                 "Cura": {
@@ -2129,14 +2183,6 @@
                             ]
                         },
                         {
-                            "version": "1.17.x",
-                            "image": "dersni/kasm-images:ubuntu-desktop-1.17.0",
-                            "uncompressed_size_mb": 3300,
-                            "available_tags": [
-                                "ubuntu-desktop-1.17.0"
-                            ]
-                        },
-                        {
                             "version": "1.18.x",
                             "image": "dersni/kasm-images:ubuntu-desktop-1.18.0",
                             "uncompressed_size_mb": 3300,
@@ -2734,7 +2780,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-12T12:34:56Z",
+        "last_commit": "2026-04-13T12:56:28Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -5346,7 +5392,7 @@
     "yuyuvn/kasm-registry": {
         "github_pages": "https://yuyuvn.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-07T22:21:30Z",
+        "last_commit": "2026-04-13T22:06:56Z",
         "workspaces": [
             {
                 "Bambustudio": {
