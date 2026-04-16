@@ -1,4 +1,81 @@
 {
+    "claytonraymond2004/kasm-registry": {
+        "github_pages": "https://claytonraymond2004.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-04-15T16:36:41Z",
+        "workspaces": [
+            {
+                "Forescout 8.5.3": {
+                    "friendly_name": "Forescout 8.5.3",
+                    "description": "Manage a Forescout with the Console",
+                    "image_src": "forescout.png",
+                    "cores": 4,
+                    "memory": 4096,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "require_gpu": false,
+                    "enabled": true,
+                    "docker_registry": "https://ghcr.io/",
+                    "image_type": "Container",
+                    "run_config": {},
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "uncompressed_size_mb": 9807,
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/claytonraymond2004/forescout-8.5.3:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Forescout 8.5.5": {
+                    "friendly_name": "Forescout 8.5.5",
+                    "description": "Manage a Forescout with the Console",
+                    "image_src": "forescout.png",
+                    "cores": 4,
+                    "memory": 4096,
+                    "gpu_count": 0,
+                    "cpu_allocation_method": "Inherit",
+                    "require_gpu": false,
+                    "enabled": true,
+                    "docker_registry": "https://ghcr.io/",
+                    "image_type": "Container",
+                    "run_config": {
+                        "environment": {
+                            "FORESCOUT_USER": "username",
+                            "FORESCOUT_PASSWORD": "password",
+                            "FORESCOUT_HOST": "url_or_ip"
+                        }
+                    },
+                    "categories": [
+                        "Security"
+                    ],
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "uncompressed_size_mb": 9807,
+                    "compatibility": [
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/claytonraymond2004/forescout-8.5.5:1.17",
+                            "available_tags": [
+                                "1.17"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "martynvdijke/kasm-registry": {
         "github_pages": "https://martynvdijke.github.io/kasm-registry/",
         "stars": 0,
@@ -2788,7 +2865,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-14T12:56:11Z",
+        "last_commit": "2026-04-15T12:56:09Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -8511,45 +8588,6 @@
                         "1.16.x"
                     ],
                     "uncompressed_size_mb": 2270
-                }
-            }
-        ]
-    },
-    "claytonraymond2004/kasm-registry": {
-        "github_pages": "https://claytonraymond2004.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2025-12-05T13:33:18Z",
-        "workspaces": [
-            {
-                "Forescout 8.5.3": {
-                    "friendly_name": "Forescout 8.5.3",
-                    "description": "Manage a Forescout with the Console",
-                    "image_src": "forescout.png",
-                    "cores": 4,
-                    "memory": 4096,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "require_gpu": false,
-                    "enabled": true,
-                    "docker_registry": "https://ghcr.io/",
-                    "image_type": "Container",
-                    "run_config": {},
-                    "categories": [
-                        "Security"
-                    ],
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "uncompressed_size_mb": 9807,
-                    "compatibility": [
-                        {
-                            "version": "1.17.x",
-                            "image": "ghcr.io/claytonraymond2004/forescout-8.5.3:1.17",
-                            "available_tags": [
-                                "1.17"
-                            ]
-                        }
-                    ]
                 }
             }
         ]
