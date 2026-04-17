@@ -1,4 +1,42 @@
 {
+    "brett256/eddiesnetwork_kasm_registry": {
+        "github_pages": "https://brett256.github.io/eddiesnetwork_kasm_registry/",
+        "stars": 0,
+        "last_commit": "2026-04-17T00:26:51Z",
+        "workspaces": [
+            {
+                "Eddies Desktop": {
+                    "friendly_name": "Eddies Desktop",
+                    "description": "Ubuntu Jammy desktop with root access and AppImage launcher",
+                    "image_src": "eddies-desktop.png",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "categories": [
+                        "Desktop"
+                    ],
+                    "run_config": {
+                        "devices": [
+                            "/dev/fuse:/dev/fuse:rwm"
+                        ],
+                        "cap_add": [
+                            "SYS_ADMIN"
+                        ],
+                        "security_opt": [
+                            "apparmor:unconfined"
+                        ]
+                    },
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "bretteddies/eddies-desktop:1.16",
+                            "uncompressed_size_mb": 3500
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "claytonraymond2004/kasm-registry": {
         "github_pages": "https://claytonraymond2004.github.io/kasm-registry/",
         "stars": 0,
@@ -2865,7 +2903,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-15T12:56:09Z",
+        "last_commit": "2026-04-16T12:59:58Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
