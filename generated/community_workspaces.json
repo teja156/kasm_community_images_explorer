@@ -2,7 +2,7 @@
     "oliver-cox-hsm/kasm-registry": {
         "github_pages": "https://oliver-cox-hsm.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-21T00:44:28Z",
+        "last_commit": "2026-04-21T11:45:37Z",
         "workspaces": [
             {
                 "hsm": {
@@ -425,6 +425,44 @@
                         {
                             "version": "1.18.x",
                             "image": "lathanaspa/kasm-ubuntu-focal-desktop-vpn:develop",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "Ubuntu Jammy Developer Web": {
+                    "description": "Ubuntu is a Linux distribution based on Debian.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "ubuntu.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Desktop",
+                        "Productivity",
+                        "Development"
+                    ],
+                    "friendly_name": "Ubuntu Jammy - Web Developer",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-ubuntu-jammy-web:develop",
                             "uncompressed_size_mb": 2170,
                             "available_tags": [
                                 "develop"
@@ -2998,7 +3036,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-20T13:01:34Z",
+        "last_commit": "2026-04-21T12:56:41Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
