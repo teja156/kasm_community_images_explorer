@@ -1,4 +1,37 @@
 {
+    "oliver-cox-hsm/kasm-registry": {
+        "github_pages": "https://oliver-cox-hsm.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-04-25T23:39:02Z",
+        "workspaces": [
+            {
+                "hsm": {
+                    "description": "hsm",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "logo.png",
+                    "categories": [
+                        "Development"
+                    ],
+                    "friendly_name": "COEUS",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "olivercox/coeus:latest",
+                            "uncompressed_size_mb": 2528,
+                            "available_tags": [
+                                "develop",
+                                "1.18.0"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "bionicdonkey/kasm-registry": {
         "github_pages": "https://bionicdonkey.github.io/kasm-registry/",
         "stars": 0,
@@ -1002,39 +1035,6 @@
                             "uncompressed_size_mb": 2170,
                             "available_tags": [
                                 "develop"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "oliver-cox-hsm/kasm-registry": {
-        "github_pages": "https://oliver-cox-hsm.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2026-04-22T11:44:25Z",
-        "workspaces": [
-            {
-                "hsm": {
-                    "description": "hsm.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "logo.png",
-                    "categories": [
-                        "Development"
-                    ],
-                    "friendly_name": "COEUS",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "olivercox/coeus:latest",
-                            "uncompressed_size_mb": 2528,
-                            "available_tags": [
-                                "develop",
-                                "1.18.0"
                             ]
                         }
                     ]
@@ -3307,7 +3307,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-24T12:54:45Z",
+        "last_commit": "2026-04-25T12:37:06Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -23239,144 +23239,6 @@
                         "1.14.x"
                     ],
                     "uncompressed_size_mb": 2170
-                }
-            }
-        ]
-    },
-    "markusdeger/kasm-registry": {
-        "github_pages": "https://markusdeger.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2024-05-14T13:49:29Z",
-        "workspaces": [
-            {
-                "Chromium": {
-                    "friendly_name": "Chromium",
-                    "image_src": "chromium.png",
-                    "description": "Chromium is an open-source browser project that aims to build a safer, faster, and more stable way for all users to experience the web.",
-                    "name": "lscr.io/linuxserver/chromium:latest",
-                    "cores": 2,
-                    "memory": 2768,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "docker_registry": "https://ghcr.io/",
-                    "categories": [
-                        "Browser"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "run_config": {
-                        "security_opt": [
-                            "seccomp=unconfined"
-                        ],
-                        "entrypoint": [
-                            "/kasminit"
-                        ],
-                        "user": 1000
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c 'HOME=/home/kasm-user wrapped-chromium \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c 'HOME=/home/kasm-user wrapped-chromium \"$KASM_URL\"'"
-                        }
-                    },
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        "1.13.x",
-                        "1.14.x",
-                        "1.15.x",
-                        "1.16.x"
-                    ],
-                    "uncompressed_size_mb": 1250
-                }
-            },
-            {
-                "Code": {
-                    "friendly_name": "VSCodium",
-                    "image_src": "visual-studio-code.svg",
-                    "description": "VSCodium is a community-driven, freely-licensed binary distribution of Microsoft\u2019s editor VS Code.",
-                    "name": "lscr.io/linuxserver/vscodium:latest",
-                    "cores": 2,
-                    "memory": 2768,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "docker_registry": "https://ghcr.io/",
-                    "categories": [
-                        "Development"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "run_config": {
-                        "entrypoint": [
-                            "/kasminit"
-                        ],
-                        "user": 1000,
-                        "cap_add": [
-                            "IPC_LOCK"
-                        ]
-                    },
-                    "exec_config": {},
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        "1.13.x",
-                        "1.14.x",
-                        "1.15.x",
-                        "1.16.x"
-                    ],
-                    "uncompressed_size_mb": 2020
-                }
-            },
-            {
-                "Obsidian": {
-                    "friendly_name": "Obsidian",
-                    "image_src": "obsidian.png",
-                    "description": "Obsidian is a note-taking app that lets you create, link, and organize your notes on your device, with hundreds of plugins and themes to customize your workflow.",
-                    "name": "lscr.io/linuxserver/obsidian:latest",
-                    "cores": 2,
-                    "memory": 2768,
-                    "gpu_count": 0,
-                    "cpu_allocation_method": "Inherit",
-                    "docker_registry": "https://ghcr.io/",
-                    "categories": [
-                        "Productivity"
-                    ],
-                    "require_gpu": false,
-                    "enabled": true,
-                    "image_type": "Container",
-                    "run_config": {
-                        "security_opt": [
-                            "seccomp=unconfined"
-                        ],
-                        "entrypoint": [
-                            "/kasminit"
-                        ],
-                        "user": 1000
-                    },
-                    "exec_config": {
-                        "shm_size": [
-                            "1gb"
-                        ]
-                    },
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        "1.13.x",
-                        "1.14.x",
-                        "1.15.x",
-                        "1.16.x"
-                    ],
-                    "uncompressed_size_mb": 2690
                 }
             }
         ]
