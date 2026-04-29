@@ -1,4 +1,48 @@
 {
+    "syscall00/kasm-registry": {
+        "github_pages": "https://syscall00.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-04-28T21:09:15Z",
+        "workspaces": [
+            {
+                "Debian13-Docker": {
+                    "description": "Debian 13 with Docker and sudo access for a regular user.",
+                    "docker_registry": "https://ghcr.io/v2/",
+                    "image_src": "debian13-docker.svg",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/usr/local/bin/kasm_docker_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/usr/local/bin/kasm_docker_startup.sh --assign --url \"$KASM_URL\"'"
+                        }
+                    },
+                    "categories": [
+                        "Development",
+                        "Utility"
+                    ],
+                    "friendly_name": "Debian 13 with Docker",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/syscall00/debian13-docker:latest",
+                            "uncompressed_size_mb": 512,
+                            "available_tags": [
+                                "latest"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "dcat23/kasm-registry": {
         "github_pages": "https://dcat23.github.io/kasm-registry/",
         "stars": 1,
@@ -3389,7 +3433,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-27T13:13:38Z",
+        "last_commit": "2026-04-28T13:26:19Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
