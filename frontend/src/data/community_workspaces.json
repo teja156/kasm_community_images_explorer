@@ -2,7 +2,7 @@
     "syscall00/kasm-registry": {
         "github_pages": "https://syscall00.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-28T21:09:15Z",
+        "last_commit": "2026-04-29T22:09:04Z",
         "workspaces": [
             {
                 "Debian13-Docker": {
@@ -3433,7 +3433,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-28T13:26:19Z",
+        "last_commit": "2026-04-29T13:18:38Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -22127,6 +22127,38 @@
                         "1.14.x"
                     ],
                     "uncompressed_size_mb": 2929
+                }
+            },
+            {
+                "Webtop": {
+                    "friendly_name": "Webtop",
+                    "description": "Webtop is a free and open-source development tools, maintained by BSBrother.",
+                    "docker_registry": "",
+                    "image_src": "webtop.png",
+                    "name": "webos.io/webtop:latest",
+                    "run_config": {
+                        "hostname": "kasm",
+                        "privileged": true
+                    },
+                    "exec_config": {},
+                    "categories": [
+                        "Desktop",
+                        "Development"
+                    ],
+                    "require_gpu": true,
+                    "gpu_count": 1,
+                    "cores": 12,
+                    "memory": 60768,
+                    "cpu_allocation_method": "Inherit",
+                    "uncompressed_size_mb": 4540,
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        "1.13.x",
+                        "1.14.x"
+                    ]
                 }
             },
             {
