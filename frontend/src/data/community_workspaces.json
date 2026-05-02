@@ -1,4 +1,71 @@
 {
+    "cmdss1/soc-analysis-kasm-registry": {
+        "github_pages": "https://cmdss1.github.io/soc-analysis-kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-05-01T10:06:41Z",
+        "workspaces": [
+            {
+                "SOC_Chrome_MITM": {
+                    "description": "Kasm Chrome with mitmproxy TLS interception. Image on GHCR. Use fully-qualified image (ghcr.io/\u2026) because some Kasm builds ignore docker_registry when pulling.",
+                    "docker_registry": "https://ghcr.io",
+                    "image_src": "soc-chrome-mitm.png",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "categories": [
+                        "Browser",
+                        "Security"
+                    ],
+                    "friendly_name": "SOC Chrome (MITM)",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.14.x",
+                            "image": "ghcr.io/cmdss1/kasm-chrome-mitm:1.0",
+                            "uncompressed_size_mb": 3200
+                        },
+                        {
+                            "version": "1.15.x",
+                            "image": "ghcr.io/cmdss1/kasm-chrome-mitm:1.0",
+                            "uncompressed_size_mb": 3200
+                        },
+                        {
+                            "version": "1.16.x",
+                            "image": "ghcr.io/cmdss1/kasm-chrome-mitm:1.0",
+                            "uncompressed_size_mb": 3200
+                        },
+                        {
+                            "version": "1.17.x",
+                            "image": "ghcr.io/cmdss1/kasm-chrome-mitm:1.0",
+                            "uncompressed_size_mb": 3200
+                        },
+                        {
+                            "version": "1.18.x",
+                            "image": "ghcr.io/cmdss1/kasm-chrome-mitm:1.0",
+                            "uncompressed_size_mb": 3200
+                        },
+                        {
+                            "version": "1.19.x",
+                            "image": "ghcr.io/cmdss1/kasm-chrome-mitm:1.0",
+                            "uncompressed_size_mb": 3200
+                        },
+                        {
+                            "version": "1.20.x",
+                            "image": "ghcr.io/cmdss1/kasm-chrome-mitm:1.0",
+                            "uncompressed_size_mb": 3200
+                        },
+                        {
+                            "version": "1.21.x",
+                            "image": "ghcr.io/cmdss1/kasm-chrome-mitm:1.0",
+                            "uncompressed_size_mb": 3200
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "syscall00/kasm-registry": {
         "github_pages": "https://syscall00.github.io/kasm-registry/",
         "stars": 0,
@@ -3433,7 +3500,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-30T13:17:20Z",
+        "last_commit": "2026-05-01T12:50:36Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
