@@ -1,4 +1,37 @@
 {
+    "oliver-cox-hsm/kasm-registry": {
+        "github_pages": "https://oliver-cox-hsm.github.io/kasm-registry/",
+        "stars": 0,
+        "last_commit": "2026-05-02T21:58:16Z",
+        "workspaces": [
+            {
+                "hsm": {
+                    "description": "hsm",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "logo.png",
+                    "categories": [
+                        "Development"
+                    ],
+                    "friendly_name": "COEUS",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "olivercox/coeus:latest",
+                            "uncompressed_size_mb": 2528,
+                            "available_tags": [
+                                "develop",
+                                "1.18.0"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "cmdss1/soc-analysis-kasm-registry": {
         "github_pages": "https://cmdss1.github.io/soc-analysis-kasm-registry/",
         "stars": 0,
@@ -255,39 +288,6 @@
                             "uncompressed_size_mb": 3350,
                             "available_tags": [
                                 "develop"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "oliver-cox-hsm/kasm-registry": {
-        "github_pages": "https://oliver-cox-hsm.github.io/kasm-registry/",
-        "stars": 0,
-        "last_commit": "2026-04-25T23:39:02Z",
-        "workspaces": [
-            {
-                "hsm": {
-                    "description": "hsm",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "logo.png",
-                    "categories": [
-                        "Development"
-                    ],
-                    "friendly_name": "COEUS",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "olivercox/coeus:latest",
-                            "uncompressed_size_mb": 2528,
-                            "available_tags": [
-                                "develop",
-                                "1.18.0"
                             ]
                         }
                     ]
@@ -3500,7 +3500,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-05-01T12:50:36Z",
+        "last_commit": "2026-05-02T12:42:16Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
