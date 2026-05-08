@@ -348,14 +348,52 @@
     "misuchiru03/gh0stnet-registry": {
         "github_pages": "https://misuchiru03.github.io/gh0stnet-registry/",
         "stars": 0,
-        "last_commit": "2026-05-06T21:35:21Z",
+        "last_commit": "2026-05-07T01:39:46Z",
         "workspaces": [
+            {
+                "Firefox": {
+                    "friendly_name": "Firefox",
+                    "image_src": "firefox.png",
+                    "description": "Firefox was created by Mozilla as a faster, more private alternative to browsers like Internet Explorer, and now Chrome.",
+                    "cores": 2,
+                    "memory": 4096,
+                    "gpu_count": 1,
+                    "cpu_allocation_method": "Inherit",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "categories": [
+                        "Browser"
+                    ],
+                    "require_gpu": true,
+                    "enabled": true,
+                    "image_type": "Container",
+                    "run_config": {
+                        "hostname": "kasm"
+                    },
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.0",
+                            "image": "jlesage/firefox",
+                            "uncompressed_size_mb": 2967,
+                            "available_tags": [
+                                "develop",
+                                "1.15.x",
+                                "1.16.x",
+                                "1.17.x",
+                                "1.18.x"
+                            ]
+                        }
+                    ]
+                }
+            },
             {
                 "Transmission-Remote-GTK": {
                     "description": "GTK client for remote management of the Transmission BitTorrent client",
                     "docker_registry": "https://docker.io/misuchiru03/kasmweb/",
                     "image_src": "transmission.png",
-                    "name": "misuchiru03/kasmweb:transmission-remote-gtk",
                     "run_config": {
                         "hostname": "transmission"
                     },
@@ -367,12 +405,15 @@
                         "amd64"
                     ],
                     "compatibility": [
-                        "1.13.x",
-                        "1.14.x",
-                        "1.15.x",
-                        "1.16.x"
-                    ],
-                    "uncompressed_size_mb": 2170
+                        {
+                            "version": "1.17.x",
+                            "image": "misuchiru03/kasmweb:transmission-remote-gtk",
+                            "uncompressed_size_mb": 2170,
+                            "available_tags": [
+                                "transmission-remote-gtk"
+                            ]
+                        }
+                    ]
                 }
             }
         ]
@@ -726,59 +767,6 @@
                             "version": "1.18.x",
                             "image": "lathanaspa/kasm-brave-vpn:develop",
                             "uncompressed_size_mb": 4930,
-                            "available_tags": [
-                                "develop"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "Chrome VPN": {
-                    "description": "Google Chrome is a cross-platform web browser developed by Google.",
-                    "docker_registry": "https://index.docker.io/v1/",
-                    "image_src": "chrome.png",
-                    "run_config": {
-                        "hostname": "kasm",
-                        "dns": [
-                            "1.1.1.1",
-                            "1.0.0.1"
-                        ],
-                        "sysctls": {
-                            "net.ipv4.conf.all.src_valid_mark": 1
-                        },
-                        "environment": {
-                            "TAILSCALE_KEY": "",
-                            "SHOW_IP_STATUS": "1",
-                            "SHOW_VPN_STATUS": "1"
-                        }
-                    },
-                    "exec_config": {
-                        "go": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
-                        },
-                        "assign": {
-                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
-                        },
-                        "first_launch": {
-                            "cmd": "bash -c '/usr/bin/desktop_ready && /dockerstartup/start_vpn.sh'",
-                            "user": "root",
-                            "privileged": true
-                        }
-                    },
-                    "categories": [
-                        "Browser"
-                    ],
-                    "friendly_name": "Chrome - VPN",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.18.x",
-                            "image": "lathanaspa/kasm-chrome-vpn:develop",
-                            "uncompressed_size_mb": 4980,
                             "available_tags": [
                                 "develop"
                             ]
@@ -3491,7 +3479,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-05-06T13:25:11Z",
+        "last_commit": "2026-05-07T13:25:15Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
