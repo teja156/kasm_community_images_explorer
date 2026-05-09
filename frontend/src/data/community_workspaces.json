@@ -775,6 +775,59 @@
                 }
             },
             {
+                "Chrome VPN": {
+                    "description": "Google Chrome is a cross-platform web browser developed by Google.",
+                    "docker_registry": "https://index.docker.io/v1/",
+                    "image_src": "chrome.png",
+                    "run_config": {
+                        "hostname": "kasm",
+                        "dns": [
+                            "1.1.1.1",
+                            "1.0.0.1"
+                        ],
+                        "sysctls": {
+                            "net.ipv4.conf.all.src_valid_mark": 1
+                        },
+                        "environment": {
+                            "TAILSCALE_KEY": "",
+                            "SHOW_IP_STATUS": "1",
+                            "SHOW_VPN_STATUS": "1"
+                        }
+                    },
+                    "exec_config": {
+                        "go": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --go --url \"$KASM_URL\"'"
+                        },
+                        "assign": {
+                            "cmd": "bash -c '/dockerstartup/custom_startup.sh --assign --url \"$KASM_URL\"'"
+                        },
+                        "first_launch": {
+                            "cmd": "bash -c '/usr/bin/desktop_ready && /dockerstartup/start_vpn.sh'",
+                            "user": "root",
+                            "privileged": true
+                        }
+                    },
+                    "categories": [
+                        "Browser"
+                    ],
+                    "friendly_name": "Chrome - VPN",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.18.x",
+                            "image": "lathanaspa/kasm-chrome-vpn:develop",
+                            "uncompressed_size_mb": 4980,
+                            "available_tags": [
+                                "develop"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
                 "Chromium VPN": {
                     "description": "Chromium is a free and open-source browser, primarily developed and maintained by Google.",
                     "docker_registry": "https://index.docker.io/v1/",
@@ -3479,7 +3532,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-05-07T13:25:15Z",
+        "last_commit": "2026-05-08T13:05:32Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
