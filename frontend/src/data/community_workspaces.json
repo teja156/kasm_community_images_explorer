@@ -1,4 +1,272 @@
 {
+    "kasmmgr/registry": {
+        "github_pages": "https://registry.casjaysdev.pro/",
+        "stars": 0,
+        "last_commit": "2026-05-13T00:29:40Z",
+        "workspaces": [
+            {
+                "blender": {
+                    "description": "Blender is the Free and Open Source 3D creation suite. It supports the entirety of the 3D pipeline modeling, sculpting, rigging, 3D and 2D animation, simulation, rendering, compositing, motion tracking and video editing.",
+                    "docker_registry": "https://kcr.kasmweb.com/v1/",
+                    "image_src": "blender.png",
+                    "categories": [
+                        "Multimedia",
+                        "Development"
+                    ],
+                    "friendly_name": "Blender",
+                    "architecture": [
+                        "amd64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "kcr.kasmweb.com/kasmweb/blender:1.16.1-rolling-daily",
+                            "uncompressed_size_mb": 4030,
+                            "available_tags": [
+                                "develop",
+                                "1.16.0",
+                                "1.16.0-rolling-weekly",
+                                "1.16.0-rolling-daily",
+                                "1.16.1",
+                                "1.16.1-rolling-weekly",
+                                "1.16.1-rolling-daily",
+                                "1.17.0-rolling-weekly"
+                            ]
+                        },
+                        {
+                            "version": "1.17.0",
+                            "image": "kcr.kasmweb.com/kasmweb/blender:1.17.0-rolling-daily",
+                            "uncompressed_size_mb": 3935,
+                            "available_tags": [
+                                "develop",
+                                "1.17.0",
+                                "1.17.0-rolling-weekly",
+                                "1.17.0-rolling-daily"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "doom": {
+                    "description": "Doom is a 1993 first-person shooter developed by id Software.",
+                    "docker_registry": "https://kcr.kasmweb.com/v1/",
+                    "image_src": "doom.png",
+                    "categories": [
+                        "Games"
+                    ],
+                    "friendly_name": "Doom",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "kcr.kasmweb.com/kasmweb/doom:1.16.1-rolling-daily",
+                            "uncompressed_size_mb": 2428,
+                            "available_tags": [
+                                "develop",
+                                "1.16.0",
+                                "1.16.0-rolling-weekly",
+                                "1.16.0-rolling-daily",
+                                "1.16.1",
+                                "1.16.1-rolling-weekly",
+                                "1.16.1-rolling-daily",
+                                "1.17.0-rolling-weekly"
+                            ]
+                        },
+                        {
+                            "version": "1.17.0",
+                            "image": "kcr.kasmweb.com/kasmweb/doom:1.17.0-rolling-daily",
+                            "uncompressed_size_mb": 2624,
+                            "available_tags": [
+                                "develop",
+                                "1.17.0",
+                                "1.17.0-rolling-weekly",
+                                "1.17.0-rolling-daily"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "filezilla": {
+                    "description": "A free and open-source, cross-platform FTP/FTPS application.",
+                    "docker_registry": "https://kcr.kasmweb.com/v1/",
+                    "image_src": "filezilla.png",
+                    "categories": [
+                        "Productivity"
+                    ],
+                    "friendly_name": "FileZilla",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "kcr.kasmweb.com/kasmweb/filezilla:1.16.1-rolling-daily",
+                            "uncompressed_size_mb": 2375,
+                            "available_tags": [
+                                "develop",
+                                "1.16.0",
+                                "1.16.0-rolling-weekly",
+                                "1.16.0-rolling-daily",
+                                "1.16.1",
+                                "1.16.1-rolling-weekly",
+                                "1.16.1-rolling-daily",
+                                "1.17.0-rolling-weekly"
+                            ]
+                        },
+                        {
+                            "version": "1.17.0",
+                            "image": "kcr.kasmweb.com/kasmweb/filezilla:1.17.0-rolling-daily",
+                            "uncompressed_size_mb": 2591,
+                            "available_tags": [
+                                "develop",
+                                "1.17.0",
+                                "1.17.0-rolling-weekly",
+                                "1.17.0-rolling-daily"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "gimp": {
+                    "description": "GIMP is a cross-platform image editor.",
+                    "docker_registry": "https://kcr.kasmweb.com/v1/",
+                    "image_src": "gimp.png",
+                    "categories": [
+                        "Multimedia"
+                    ],
+                    "friendly_name": "Gimp",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "kcr.kasmweb.com/kasmweb/gimp:1.16.1-rolling-daily",
+                            "uncompressed_size_mb": 2429,
+                            "available_tags": [
+                                "develop",
+                                "1.16.0",
+                                "1.16.0-rolling-weekly",
+                                "1.16.0-rolling-daily",
+                                "1.16.1",
+                                "1.16.1-rolling-weekly",
+                                "1.16.1-rolling-daily",
+                                "1.17.0-rolling-weekly"
+                            ]
+                        },
+                        {
+                            "version": "1.17.0",
+                            "image": "kcr.kasmweb.com/kasmweb/gimp:1.17.0-rolling-daily",
+                            "uncompressed_size_mb": 2663,
+                            "available_tags": [
+                                "develop",
+                                "1.17.0",
+                                "1.17.0-rolling-weekly",
+                                "1.17.0-rolling-daily"
+                            ]
+                        }
+                    ]
+                }
+            },
+            {
+                "oracle-linux-9": {
+                    "description": "Oracle Linux is a highly performant and secure operating system that provides a 100% application binary compatible alternative to RHEL and CentOS.",
+                    "docker_registry": "https://kcr.kasmweb.com/v1/",
+                    "image_src": "oracle-linux-9.png",
+                    "categories": [
+                        "Desktop",
+                        "Productivity",
+                        "Development"
+                    ],
+                    "friendly_name": "Oracle Linux 9",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "kcr.kasmweb.com/kasmweb/oracle-9-desktop:1.16.1-rolling-daily",
+                            "uncompressed_size_mb": 8190,
+                            "available_tags": [
+                                "develop",
+                                "1.16.0",
+                                "1.16.0-rolling-weekly",
+                                "1.16.0-rolling-daily",
+                                "1.16.1",
+                                "1.16.1-rolling-weekly",
+                                "1.16.1-rolling-daily",
+                                "1.17.0-rolling-weekly"
+                            ]
+                        },
+                        {
+                            "version": "1.17.0",
+                            "image": "kcr.kasmweb.com/kasmweb/oracle-9-desktop:1.17.0-rolling-daily",
+                            "uncompressed_size_mb": 8690,
+                            "available_tags": [
+                                "develop",
+                                "1.17.0",
+                                "1.17.0-rolling-weekly",
+                                "1.17.0-rolling-daily"
+                            ]
+                        }
+                    ],
+                    "notes": "The Kasm Oracle Linux 9 Workspace requires libseccomp => 2.5.3 to run.\n\nThis can be checked by running runc --version\n\nIf you still want to run Oracle Linux 9 but do not have the minimum required libseccomp version, it can be run in an unsecure manner by adding: {\"security_opt\":[\"seccomp=unconfined\"]} to the Docker Run Config Override (JSON) setting above.\n\nNOTE: This will run the Workspace without the docker seccomp sandbox and will significantly reduce the amount of protection that Kasm Workspaces can provide.\n"
+                }
+            },
+            {
+                "vlc": {
+                    "description": "VLC media player is a free and open-source, portable, cross-platform media player software, and streaming media server.",
+                    "docker_registry": "https://kcr.kasmweb.com/v1/",
+                    "image_src": "vlc.png",
+                    "categories": [
+                        "Multimedia"
+                    ],
+                    "friendly_name": "VLC",
+                    "architecture": [
+                        "amd64",
+                        "arm64"
+                    ],
+                    "compatibility": [
+                        {
+                            "version": "1.16.x",
+                            "image": "kcr.kasmweb.com/kasmweb/vlc:1.16.1-rolling-daily",
+                            "uncompressed_size_mb": 2453,
+                            "available_tags": [
+                                "develop",
+                                "1.16.0",
+                                "1.16.0-rolling-weekly",
+                                "1.16.0-rolling-daily",
+                                "1.16.1",
+                                "1.16.1-rolling-weekly",
+                                "1.16.1-rolling-daily",
+                                "1.17.0-rolling-weekly"
+                            ]
+                        },
+                        {
+                            "version": "1.17.0",
+                            "image": "kcr.kasmweb.com/kasmweb/vlc:1.17.0-rolling-daily",
+                            "uncompressed_size_mb": 2726,
+                            "available_tags": [
+                                "develop",
+                                "1.17.0",
+                                "1.17.0-rolling-weekly",
+                                "1.17.0-rolling-daily"
+                            ]
+                        }
+                    ]
+                }
+            }
+        ]
+    },
     "double16/kasm-workspaces": {
         "github_pages": "https://double16.github.io/kasm-workspaces/",
         "stars": 2,
@@ -1724,7 +1992,7 @@
     "martynvdijke/kasm-registry": {
         "github_pages": "https://martynvdijke.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-04-22T11:24:27Z",
+        "last_commit": "2026-05-12T05:14:36Z",
         "workspaces": [
             {
                 "Cura": {
@@ -3532,7 +3800,7 @@
     "SourceDiver42/kasm-registry": {
         "github_pages": "https://sourcediver42.github.io/kasm-registry/",
         "stars": 0,
-        "last_commit": "2026-05-11T14:18:03Z",
+        "last_commit": "2026-05-12T13:33:35Z",
         "workspaces": [
             {
                 "Ghidra 10.1.1": {
@@ -5317,274 +5585,6 @@
                             "available_tags": [
                                 "develop",
                                 "1.18.0"
-                            ]
-                        }
-                    ]
-                }
-            }
-        ]
-    },
-    "kasmmgr/registry": {
-        "github_pages": "https://registry.casjaysdev.pro/",
-        "stars": 0,
-        "last_commit": "2026-02-11T21:38:59Z",
-        "workspaces": [
-            {
-                "blender": {
-                    "description": "Blender is the Free and Open Source 3D creation suite. It supports the entirety of the 3D pipeline modeling, sculpting, rigging, 3D and 2D animation, simulation, rendering, compositing, motion tracking and video editing.",
-                    "docker_registry": "https://kcr.kasmweb.com/v1/",
-                    "image_src": "blender.png",
-                    "categories": [
-                        "Multimedia",
-                        "Development"
-                    ],
-                    "friendly_name": "Blender",
-                    "architecture": [
-                        "amd64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "kcr.kasmweb.com/kasmweb/blender:1.16.1-rolling-daily",
-                            "uncompressed_size_mb": 4030,
-                            "available_tags": [
-                                "develop",
-                                "1.16.0",
-                                "1.16.0-rolling-weekly",
-                                "1.16.0-rolling-daily",
-                                "1.16.1",
-                                "1.16.1-rolling-weekly",
-                                "1.16.1-rolling-daily",
-                                "1.17.0-rolling-weekly"
-                            ]
-                        },
-                        {
-                            "version": "1.17.0",
-                            "image": "kcr.kasmweb.com/kasmweb/blender:1.17.0-rolling-daily",
-                            "uncompressed_size_mb": 3935,
-                            "available_tags": [
-                                "develop",
-                                "1.17.0",
-                                "1.17.0-rolling-weekly",
-                                "1.17.0-rolling-daily"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "doom": {
-                    "description": "Doom is a 1993 first-person shooter developed by id Software.",
-                    "docker_registry": "https://kcr.kasmweb.com/v1/",
-                    "image_src": "doom.png",
-                    "categories": [
-                        "Games"
-                    ],
-                    "friendly_name": "Doom",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "kcr.kasmweb.com/kasmweb/doom:1.16.1-rolling-daily",
-                            "uncompressed_size_mb": 2428,
-                            "available_tags": [
-                                "develop",
-                                "1.16.0",
-                                "1.16.0-rolling-weekly",
-                                "1.16.0-rolling-daily",
-                                "1.16.1",
-                                "1.16.1-rolling-weekly",
-                                "1.16.1-rolling-daily",
-                                "1.17.0-rolling-weekly"
-                            ]
-                        },
-                        {
-                            "version": "1.17.0",
-                            "image": "kcr.kasmweb.com/kasmweb/doom:1.17.0-rolling-daily",
-                            "uncompressed_size_mb": 2624,
-                            "available_tags": [
-                                "develop",
-                                "1.17.0",
-                                "1.17.0-rolling-weekly",
-                                "1.17.0-rolling-daily"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "filezilla": {
-                    "description": "A free and open-source, cross-platform FTP/FTPS application.",
-                    "docker_registry": "https://kcr.kasmweb.com/v1/",
-                    "image_src": "filezilla.png",
-                    "categories": [
-                        "Productivity"
-                    ],
-                    "friendly_name": "FileZilla",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "kcr.kasmweb.com/kasmweb/filezilla:1.16.1-rolling-daily",
-                            "uncompressed_size_mb": 2375,
-                            "available_tags": [
-                                "develop",
-                                "1.16.0",
-                                "1.16.0-rolling-weekly",
-                                "1.16.0-rolling-daily",
-                                "1.16.1",
-                                "1.16.1-rolling-weekly",
-                                "1.16.1-rolling-daily",
-                                "1.17.0-rolling-weekly"
-                            ]
-                        },
-                        {
-                            "version": "1.17.0",
-                            "image": "kcr.kasmweb.com/kasmweb/filezilla:1.17.0-rolling-daily",
-                            "uncompressed_size_mb": 2591,
-                            "available_tags": [
-                                "develop",
-                                "1.17.0",
-                                "1.17.0-rolling-weekly",
-                                "1.17.0-rolling-daily"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "gimp": {
-                    "description": "GIMP is a cross-platform image editor.",
-                    "docker_registry": "https://kcr.kasmweb.com/v1/",
-                    "image_src": "gimp.png",
-                    "categories": [
-                        "Multimedia"
-                    ],
-                    "friendly_name": "Gimp",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "kcr.kasmweb.com/kasmweb/gimp:1.16.1-rolling-daily",
-                            "uncompressed_size_mb": 2429,
-                            "available_tags": [
-                                "develop",
-                                "1.16.0",
-                                "1.16.0-rolling-weekly",
-                                "1.16.0-rolling-daily",
-                                "1.16.1",
-                                "1.16.1-rolling-weekly",
-                                "1.16.1-rolling-daily",
-                                "1.17.0-rolling-weekly"
-                            ]
-                        },
-                        {
-                            "version": "1.17.0",
-                            "image": "kcr.kasmweb.com/kasmweb/gimp:1.17.0-rolling-daily",
-                            "uncompressed_size_mb": 2663,
-                            "available_tags": [
-                                "develop",
-                                "1.17.0",
-                                "1.17.0-rolling-weekly",
-                                "1.17.0-rolling-daily"
-                            ]
-                        }
-                    ]
-                }
-            },
-            {
-                "oracle-linux-9": {
-                    "description": "Oracle Linux is a highly performant and secure operating system that provides a 100% application binary compatible alternative to RHEL and CentOS.",
-                    "docker_registry": "https://kcr.kasmweb.com/v1/",
-                    "image_src": "oracle-linux-9.png",
-                    "categories": [
-                        "Desktop",
-                        "Productivity",
-                        "Development"
-                    ],
-                    "friendly_name": "Oracle Linux 9",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "kcr.kasmweb.com/kasmweb/oracle-9-desktop:1.16.1-rolling-daily",
-                            "uncompressed_size_mb": 8190,
-                            "available_tags": [
-                                "develop",
-                                "1.16.0",
-                                "1.16.0-rolling-weekly",
-                                "1.16.0-rolling-daily",
-                                "1.16.1",
-                                "1.16.1-rolling-weekly",
-                                "1.16.1-rolling-daily",
-                                "1.17.0-rolling-weekly"
-                            ]
-                        },
-                        {
-                            "version": "1.17.0",
-                            "image": "kcr.kasmweb.com/kasmweb/oracle-9-desktop:1.17.0-rolling-daily",
-                            "uncompressed_size_mb": 8690,
-                            "available_tags": [
-                                "develop",
-                                "1.17.0",
-                                "1.17.0-rolling-weekly",
-                                "1.17.0-rolling-daily"
-                            ]
-                        }
-                    ],
-                    "notes": "The Kasm Oracle Linux 9 Workspace requires libseccomp => 2.5.3 to run.\n\nThis can be checked by running runc --version\n\nIf you still want to run Oracle Linux 9 but do not have the minimum required libseccomp version, it can be run in an unsecure manner by adding: {\"security_opt\":[\"seccomp=unconfined\"]} to the Docker Run Config Override (JSON) setting above.\n\nNOTE: This will run the Workspace without the docker seccomp sandbox and will significantly reduce the amount of protection that Kasm Workspaces can provide.\n"
-                }
-            },
-            {
-                "vlc": {
-                    "description": "VLC media player is a free and open-source, portable, cross-platform media player software, and streaming media server.",
-                    "docker_registry": "https://kcr.kasmweb.com/v1/",
-                    "image_src": "vlc.png",
-                    "categories": [
-                        "Multimedia"
-                    ],
-                    "friendly_name": "VLC",
-                    "architecture": [
-                        "amd64",
-                        "arm64"
-                    ],
-                    "compatibility": [
-                        {
-                            "version": "1.16.x",
-                            "image": "kcr.kasmweb.com/kasmweb/vlc:1.16.1-rolling-daily",
-                            "uncompressed_size_mb": 2453,
-                            "available_tags": [
-                                "develop",
-                                "1.16.0",
-                                "1.16.0-rolling-weekly",
-                                "1.16.0-rolling-daily",
-                                "1.16.1",
-                                "1.16.1-rolling-weekly",
-                                "1.16.1-rolling-daily",
-                                "1.17.0-rolling-weekly"
-                            ]
-                        },
-                        {
-                            "version": "1.17.0",
-                            "image": "kcr.kasmweb.com/kasmweb/vlc:1.17.0-rolling-daily",
-                            "uncompressed_size_mb": 2726,
-                            "available_tags": [
-                                "develop",
-                                "1.17.0",
-                                "1.17.0-rolling-weekly",
-                                "1.17.0-rolling-daily"
                             ]
                         }
                     ]
